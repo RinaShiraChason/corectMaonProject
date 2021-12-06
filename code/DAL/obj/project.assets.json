@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DAL\\DAL.csproj",
+      "projectUniqueName": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DAL\\DAL.csproj",
+      "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\rina shira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DAL\\obj\\",
+      "outputPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

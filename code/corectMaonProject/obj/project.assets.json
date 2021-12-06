@@ -68,11 +68,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\corectMaonProject\\corectMaonProject.csproj",
+      "projectUniqueName": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\corectMaonProject\\corectMaonProject.csproj",
       "projectName": "corectMaonProject",
-      "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\corectMaonProject\\corectMaonProject.csproj",
+      "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\corectMaonProject\\corectMaonProject.csproj",
       "packagesPath": "C:\\Users\\rina shira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\corectMaonProject\\obj\\",
+      "outputPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\corectMaonProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -93,11 +93,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\BL\\BL.csproj": {
-              "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\BL\\BL.csproj"
+            "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\BL\\BL.csproj": {
+              "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\BL\\BL.csproj"
             },
-            "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DTO\\DTO.csproj": {
-              "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DTO\\DTO.csproj"
+            "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj"
             }
           }
         }

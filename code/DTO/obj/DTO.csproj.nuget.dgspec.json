@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DTO\\DTO.csproj": {}
+    "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DTO\\DTO.csproj": {
+    "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DTO\\DTO.csproj",
+        "projectUniqueName": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DTO\\DTO.csproj",
+        "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj",
         "packagesPath": "C:\\Users\\rina shira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\DTO\\obj\\",
+        "outputPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
