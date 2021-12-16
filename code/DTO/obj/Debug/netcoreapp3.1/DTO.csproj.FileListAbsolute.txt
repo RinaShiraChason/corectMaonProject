@@ -1,0 +1,9 @@
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.pdb

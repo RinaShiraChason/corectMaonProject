@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "21FR0AO3RRBuv6AQdYGO5+LM42xA+fUplL8wZ61Ccg5sKxDJ8bTEa2BmfoMN+N3rUaJ7WvvQ4sPZd64N7NZwTg==",
+  "dgSpecHash": "Mdo4frx4dpzuf6IGtOTVpT+AV+YMomPXKq0XA+2JD9i+aNtxXuqBncR3sAgt/gw7KPbPlM8ctsPdVuW1Q/ZaIg==",
   "success": true,
   "projectFilePath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rina shira\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\rina shira\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\rina shira\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\rina shira\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\rina shira\\.nuget\\packages\\microsoft.extensions.options\\3.0.0\\microsoft.extensions.options.3.0.0.nupkg.sha512",
+    "C:\\Users\\rina shira\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
+    "C:\\Users\\rina shira\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

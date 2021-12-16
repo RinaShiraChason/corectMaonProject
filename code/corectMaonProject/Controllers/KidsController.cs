@@ -26,16 +26,15 @@ namespace corectMaonProject.Controllers
 
         [HttpPut]
         //עדכון
-        public IActionResult uppdata(KidsDTO kids)
+        public IActionResult uppdate(KidsDTO kids)
         {
-            return Ok();
-
+            return Ok(_kidsBL.uppdate(kids));
         }
         [HttpPost]
         //הוספה
         public IActionResult AddKids(KidsDTO kids)
         {
-            return Ok();
+            return Ok(_kidsBL.AddKids(kids));
 
         }
         [HttpDelete]
