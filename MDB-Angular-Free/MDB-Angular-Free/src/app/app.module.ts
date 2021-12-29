@@ -8,6 +8,21 @@ import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ManagerNavComponent } from './manager-nav/manager-nav.component';
+import { ChildAreaComponent } from './child-area/child-area.component';
+import { TecherAreaComponent } from './techer-area/techer-area.component';
+import { TeachersPlacementComponent } from './teachers-placement/teachers-placement.component';
+import { KidsAttendanceComponent } from './kids-attendance/kids-attendance.component';
+import { ParentsMessagesComponent } from './parents-messages/parents-messages.component';
+import { UpdateChildAreaComponent } from './update-child-area/update-child-area.component';
+import { NewsComponent } from './news/news.component';
+import { GeneralMessagesComponent } from './general-messages/general-messages.component';
+import { DayUpdateComponent } from './day-update/day-update.component';
+import { WeekUpdateComponent } from './week-update/week-update.component';
+import { LossComponent } from './loss/loss.component';
+import { AboutComponent } from './about/about.component';
+import { CalenderComponent } from './calender/calender.component';
+import { ChildNavComponent } from './child-nav/child-nav.component';
+import { TeacherNavComponent } from './teacher-nav/teacher-nav.component';
 // // MDB Angular Pro
 // import { TabsModule, WavesModule } from 'ng-uikit-pro-standard';
 
@@ -16,7 +31,22 @@ import { ManagerNavComponent } from './manager-nav/manager-nav.component';
     AppComponent,
     HomePageComponent,
     LoginPageComponent,
-    ManagerNavComponent
+    ManagerNavComponent,
+    ChildAreaComponent,
+    TecherAreaComponent,
+    TeachersPlacementComponent,
+    KidsAttendanceComponent,
+    ParentsMessagesComponent,
+    UpdateChildAreaComponent,
+    NewsComponent,
+    GeneralMessagesComponent,
+    DayUpdateComponent,
+    WeekUpdateComponent,
+    LossComponent,
+    AboutComponent,
+    CalenderComponent,
+    ChildNavComponent,
+    TeacherNavComponent
   ],
   imports: [
     BrowserModule,
