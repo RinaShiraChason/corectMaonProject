@@ -16,6 +16,8 @@ namespace BL
             CreateMap<KidsAttendance, Kids_AttendanceDTO>();
             CreateMap<Kids_AttendanceDTO, KidsAttendance>();
 
+
+
         }
 
     }

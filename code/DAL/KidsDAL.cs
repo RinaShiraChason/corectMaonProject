@@ -19,9 +19,17 @@ namespace DAL
             Kid k = DB.Kids.FirstOrDefault(x => x.TzKids == kidDal.TzKids);
             if (k != null)
             {
+                //מה ששמתי בסוגרים לא שמים פה גם????---TzKids
                 k.NameKids = kidDal.NameKids;
+                k.AgeKids = kidDal.AgeKids;
+                k.ClassId = kidDal.ClassId;
+                k.DateBorn = kidDal.DateBorn;
+                k.ParentsId = kidDal.ParentsId;
+                k.AttendanceId = kidDal.AttendanceId;
                 k.Attendance = kidDal.Attendance;
-                //ליעכג
+                k.Class = kidDal.Class;
+                k.Parents = kidDal.Parents;
+                
                 try
                 {
                     DB.SaveChanges();
