@@ -5922,23 +5922,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rina shira\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\corectMaonProject\\corectMaonProject.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\corectMaonProject\\code\\corectMaonProject\\corectMaonProject.csproj",
       "projectName": "corectMaonProject",
-      "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\corectMaonProject\\corectMaonProject.csproj",
-      "packagesPath": "C:\\Users\\rina shira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\corectMaonProject\\obj\\",
+      "projectPath": "C:\\Users\\user\\Desktop\\corectMaonProject\\code\\corectMaonProject\\corectMaonProject.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\corectMaonProject\\code\\corectMaonProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\rina shira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5953,11 +5953,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\BL\\BL.csproj": {
-              "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\BL\\BL.csproj"
+            "C:\\Users\\user\\Desktop\\corectMaonProject\\code\\BL\\BL.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\corectMaonProject\\code\\BL\\BL.csproj"
             },
-            "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj": {
-              "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj"
+            "C:\\Users\\user\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj"
             }
           }
         }
@@ -5989,6 +5989,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.13, 3.1.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5997,7 +6003,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }
