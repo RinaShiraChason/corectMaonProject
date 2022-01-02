@@ -20,14 +20,15 @@ namespace DAL.models
         public virtual DbSet<ActivityUpdate> ActivityUpdates { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<DayCare> DayCares { get; set; }
-        public virtual DbSet<Kid> Kids { get; set; }
+        public virtual DbSet<Kid> PlacementOfATeacher { get; set; }
         public virtual DbSet<KidsAttendance> KidsAttendances { get; set; }
-        public virtual DbSet<Parent> Parents { get; set; }
+        public virtual DbSet<Parent> Parent { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<PlacementOfATeacher> PlacementOfATeachers { get; set; }
         public virtual DbSet<TeacherAndManager> TeacherAndManagers { get; set; }
         public virtual DbSet<TypeClass> TypeClasses { get; set; }
         public virtual DbSet<TypeEmployee> TypeEmployees { get; set; }
+        public object Person { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

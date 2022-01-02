@@ -11,12 +11,12 @@ namespace DAL
 
         public List<Kid> getAll()
         {
-            return DB.Kids.ToList();
+            return DB.PlacementOfATeacher.ToList();
         }
 
         public bool uppdate(Kid kidDal)
         {
-            Kid k = DB.Kids.FirstOrDefault(x => x.TzKids == kidDal.TzKids);
+            Kid k = DB.PlacementOfATeacher.FirstOrDefault(x => x.TzKids == kidDal.TzKids);
             if (k != null)
             {
                 k.NameKids = kidDal.NameKids;
@@ -39,7 +39,7 @@ namespace DAL
 
         public bool AddKids(Kid kidDal)
         {
-            DB.Kids.Add(kidDal);
+            DB.PlacementOfATeacher.Add(kidDal);
             
             try
             {

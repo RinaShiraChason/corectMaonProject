@@ -18,5 +18,6 @@ namespace DAL.models
         public virtual KidsAttendance Attendance { get; set; }
         public virtual Class Class { get; set; }
         public virtual Parent Parents { get; set; }
+        public int IdPlacementOfATeacher { get; internal set; }
     }
 }
