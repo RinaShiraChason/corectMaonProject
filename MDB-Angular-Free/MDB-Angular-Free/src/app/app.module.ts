@@ -23,6 +23,7 @@ import { AboutComponent } from './about/about.component';
 import { CalenderComponent } from './calender/calender.component';
 import { ChildNavComponent } from './child-nav/child-nav.component';
 import { TeacherNavComponent } from './teacher-nav/teacher-nav.component';
+import { AddChildComponent } from './add-child/add-child.component';
 // // MDB Angular Pro
 // import { TabsModule, WavesModule } from 'ng-uikit-pro-standard';
 
@@ -46,7 +47,9 @@ import { TeacherNavComponent } from './teacher-nav/teacher-nav.component';
     AboutComponent,
     CalenderComponent,
     ChildNavComponent,
-    TeacherNavComponent
+    TeacherNavComponent,
+    AddChildComponent,
+    //AddChildComponent
   ],
   imports: [
     BrowserModule,

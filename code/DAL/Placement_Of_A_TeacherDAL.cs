@@ -12,19 +12,19 @@ namespace DAL
 
         public List<PlacementOfATeacher> getAll()
         {
-            return DB.PlacementOfATeacher.ToList();
+            return DB.PlacementOfATeachers.ToList();
         }
 
         public bool uppdate(PlacementOfATeacher placement_Of_A_TeacherDAL)
         {
-            PlacementOfATeacher tp = DB.PlacementOfATeacher.FirstOrDefault(x => x.IdPlacementOfATeacher == placement_Of_A_TeacherDAL.IdPlacementOfATeacher);
+            PlacementOfATeacher tp = DB.PlacementOfATeachers.FirstOrDefault(x => x.IdPlacementOfATeacher == placement_Of_A_TeacherDAL.IdPlacementOfATeacher);
             if (tp != null)
             {
-                tp.IdPlacementOfATeacher = Placement_Of_A_TeacherDAL.IdPlacementOfATeacher;
-                tp.Shifts = Placement_Of_A_TeacherDAL.Shifts;
-                tp.DateShifts = Placement_Of_A_TeacherDAL.DateShifts;
-                tp.ClassId = Placement_Of_A_TeacherDAL.ClassId;
-                tp.TeacherId = Placement_Of_A_TeacherDAL.TeacherId;
+                tp.IdPlacementOfATeacher = placement_Of_A_TeacherDAL.IdPlacementOfATeacher;
+                tp.Shifts = placement_Of_A_TeacherDAL.Shifts;
+                tp.DateShifts = placement_Of_A_TeacherDAL.DateShifts;
+                tp.ClassId = placement_Of_A_TeacherDAL.ClassId;
+                tp.TeacherId = placement_Of_A_TeacherDAL.TeacherId;
 
                 try
                 {
@@ -43,7 +43,7 @@ namespace DAL
 
         public bool AddPlacementOfATeacher(PlacementOfATeacher placement_Of_A_TeacherDAL)
         {
-            DB.PlacementOfATeacher.Add(placement_Of_A_TeacherDAL);
+            DB.PlacementOfATeachers.Add(placement_Of_A_TeacherDAL);
 
             try
             {
