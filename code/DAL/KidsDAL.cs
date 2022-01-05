@@ -19,7 +19,7 @@ namespace DAL
             Kid k = DB.PlacementOfATeacher.FirstOrDefault(x => x.TzKids == kidDal.TzKids);
             if (k != null)
             {
-                //מה ששמתי בסוגרים לא שמים פה גם????---TzKids
+                
                 k.NameKids = kidDal.NameKids;
                 k.AgeKids = kidDal.AgeKids;
                 k.ClassId = kidDal.ClassId;

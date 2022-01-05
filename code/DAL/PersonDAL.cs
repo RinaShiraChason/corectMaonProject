@@ -13,12 +13,12 @@ namespace DAL
         
         public List<Person> getAll()
         {
-            return DB.Person.ToList();
+            return DB.People.ToList();
         }
 
         public bool uppdate(Person PersonDAL)
         {
-            Person p = DB.Person.FirstOrDefault(x => x.PersonTz == PersonDAL.PersonTz);
+            Person p = DB.People.FirstOrDefault(x => x.PersonTz == PersonDAL.PersonTz);
             if (p != null)
             {
                 p.PersonName = PersonDAL.PersonName;
@@ -44,7 +44,7 @@ namespace DAL
 
         public bool AddPerson(Person PersonDAL)
         {
-            DB.Person.Add(PersonDAL);
+            DB.People.Add(PersonDAL);
 
             try
             {
