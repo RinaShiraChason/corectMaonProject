@@ -38,10 +38,17 @@ namespace BL
             return b;
         }
 
-        public bool AddPerson(PersonDTO person)
+        public long AddPerson(PersonDTO person)
         {
             Person PersonDAL = imapper.Map<PersonDTO, Person>(person);
-            bool b = _PersonDAL.AddPerson(PersonDAL);
+            long prsonTz = _PersonDAL.AddPerson(PersonDAL);
+
+            return prsonTz;
+        }
+
+        public object Delete(int personTz)
+        {
+            bool b = _PersonDAL.Delete(personTz);
 
             return b;
         }

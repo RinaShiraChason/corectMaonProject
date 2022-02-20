@@ -11,6 +11,7 @@ namespace BL
     public class ParentsBL
     {
         IMapper imapper;
+        PersonBL personBL = new PersonBL();
         ParentsDAL _ParentsDAL = new ParentsDAL();
 
         public ParentsBL()
@@ -22,28 +23,52 @@ namespace BL
             imapper = config.CreateMapper();
         }
 
-        public List<ParentsDTO> getAll()
+        public List<ParentsAndPeson> getAll()
         {
-            List<Parent> l = _ParentsDAL.getAll();
-            List<ParentsDTO> lDTO = imapper.Map<List<Parent>, List<ParentsDTO>>(l);
-            return lDTO;
+            List<ParentsAndPeson> l = _ParentsDAL.getAll();
+
+            return l;
         }
 
         public bool uppdate(ParentsDTO parents)
         {
-            Parent ParentsDAL = imapper.Map<ParentsDTO, Parent>(parents);
-            bool b = _ParentsDAL.uppdate(ParentsDAL);
+            PersonDTO p = new PersonDTO();
+            p = parents.myPerson;
+            personBL.uppdate(p);
 
-            return b;
+
+            Parent tModel = imapper.Map<ParentsDTO, Parent>(parents);
+
+            _ParentsDAL.uppdate(tModel);
+            return true;
         }
 
         public bool AddParents(ParentsDTO parents)
         {
-            Parent ParentsDAL = imapper.Map<ParentsDTO, Parent>(parents);
-            bool b = _ParentsDAL.AddParents(ParentsDAL);
+            PersonDTO p = new PersonDTO();
+            p = parents.myPerson;
+            long personTz = personBL.AddPerson(p);
+
+            parents.PersonTz = personTz;
+            Parent tModel = imapper.Map<ParentsDTO, Parent>(parents);
+          
+            _ParentsDAL.AddParents(tModel);
+            return true;
+        }
+
+
+
+        public object Delete(int parentsId)
+        {
+            bool b = _ParentsDAL.Delete(parentsId);
 
             return b;
         }
 
+        public object getByTZAndPass(long tz, string pass)
+        {
+            ParentsAndPeson parentsAndPeson = _ParentsDAL.getByTZAndPass(tz, pass);
+            return parentsAndPeson;
+        }
     }
 }

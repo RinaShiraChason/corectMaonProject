@@ -7,6 +7,7 @@ namespace DTO
     public class ClassesDTO
     {
 
-        public string name { get; set; }
+        public int ClassId { get; set; }
+        public int KindOfClassId { get; set; }
     }
 }

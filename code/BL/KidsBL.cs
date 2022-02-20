@@ -43,5 +43,12 @@ namespace BL
 
             return b;
         }
+
+        public bool Delete(long tz)
+        {
+            bool b = _kidsDal.Delete(tz);
+
+            return b;
+        }
     }
 }

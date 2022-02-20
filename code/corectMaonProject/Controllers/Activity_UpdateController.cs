@@ -27,20 +27,20 @@ namespace corectMaonProject.Controllers
         //עדכון
         public IActionResult uppdata(Activity_UpdateDTO Activity_Update)
         {
-            return Ok();
+            return Ok(_Activity_UpdateBL.uppdate(Activity_Update));
 
         }
         [HttpPost]
         //הוספה
         public IActionResult AddActivity_Update(Activity_UpdateDTO Activity_Update)
         {
-            return Ok();
+            return Ok(_Activity_UpdateBL.AddActivity_Update(Activity_Update));
 
         }
         [HttpDelete]
-        public IActionResult Delete()
+        public IActionResult Delete(int IdActivityUpdate)
         {
-            return Ok();
+            return Ok(_Activity_UpdateBL.Delete(IdActivityUpdate));
 
         }
 

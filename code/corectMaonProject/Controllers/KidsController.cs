@@ -30,6 +30,7 @@ namespace corectMaonProject.Controllers
         {
             return Ok(_kidsBL.uppdate(kids));
         }
+
         [HttpPost]
         //הוספה
         public IActionResult AddKids(KidsDTO kids)
@@ -37,10 +38,11 @@ namespace corectMaonProject.Controllers
             return Ok(_kidsBL.AddKids(kids));
 
         }
+
         [HttpDelete]
-        public IActionResult Delete()
+        public IActionResult Delete(long tz)
         {
-            return Ok();
+            return Ok(_kidsBL.Delete(tz));
 
         }
 

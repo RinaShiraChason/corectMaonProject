@@ -37,7 +37,14 @@ namespace BL
             return b;
         }
 
-        public bool AddKids(Kids_AttendanceDTO kids_Attendance)
+        public object Delete(int attendanceId)
+        {
+            bool b = _kids_AttendanceDal.Delete(attendanceId);
+
+            return b;
+        }
+
+        public bool AddKids_Attendance(Kids_AttendanceDTO kids_Attendance)
         {
             KidsAttendance KidsAttendanceDal = imapper.Map<Kids_AttendanceDTO, KidsAttendance>(kids_Attendance);
             bool b = _kids_AttendanceDal.AddKids_Attendance(KidsAttendanceDal);

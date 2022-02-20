@@ -56,6 +56,20 @@ namespace DAL
             return true;
         }
 
+        public bool Delete(int idPlacementOfATeacher)
+        {
+            PlacementOfATeacher k = DB.PlacementOfATeachers.FirstOrDefault(x => x.IdPlacementOfATeacher == idPlacementOfATeacher);
 
+            DB.PlacementOfATeachers.Remove(k);
+            try
+            {
+                DB.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -37,10 +37,19 @@ namespace BL
             return b;
         }
 
+
+
         public bool AddPlacementOfATeacher(Placement_Of_A_TeacherDTO pot)
         {
             PlacementOfATeacher Placement_Of_A_TeacherDAL = imapper.Map<Placement_Of_A_TeacherDTO, PlacementOfATeacher>(pot);
             bool b = _Placement_Of_A_TeacherDAL.AddPlacementOfATeacher(Placement_Of_A_TeacherDAL);
+
+            return b;
+        }
+
+        public object Delete(int idPlacementOfATeacher)
+        {
+            bool b = _Placement_Of_A_TeacherDAL.Delete(idPlacementOfATeacher);
 
             return b;
         }

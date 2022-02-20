@@ -42,10 +42,27 @@ namespace DAL
 
         }
 
-        public bool AddPerson(Person PersonDAL)
+        public long AddPerson(Person PersonDAL)
         {
             DB.People.Add(PersonDAL);
 
+            try
+            {
+                DB.SaveChanges();
+                return PersonDAL.PersonTz;
+            }
+            catch
+            {
+                return 0;
+            }
+        
+        }
+
+        public bool Delete(int personTz)
+        {
+            Person k = DB.People.FirstOrDefault(x => x.PersonTz == personTz);
+
+            DB.People.Remove(k);
             try
             {
                 DB.SaveChanges();

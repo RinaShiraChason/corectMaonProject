@@ -1,0 +1,27 @@
+<!-- outline=true  -->
+<!-- fec79a צבע ורוד -->
+
+
+
+
+
+<mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+    [animation]="'slide'">
+    <mdb-carousel-item *ngFor="let item of slides; let i = index">
+        <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}"
+            *ngFor="let card of item; let cardIndex = index">
+            <mdb-card class="my-1">
+                <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
+            </mdb-card>
+        </div>
+    </mdb-carousel-item>
+</mdb-carousel>
+
+
+<!--
+<div class="column view overlay zoom" style="margin-left: 25px;">
+    <img src="/assets/images/rooms/home1.jpg" alt="Snow" style="width:100%">
+    <div class="mask flex-center waves-effect waves-light">
+      <p class="white-text" style="font-weight: bold; font-size: 18px;">מלון לונארדו</p>
+    </div>
+</div> -->

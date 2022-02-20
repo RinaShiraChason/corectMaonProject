@@ -6,6 +6,11 @@ namespace DTO
 {
     public class Kids_AttendanceDTO
     {
-        public string name { get; set; }
+        public int AttendanceId { get; set; }
+        public int KidId { get; set; }
+        public int ParentId { get; set; }
+        public DateTime CurrentDate { get; set; }
+        public bool Check { get; set; }
+
     }
 }

@@ -6,6 +6,11 @@ namespace DTO
 {
     public class ParentsDTO
     {
-        public string name { get; set; }
+        public long ParentsId { get; set; }
+        public long ParentsTz { get; set; }
+        public long? PersonTz { get; set; }
+
+        public PersonDTO myPerson { get; set; }
+
     }
 }

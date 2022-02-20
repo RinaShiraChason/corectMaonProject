@@ -55,6 +55,22 @@ namespace DAL
             }
             return true;
         }
+
+        public bool Delete(int classId)
+        {
+            Class k = DB.Classes.FirstOrDefault(x => x.ClassId == classId);
+
+            DB.Classes.Remove(k);
+            try
+            {
+                DB.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 
 }

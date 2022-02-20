@@ -46,5 +46,12 @@ namespace BL
             return b;
         }
 
+        public object Delete(int idDayCare)
+        {
+            bool b = _day_CareDal.Delete(idDayCare);
+
+            return b;
+            
+        }
     }
 }

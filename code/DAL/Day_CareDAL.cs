@@ -54,5 +54,21 @@ namespace DAL
             }
             return true;
         }
+
+        public bool Delete(int idDayCare)
+        {
+            DayCare k = DB.DayCares.FirstOrDefault(x => x.IdDayCare == idDayCare);
+
+            DB.DayCares.Remove(k);
+            try
+            {
+                DB.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

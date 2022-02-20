@@ -24,22 +24,22 @@ namespace corectMaonProject.Controllers
 
         [HttpPut]
         //עדכון
-        public IActionResult uppdata(Type_ClassDTO Type_Class)
+        public IActionResult uppdate(Type_ClassDTO Type_Class)
         {
-            return Ok();
+            return Ok(_Type_ClassBL.uppdate(Type_Class));
 
         }
         [HttpPost]
         //הוספה
         public IActionResult AddType_Class(Type_ClassDTO Type_Class)
         {
-            return Ok();
+            return Ok(_Type_ClassBL.AddType_Class(Type_Class));
 
         }
         [HttpDelete]
-        public IActionResult Delete()
+        public IActionResult Delete(int IdTypeClass)
         {
-            return Ok();
+            return Ok(_Type_ClassBL.Delete(IdTypeClass));
 
         }
 

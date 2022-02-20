@@ -6,6 +6,10 @@ namespace DTO
 {
     public class Placement_Of_A_TeacherDTO
     {
-        public string name { get; set; }
+        public int IdPlacementOfATeacher { get; set; }
+        public string Shifts { get; set; }
+        public DateTime DateShifts { get; set; }
+        public int? ClassId { get; set; }
+        public long? TeacherId { get; set; }
     }
 }

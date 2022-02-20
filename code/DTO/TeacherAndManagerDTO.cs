@@ -6,6 +6,10 @@ namespace DTO
 {
     public class TeacherAndManagerDTO
     {
-        public string name { get; set; }
+        public long TeacherId { get; set; }
+        public long TeacherTz { get; set; }
+        public long? PersonTz { get; set; }
+        public PersonDTO myPerson { get; set; }
+
     }
 }

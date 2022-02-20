@@ -45,6 +45,23 @@ namespace DAL
 
         }
 
+        public bool Delete(long tz)
+        {
+
+            Kid k = DB.PlacementOfATeacher.FirstOrDefault(x => x.TzKids == tz);
+
+            DB.PlacementOfATeacher.Remove(k);
+            try
+            {
+                DB.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
         public bool AddKids(Kid kidDal)
         {
             DB.PlacementOfATeacher.Add(kidDal);

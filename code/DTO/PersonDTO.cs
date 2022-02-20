@@ -6,6 +6,11 @@ namespace DTO
 {
     public class PersonDTO
     {
-        public string name { get; set; }
+        public long PersonTz { get; set; }
+        public string PersonName { get; set; }
+        public string Adress { get; set; }
+        public string Email { get; set; }
+        public string PhoneNamber1 { get; set; }
+        public string PhoneNamber2 { get; set; }
     }
 }

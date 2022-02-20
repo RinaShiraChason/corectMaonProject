@@ -6,13 +6,15 @@ import { kids } from '../classes/kids';
   providedIn: 'root'
 })
 export class KidsService {
-URL="https://localhost:44397/api/kids/";
+URL="https://localhost:44397/api/kids";
 
   constructor(private http:HttpClient) { }
 
 getAllׁׂׂׂׂׂׂ():Observable<kids[]>{
+  debugger
   return this.http.get<kids[]>(this.URL)
 }
+
 update(k: kids ):Observable<kids[]>{
   return this.http.put<kids[]>(this.URL,k)
 }

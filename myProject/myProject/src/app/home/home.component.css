@@ -1,0 +1,34 @@
+    .carousel-indicators {
+        display: none;
+    }
+  .text{
+      background-color: #fec79a;
+      width: 40%;
+      height: 80px;
+      margin: auto;
+      margin-bottom: 10px;
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+      padding: 20px;
+      font-size: xx-small;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      direction: rtl;
+  }
+  .about{
+      width: 70%;
+      height: 400px;
+      margin: auto;
+      background-color: gainsboro;
+      margin-top: 80px;
+      margin-bottom: 80px;
+      text-align: center;
+      padding: 25px;
+  }
+  mdb-card-img{
+      width: 425px;
+      height: 280px;
+  }
+  mdb-carousel{
+      text-align: center;
+  }

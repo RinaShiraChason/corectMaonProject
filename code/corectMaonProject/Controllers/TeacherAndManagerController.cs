@@ -24,23 +24,32 @@ namespace corectMaonProject.Controllers
 
         [HttpPut]
         //עדכון
-        public IActionResult uppdata(TeacherAndManagerDTO TeacherAndManager)
+        public IActionResult uppdate(TeacherAndManagerDTO TeacherAndManager)
         {
-            return Ok();
+            return Ok(_TeacherAndManagerBL.uppdate(TeacherAndManager));
 
         }
         [HttpPost]
         //הוספה
         public IActionResult AddTeacherAndManager(TeacherAndManagerDTO TeacherAndManager)
         {
-            return Ok();
+            return Ok(_TeacherAndManagerBL.AddTeacherAndManager(TeacherAndManager));
 
         }
         [HttpDelete]
-        public IActionResult Delete()
+        public IActionResult Delete(long tz)
         {
-            return Ok();
+            return Ok(_TeacherAndManagerBL.Delete(tz));
 
+        }
+   
+   
+
+        [HttpGet("{tz}/{pass}")]
+        //שליפה לפי שם משתמש וסיסמה 
+        public IActionResult getByTZAndPass(long tz,string pass)
+        {
+            return Ok(_TeacherAndManagerBL.getByTZAndPass(tz,pass));
         }
     }
 }

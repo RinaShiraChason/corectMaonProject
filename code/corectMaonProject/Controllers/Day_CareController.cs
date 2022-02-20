@@ -26,20 +26,20 @@ namespace corectMaonProject.Controllers
         //עדכון
         public IActionResult uppdata(Day_CareDTO Day_Care)
         {
-            return Ok();
+            return Ok(_Day_CareBL.uppdate(Day_Care));
 
         }
         [HttpPost]
         //הוספה
         public IActionResult AddDay_Care(Day_CareDTO Day_Care)
         {
-            return Ok();
+            return Ok(_Day_CareBL.AddDay_Care(Day_Care));
 
         }
         [HttpDelete]
-        public IActionResult Delete()
+        public IActionResult Delete(int IdDayCare)
         {
-            return Ok();
+            return Ok(_Day_CareBL.Delete(IdDayCare));
 
         }
 

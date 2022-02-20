@@ -19,7 +19,9 @@ namespace DAL.models
         public string Email { get; set; }
         public string PhoneNamber1 { get; set; }
         public string PhoneNamber2 { get; set; }
+        public string Password { get; set; }
 
+        
         public virtual ICollection<Parent> Parents { get; set; }
         public virtual ICollection<TeacherAndManager> TeacherAndManagers { get; set; }
     }

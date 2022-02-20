@@ -59,5 +59,22 @@ namespace DAL
             }
             return true;
         }
+
+
+        public bool Delete(int idActivityUpdate)
+        {
+            ActivityUpdate k = DB.ActivityUpdates.FirstOrDefault(x => x.IdActivityUpdate == idActivityUpdate);
+
+            DB.ActivityUpdates.Remove(k);
+            try
+            {
+                DB.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

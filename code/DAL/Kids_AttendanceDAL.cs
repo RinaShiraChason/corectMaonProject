@@ -55,5 +55,20 @@ namespace DAL
             return true;
         }
 
+        public bool Delete(int attendanceId)
+        {
+            KidsAttendance k = DB.KidsAttendances.FirstOrDefault(x => x.AttendanceId == attendanceId);
+
+            DB.KidsAttendances.Remove(k);
+            try
+            {
+                DB.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

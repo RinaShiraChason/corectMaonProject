@@ -6,6 +6,8 @@ namespace DTO
 {
     public class Type_EmployeeDTO
     {
-        public string name { get; set; }
+        public int IdTypeEmp { get; set; }
+        public string TypeEmpName { get; set; }
+        public long? TeacherId { get; set; }
     }
 }

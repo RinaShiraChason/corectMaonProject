@@ -24,6 +24,8 @@ import { CalenderComponent } from './calender/calender.component';
 import { ChildNavComponent } from './child-nav/child-nav.component';
 import { TeacherNavComponent } from './teacher-nav/teacher-nav.component';
 import { AddChildComponent } from './add-child/add-child.component';
+import { ChildListComponent } from './child-list/child-list.component';
+import { HttpClientModule } from '@angular/common/http';
 // // MDB Angular Pro
 // import { TabsModule, WavesModule } from 'ng-uikit-pro-standard';
 
@@ -49,6 +51,7 @@ import { AddChildComponent } from './add-child/add-child.component';
     ChildNavComponent,
     TeacherNavComponent,
     AddChildComponent,
+    ChildListComponent,
     //AddChildComponent
   ],
   imports: [
@@ -56,7 +59,7 @@ import { AddChildComponent } from './add-child/add-child.component';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
- 
+   HttpClientModule
 
   ],
   providers: [],

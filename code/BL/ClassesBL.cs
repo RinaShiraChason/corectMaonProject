@@ -30,6 +30,8 @@ namespace BL
             return lDTO;
         }
 
+
+
         public bool uppdate(ClassesDTO Classes)
         {
             Class ClassDal = imapper.Map<ClassesDTO, Class>(Classes);
@@ -37,6 +39,8 @@ namespace BL
 
             return b;
         }
+
+
 
         public bool AddClasses(ClassesDTO classes)
         {
@@ -46,5 +50,11 @@ namespace BL
             return b;
         }
 
+        public object Delete(int classId)
+        {
+            bool b = _classesDal.Delete(classId);
+
+            return b;
+        }
     }
 }

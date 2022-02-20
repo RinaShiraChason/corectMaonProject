@@ -1,0 +1,74 @@
+
+<form style="text-align: right;width: 40%;margin:auto ;">
+
+  <h1  style="text-align: right;">הכנס פירטי ילד  <mdb-icon fas icon="child"></mdb-icon>:</h1>
+  
+  <div class = "form-group row">
+    <label for = "inputName" class = "col-sm-2 col-form-label">שם ילד :</label>
+    <div class = "col-sm-10">
+      <input mdbInput type = "text" name="inputName" class = "form-control" id = "inputName" [(ngModel)]="myKids.NameKids" placeholder ="שם ילד">
+    </div>
+  </div>
+
+  <div class = "form-group row">
+    <label for = "inputTzChild" class = "col-sm-2 col-form-label">תז ילד :</label>
+    <div class = "col-sm-10">
+      <input mdbInput name="inputTzChild"  type = "text" class = "form-control" id = "inputTzChild" [(ngModel)]="myKids.TzKids" placeholder = "תז ילד">
+    </div>
+  </div>
+
+  <div class = "form-group row">
+    <label for = "inputTzParents" class = "col-sm-2 col-form-label">תז הורה:</label>
+    <div class = "col-sm-10">
+      <input mdbInput type = "text" name="inputTzParents"  [(ngModel)]="myKids.ParentsId" class = "form-control" id = "inputTzParents" placeholder = "תז הורה">
+    </div>
+  </div>
+
+  <div class = "form-group row">
+    <label for = "inputTzParents" placeholder = "כיתה" class = "col-sm-2 col-form-label">כיתה:</label>
+    <div class = "col-sm-10">
+ <select name="b"  class = "form-control">
+   <option   name="a" *ngFor="let item of listTypeClass" value="{{item.typeClassName}}"> {{item.typeClassName}}</option>
+   <option value="" disabled selected hidden>כיתה</option>
+ </select>
+</div>
+  </div>
+  
+   <div class = "form-group row">
+    <label for = "inputAge" class = "col-sm-2 col-form-label">גיל : </label>
+    <div class = "col-sm-10">
+      <input mdbInput type = "number" name = "inputAge" class = "form-control" id = "inputAge"  placeholder = "גיל" [(ngModel)]="myKids.AgeKids">
+    </div>
+  </div> 
+
+
+  <div class = "form-group row">
+    <label for = "inputPassword3" class = "col-sm-2 col-form-label">סיסמא : </label>
+    <div class = "col-sm-10">
+      <input mdbInput type = "password" name="inputPassword3"  class = "form-control" id = "inputPassword3" placeholder = "סיסמא">
+    </div>
+  </div>
+
+
+  <!-- <div class = "form-group row">
+    <label for = "inputAddress" class = "col-sm-2 col-form-label">כתובת :</label>
+    <div class = "col-sm-10">
+      <input mdbInput type = "text" [(ngModel)]="myKids." class = "form-control" id = "inputAddress" placeholder = "כתובת (עיר, רחוב, מספר בנין (דירה))">
+    </div>
+  </div> -->
+
+  <!-- <div class = "form-group row">
+    <label for = "inputDateBorn" class = "col-sm-2 col-form-label">ת.לידה :</label>
+    <div class = "col-sm-10">
+      <input mdbInput name="inputDateBorn" type = "date" class = "form-control" id = "inputDateBorn" [(ngModel)]="myKids.DateBorn" placeholder = "תאריך לידה ילד">
+    </div>
+  </div> -->
+
+ 
+  <div class = "form-group row">
+    <div class = "col-sm-10">
+      <button type = "submit" mdbBtn color = "indigo" (click)="addKids()"> הוספה <mdb-icon fas icon = "user" class = "mr-2"
+        aria-hidden = "true"> </mdb-icon> </button>
+    </div>
+  </div>
+</form>

@@ -7,6 +7,10 @@ namespace DTO
 {
     public class Type_ClassDTO
     {
-        public string name { get; set; }
+        public int IdTypeClass { get; set; }
+        public string TypeClassName { get; set; }
+        public int? ClassId { get; set; }
+
+
     }
 }

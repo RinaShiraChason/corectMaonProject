@@ -38,6 +38,21 @@ namespace BL
             return b;
         }
 
+        public object AddActivity_Update(Activity_UpdateDTO activity_Update)
+        {
+            ActivityUpdate activityUpdateDal = imapper.Map<Activity_UpdateDTO, ActivityUpdate>(activity_Update);
+            bool b = _activity_UpdateDal.AddActivity_Update(activityUpdateDal);
+
+            return b;
+        }
+
+        public object Delete(int idActivityUpdate)
+        {
+            bool b = _activity_UpdateDal.Delete(idActivityUpdate);
+
+            return b;
+        }
+
         public bool AddKids(Activity_UpdateDTO Activity_Update)
         {
             ActivityUpdate ActivityUpdateDal = imapper.Map<Activity_UpdateDTO, ActivityUpdate>(Activity_Update);
