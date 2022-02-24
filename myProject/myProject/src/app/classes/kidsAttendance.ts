@@ -1,9 +1,11 @@
-export class kidsAttendance{
-    constructor(public AttendanceId?:number,
-        KidId?:number,
-        ParentId?:number,
-        CurrentDate?:Date,
-        Check?:boolean
-          //פה יש להוסיף עד אחד 
-        ){};
+import { Kids } from "./Kids";
+
+export interface KidsAttendance{
+  AttendanceId:number;
+  CurrentDate:Date;
+  IsArrived:boolean;
+  KidId:number;
+  Kid:Kids;
+
+ 
 }

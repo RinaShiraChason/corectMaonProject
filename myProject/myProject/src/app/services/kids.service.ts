@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
-import { kids } from '../classes/kids';
+import { Kids } from '../classes/Kids';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,23 +10,23 @@ URL="https://localhost:44397/api/Kids/";
 
   constructor(private http:HttpClient) { }
 
-getAllׁׂׂׂׂׂׂ():Observable<kids[]>{
+getAllׁׂׂׂׂׂׂ():Observable<Kids[]>{
   
-  return this.http.get<kids[]>(this.URL)
+  return this.http.get<Kids[]>(this.URL)
 }
 
-update(k: kids ):Observable<kids[]>{
-  return this.http.put<kids[]>(this.URL,k)
+update(k: Kids ):Observable<Kids[]>{
+  return this.http.put<Kids[]>(this.URL,k)
 }
 
-add(k: kids):Observable<kids[]>{
-  k.TzKids=(Number)(k.TzKids)
-  k.ParentsId=(Number)(k.ParentsId)
+add(k: Kids):Observable<Kids[]>{
+  k.KidId=(Number)(k.KidId)
+  k.ParentId=(Number)(k.ParentId)
   debugger
-  return this.http.post<kids[]>(this.URL,k)
+  return this.http.post<Kids[]>(this.URL,k)
 }
 
-delete(tz:number):Observable<kids[]>{
-  return this.http.delete<kids[]>(this.URL+tz)
+delete(tz:number):Observable<Kids[]>{
+  return this.http.delete<Kids[]>(this.URL+tz)
 }
 }

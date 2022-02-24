@@ -8,6 +8,10 @@ namespace DTO
     {
 
         public int ClassId { get; set; }
-        public int KindOfClassId { get; set; }
+        public string ClassName { get; set; }
+        public int ClassTypeId { get; set; }
+
+
+        public  TypeClassDTO TypeClass { get; set; }
     }
 }

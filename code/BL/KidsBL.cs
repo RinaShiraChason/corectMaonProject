@@ -28,10 +28,10 @@ namespace BL
           return lDTO;
         }
 
-        public bool uppdate(KidsDTO kids)
+        public bool update(KidsDTO kids)
         {
             Kid kidDal = imapper.Map<KidsDTO, Kid>(kids);
-            bool b = _kidsDal.uppdate(kidDal);
+            bool b = _kidsDal.update(kidDal);
 
             return b;
         }

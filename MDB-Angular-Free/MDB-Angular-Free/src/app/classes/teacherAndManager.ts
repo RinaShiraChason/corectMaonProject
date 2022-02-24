@@ -1,6 +1,6 @@
 import { person } from "./person";
 
-export class teacherAndManager{
+export class Images{
     constructor(public TeacherId?:number,
         TeacherTz?:number,
         PersonTz?:number,

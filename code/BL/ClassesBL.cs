@@ -32,10 +32,10 @@ namespace BL
 
 
 
-        public bool uppdate(ClassesDTO Classes)
+        public bool update(ClassesDTO Classes)
         {
             Class ClassDal = imapper.Map<ClassesDTO, Class>(Classes);
-            bool b = _classesDal.uppdate(ClassDal);
+            bool b = _classesDal.update(ClassDal);
 
             return b;
         }

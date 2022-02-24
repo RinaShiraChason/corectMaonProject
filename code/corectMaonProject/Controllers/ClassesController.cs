@@ -25,9 +25,9 @@ namespace corectMaonProject.Controllers
 
         [HttpPut]
         //עדכון
-        public IActionResult uppdate(ClassesDTO classes)
+        public IActionResult update(ClassesDTO classes)
         {
-            return Ok(_classesBL.uppdate(classes));
+            return Ok(_classesBL.update(classes));
 
         }
         [HttpPost]

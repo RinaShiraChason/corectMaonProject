@@ -1,11 +1,12 @@
-export class activityUpdate{
-    constructor(public IdActivityUpdate?:number,
-         WeeklyColumn?:string,
-         Calendar?:string,
-         DailyActivity?:string,
-         LostSabbath?:string,
-         ClassId?:number,
-         TeacherId?:number
-           //פה יש להוסיף עד   
-            ) {};    
-    }   
+import { Classes } from "./Classes";
+import { User } from "./Users";
+
+export interface activityUpdate {
+  IdActivityUpdate: number;
+  DailyActivityDate: Date;
+  DailyActivitySubject: string;
+  DailyActivityInfo: string;
+  ClassId?: number;
+  Class: Classes;
+  UserTeacher: User;
+}

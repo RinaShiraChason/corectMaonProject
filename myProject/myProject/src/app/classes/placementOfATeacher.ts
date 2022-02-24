@@ -1,10 +1,12 @@
-export class placementOfATeacher{
-    constructor(public IdPlacementOfATeacher?:number,
-        Shifts?:string,
-        DateShifts?:Date,
-        ClassId?:number,
-        TeacherId?:number
-        //פה יש להוסיף עד
+import { Classes } from "./Classes";
+import { User } from "./Users";
 
-        ){};
+export interface PlacementOfATeacher {
+  IdPlacementOfATeacher: number;
+  IsMorning: boolean;
+  DayInWeek: number;
+  ClassId: number;
+  TeacherId: number;
+  Class: Classes;
+  UserTeacher: User;
 }

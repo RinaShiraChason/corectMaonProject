@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 #nullable disable
 
 namespace DAL.models
 {
     public partial class KidsAttendance
     {
-        public KidsAttendance()
-        {
-            Kids = new HashSet<Kid>();
-        }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("AttendanceId")]
 
         public int AttendanceId { get; set; }
-        public int KidId { get; set; }
-        public int ParentId { get; set; }
         public DateTime CurrentDate { get; set; }
-        public bool Check { get; set; }
-
-        public virtual ICollection<Kid> Kids { get; set; }
+        public bool IsArrived { get; set; }
+        public int KidId { get; set; }
+        public virtual Kid Kid { get; set; }
     }
 }

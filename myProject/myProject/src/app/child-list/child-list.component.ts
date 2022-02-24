@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { kids } from '../classes/kids';
+import { Kids } from '../classes/Kids';
 import { KidsService } from '../services/kids.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { KidsService } from '../services/kids.service';
   styleUrls: ['./child-list.component.scss']
 })
 export class ChildListComponent implements OnInit {
-  childList:kids[];
+  childList:Kids[];
    
   constructor(private KidsSer:KidsService) { }
 

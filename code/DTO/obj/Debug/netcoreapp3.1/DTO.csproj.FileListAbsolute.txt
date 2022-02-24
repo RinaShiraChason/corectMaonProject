@@ -7,3 +7,12 @@ C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\D
 C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
 C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.dll
 C:\Users\rina shira\Desktop\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache

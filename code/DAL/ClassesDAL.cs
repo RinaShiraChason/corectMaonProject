@@ -14,18 +14,15 @@ namespace DAL
             return DB.Classes.ToList();
         }
 
-        public bool uppdate(Class classDal)
+        public bool update(Class classDal)
         {
             Class k = DB.Classes.FirstOrDefault(x => x.ClassId == classDal.ClassId);
             if (k != null)
             {
-                k.ClassId = classDal.ClassId;
-                k.KindOfClassId = classDal.KindOfClassId;
-                k.ActivityUpdates = classDal.ActivityUpdates;
-                k.Kids = classDal.Kids;
-                k.PlacementOfATeachers = classDal.PlacementOfATeachers;
-                k.TypeClasses = classDal.TypeClasses;
-                
+           
+                k.ClassName = classDal.ClassName;
+                k.ClassTypeId = classDal.ClassTypeId;
+
                 try
                 {
                     DB.SaveChanges();

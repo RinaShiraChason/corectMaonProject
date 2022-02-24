@@ -1,6 +1,8 @@
-export class classes{
-    constructor(public ClassId?:number,
-         KindOfClassId?:number
-          //פה יש להוסיף עד 
-         ){};
+import { TypeClass } from "./TypeClass";
+
+export interface Classes {
+  ClassId: number;
+  ClassName: string;
+  ClassTypeId: number;
+  TypeClass: TypeClass;
 }
