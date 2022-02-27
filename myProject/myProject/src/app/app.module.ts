@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ManagerNavComponent } from './manager-nav/manager-nav.component';
@@ -32,6 +32,7 @@ import { HomeComponent } from './home/home.component';
 // // MDB Angular Pro
 // import { TabsModule, WavesModule } from 'ng-uikit-pro-standard';
 import { AddClassComponent } from './add-class/add-class.component';
+import { PageChildPlacementComponent } from './page-child-placement/page-child-placement.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AddClassComponent } from './add-class/add-class.component';
     ChildListComponent,
     AddTecherComponent,
     AddClassComponent,
-    HomeComponent
+    HomeComponent,
+    PageChildPlacementComponent
     //AddChildComponent
   ],
   imports: [
@@ -67,7 +69,9 @@ import { AddClassComponent } from './add-class/add-class.component';
     MDBBootstrapModule.forRoot(),
     FormsModule,
    HttpClientModule,
-   AppRoutingModule
+   AppRoutingModule,
+   FormsModule,
+   ReactiveFormsModule
 
   ],
   providers: [],

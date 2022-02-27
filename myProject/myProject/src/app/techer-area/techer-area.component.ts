@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class TecherAreaComponent implements OnInit {
 
   constructor() { }
+openTextBox = function () {
+  document.getElementById("TXTMSG").style.display="block";
+}
 
   ngOnInit(): void {
   }

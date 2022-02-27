@@ -7,6 +7,6 @@ export class kids{
         public  ParentsId?:number,
         public  AttendanceId?:number 
          //פה צריך להוסיף עד
-    //    public  IdPlacementOfATeacher?:number 
+        //public  IdPlacementOfATeacher?:number 
              ){};
 }

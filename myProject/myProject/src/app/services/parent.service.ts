@@ -21,6 +21,7 @@ export class ParentService {
   add(p: parent):Observable<parent[]>{
     return this.http.post<parent[]>(this.URL,p)
   }
+
   
   delete(ParentsId:number):Observable<parent[]>{
     return this.http.delete<parent[]>(this.URL+ParentsId)
