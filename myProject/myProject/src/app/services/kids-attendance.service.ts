@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
-import { kidsAttendance } from '../classes/KidsAttendance';
+import { KidsAttendance } from '../classes/KidsAttendance';
 
 @Injectable({
   providedIn: 'root'
 })
 export class KidsAttendanceService {
-URL="https://localhost:44397/api/kidsAttendance/";
+URL="https://localhost:44397/api/KidsAttendance/";
 
   constructor(private http:HttpClient) { }
 
-  getAllׁׂׂׂׂׂׂ():Observable<kidsAttendance[]>{
-    return this.http.get<kidsAttendance[]>(this.URL)
+  getAllׁׂׂׂׂׂׂ():Observable<KidsAttendance[]>{
+    return this.http.get<KidsAttendance[]>(this.URL)
   }
-  update(ka: kidsAttendance ):Observable<kidsAttendance[]>{
-    return this.http.put<kidsAttendance[]>(this.URL,ka)
-  }
-  
-  add(ka: kidsAttendance):Observable<kidsAttendance[]>{
-    return this.http.post<kidsAttendance[]>(this.URL,ka)
+  update(ka: KidsAttendance ):Observable<KidsAttendance[]>{
+    return this.http.put<KidsAttendance[]>(this.URL,ka)
   }
   
-  delete(AttendanceId:number):Observable<kidsAttendance[]>{
-    return this.http.delete<kidsAttendance[]>(this.URL+AttendanceId)
+  add(ka: KidsAttendance):Observable<KidsAttendance[]>{
+    return this.http.post<KidsAttendance[]>(this.URL,ka)
+  }
+  
+  delete(AttendanceId:number):Observable<KidsAttendance[]>{
+    return this.http.delete<KidsAttendance[]>(this.URL+AttendanceId)
   }
 }

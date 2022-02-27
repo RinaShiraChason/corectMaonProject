@@ -33,6 +33,7 @@ import { HomeComponent } from './home/home.component';
 // import { TabsModule, WavesModule } from 'ng-uikit-pro-standard';
 import { AddClassComponent } from './add-class/add-class.component';
 import { PageChildPlacementComponent } from './page-child-placement/page-child-placement.component';
+import { KidsService } from './services/kid.service';
 
 @NgModule({
   declarations: [
@@ -68,13 +69,13 @@ import { PageChildPlacementComponent } from './page-child-placement/page-child-p
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-   HttpClientModule,
-   AppRoutingModule,
-   FormsModule,
-   ReactiveFormsModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [KidsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

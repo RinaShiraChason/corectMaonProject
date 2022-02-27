@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ParentService } from './parent.service';
+import { ParentService } from './recoverLosts.service';
 
 describe('ParentService', () => {
   let service: ParentService;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Kids } from '../classes/Kids';
 import { TypeClass } from '../classes/TypeClass';
 
-import { KidsService } from '../services/Kids.service';
+import { KidsService } from '../services/kid.service';
 import { TypeClassService } from '../services/type-class.service';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Kids } from '../classes/Kids';
-import { KidsService } from '../services/kids.service';
+import { KidsService } from '../services/kid.service';
 
 @Component({
   selector: 'app-child-list',

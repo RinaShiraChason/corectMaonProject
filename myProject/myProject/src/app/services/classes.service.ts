@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
-import { classes } from '../classes/Classes';
+import { Classes } from '../classes/Classes';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClassesService {
 
-URL="https://localhost:44397/api/classes/";
+URL="https://localhost:44397/api/Classes/";
 
   constructor(private http:HttpClient) { }
 
-  getAllׁׂׂׂׂׂׂ():Observable<classes[]>{
-    return this.http.get<classes[]>(this.URL)
+  getAllׁׂׂׂׂׂׂ():Observable<Classes[]>{
+    return this.http.get<Classes[]>(this.URL)
   }
-  update(c: classes ):Observable<classes[]>{
-    return this.http.put<classes[]>(this.URL,c)
-  }
-  
-  add(c: classes):Observable<classes[]>{
-    return this.http.post<classes[]>(this.URL,c)
+  update(c: Classes ):Observable<Classes[]>{
+    return this.http.put<Classes[]>(this.URL,c)
   }
   
-  delete(ClassId:number):Observable<classes[]>{
-    return this.http.delete<classes[]>(this.URL+ClassId)
+  add(c: Classes):Observable<Classes[]>{
+    return this.http.post<Classes[]>(this.URL,c)
+  }
+  
+  delete(ClassId:number):Observable<Classes[]>{
+    return this.http.delete<Classes[]>(this.URL+ClassId)
   }
 
 }

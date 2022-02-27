@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
-import { placementOfATeacher } from '../classes/PlacementOfATeacher';
+import { PlacementOfATeacher } from '../classes/PlacementOfATeacher';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlacementOfATeacherService {
-  URL="https://localhost:44397/api/placementOfATeacher/";
+  URL="https://localhost:44397/api/PlacementOfATeacher/";
 
   constructor(private http:HttpClient) { }
 
-getAllׁׂׂׂׂׂׂ():Observable<placementOfATeacher[]>{
-  return this.http.get<placementOfATeacher[]>(this.URL)
+getAllׁׂׂׂׂׂׂ():Observable<PlacementOfATeacher[]>{
+  return this.http.get<PlacementOfATeacher[]>(this.URL)
 }
-update(pot: placementOfATeacher ):Observable<placementOfATeacher[]>{
-  return this.http.put<placementOfATeacher[]>(this.URL,pot)
-}
-
-add(pot: placementOfATeacher):Observable<placementOfATeacher[]>{
-  return this.http.post<placementOfATeacher[]>(this.URL,pot)
+update(pot: PlacementOfATeacher ):Observable<PlacementOfATeacher[]>{
+  return this.http.put<PlacementOfATeacher[]>(this.URL,pot)
 }
 
-delete(IdPlacementOfATeacher:number):Observable<placementOfATeacher[]>{
-  return this.http.delete<placementOfATeacher[]>(this.URL+IdPlacementOfATeacher)
+add(pot: PlacementOfATeacher):Observable<PlacementOfATeacher[]>{
+  return this.http.post<PlacementOfATeacher[]>(this.URL,pot)
+}
+
+delete(IdPlacementOfATeacher:number):Observable<PlacementOfATeacher[]>{
+  return this.http.delete<PlacementOfATeacher[]>(this.URL+IdPlacementOfATeacher)
 }
 }
