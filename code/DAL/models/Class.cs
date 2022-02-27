@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 #nullable disable
 
 namespace DAL.models
@@ -12,15 +13,24 @@ namespace DAL.models
             ActivityUpdates = new HashSet<ActivityUpdate>();
             Kids = new HashSet<Kid>();
             PlacementOfATeachers = new HashSet<PlacementOfATeacher>();
-            TypeClasses = new HashSet<TypeClass>();
+            ExternalData= new HashSet<ExternalData>();
+            Images = new HashSet<Images>();
+
+
+            
         }
-
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ClassId")]
         public int ClassId { get; set; }
-        public int KindOfClassId { get; set; }
+        public string ClassName { get; set; }
+        public int ClassTypeId { get; set; }
 
+
+        public virtual TypeClass TypeClass { get; set; }
         public virtual ICollection<ActivityUpdate> ActivityUpdates { get; set; }
+        public virtual ICollection<ExternalData> ExternalData { get; set; }
+        public virtual ICollection<Images> Images { get; set; }
         public virtual ICollection<Kid> Kids { get; set; }
         public virtual ICollection<PlacementOfATeacher> PlacementOfATeachers { get; set; }
-        public virtual ICollection<TypeClass> TypeClasses { get; set; }
     }
 }

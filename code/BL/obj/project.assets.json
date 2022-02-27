@@ -5809,25 +5809,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rina shira\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\AyalaYankelevitz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\BL\\BL.csproj",
+      "projectUniqueName": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\BL\\BL.csproj",
       "projectName": "BL",
-      "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\BL\\BL.csproj",
-      "packagesPath": "C:\\Users\\rina shira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\BL\\obj\\",
+      "projectPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\BL\\BL.csproj",
+      "packagesPath": "C:\\Users\\AyalaYankelevitz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\BL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rina shira\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\AyalaYankelevitz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5840,11 +5835,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DAL\\DAL.csproj"
+            "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj": {
-              "projectPath": "C:\\Users\\rina shira\\Desktop\\corectMaonProject\\code\\DTO\\DTO.csproj"
+            "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DTO\\DTO.csproj"
             }
           }
         }
@@ -5879,7 +5874,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

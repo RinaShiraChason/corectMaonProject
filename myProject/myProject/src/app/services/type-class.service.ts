@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
-import { typeClass } from '../classes/typeClass';
+import { TypeClass } from '../classes/TypeClass';
 
 @Injectable({
   providedIn: 'root'
@@ -11,18 +11,18 @@ URL="https://localhost:44397/api/Type_Class/";
 
   constructor(private http:HttpClient) { }
 
-  getAllׁׂׂׂׂׂׂ():Observable<typeClass[]>{
-    return this.http.get<typeClass[]>(this.URL)
+  getAllׁׂׂׂׂׂׂ():Observable<TypeClass[]>{
+    return this.http.get<TypeClass[]>(this.URL)
   }
-  update(k: typeClass ):Observable<typeClass[]>{
-    return this.http.put<typeClass[]>(this.URL,k)
-  }
-  
-  add(k: typeClass):Observable<typeClass[]>{
-    return this.http.post<typeClass[]>(this.URL,k)
+  update(k: TypeClass ):Observable<TypeClass[]>{
+    return this.http.put<TypeClass[]>(this.URL,k)
   }
   
-  delete(IdTypeClass:number):Observable<typeClass[]>{
-    return this.http.delete<typeClass[]>(this.URL+IdTypeClass)
+  add(k: TypeClass):Observable<TypeClass[]>{
+    return this.http.post<TypeClass[]>(this.URL,k)
+  }
+  
+  delete(IdTypeClass:number):Observable<TypeClass[]>{
+    return this.http.delete<TypeClass[]>(this.URL+IdTypeClass)
   }
 }

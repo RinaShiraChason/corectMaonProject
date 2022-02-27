@@ -12,45 +12,47 @@ namespace BL
         {
 
 
-            CreateMap<ActivityUpdate, Activity_UpdateDTO>();
-            CreateMap<Activity_UpdateDTO, ActivityUpdate>();
+            CreateMap<ActivityUpdate, ActivityUpdateDTO>();
+            CreateMap<ActivityUpdateDTO, ActivityUpdate>();
 
 
             CreateMap<Class, ClassesDTO>();
             CreateMap<ClassesDTO, Class>();
 
 
-            CreateMap<DayCare, Day_CareDTO>();
-            CreateMap<Day_CareDTO, DayCare>();
+            CreateMap<DayCare, DayCareDTO>();
+            CreateMap<DayCareDTO, DayCare>();
 
 
-            CreateMap<KidsAttendance, Kids_AttendanceDTO>();
-            CreateMap<Kids_AttendanceDTO, KidsAttendance>();
+            CreateMap<KidsAttendance, KidsAttendanceDTO>();
+            CreateMap<KidsAttendanceDTO, KidsAttendance>();
 
 
             CreateMap<Kid, KidsDTO>();
             CreateMap<KidsDTO, Kid>();
 
-            CreateMap<Parent, ParentsDTO>();
-            CreateMap<ParentsDTO, Parent>();
+            CreateMap<Images, ImagesDTO>();
+            CreateMap<ImagesDTO, Images>();
+
+            CreateMap<ExternalData, ExternalDataDTO>();
+            CreateMap<ExternalDataDTO, ExternalData>();
+
+            CreateMap<User, UserDTO>();
+            CreateMap<UserDTO, User>();
 
 
-            CreateMap<Person, PersonDTO>();
-            CreateMap<PersonDTO, Person>();
-
-
-            CreateMap<PlacementOfATeacher, Placement_Of_A_TeacherDTO>();
+            CreateMap<PlacementOfATeacher, PlacementOfATeacherDTO>();
             CreateMap<PlacementOfATeacher, PlacementOfATeacher>();
 
-            CreateMap<TeacherAndManager, TeacherAndManagerDTO>();
-            CreateMap<TeacherAndManagerDTO, TeacherAndManager>();
+            CreateMap<Messages, MessagesDTO>();
+            CreateMap<MessagesDTO, Messages>();
 
-            CreateMap<TypeClass, Type_ClassDTO>();
-            CreateMap<Type_ClassDTO, TypeClass>();
+            CreateMap<TypeClass, TypeClassDTO>();
+            CreateMap<TypeClassDTO, TypeClass>();
 
 
-            CreateMap<TypeEmployee, Type_EmployeeDTO>();
-            CreateMap<Type_EmployeeDTO, TypeEmployee>();
+            CreateMap<RecoverLosts, RecoverLostsDTO>();
+            CreateMap<RecoverLostsDTO, RecoverLosts>();
 
 
         }

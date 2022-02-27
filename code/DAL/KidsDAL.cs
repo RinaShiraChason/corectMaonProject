@@ -11,12 +11,12 @@ namespace DAL
 
         public List<Kid> getAll()
         {
-            return DB.PlacementOfATeacher.ToList();
+            return DB.Kids.ToList();
         }
 
-        public bool uppdate(Kid kidDal)
+        public bool update(Kid kidDal)
         {
-            Kid k = DB.PlacementOfATeacher.FirstOrDefault(x => x.TzKids == kidDal.TzKids);
+            Kid k = DB.Kids.FirstOrDefault(x => x.KidId == kidDal.KidId);
             if (k != null)
             {
                 
@@ -24,11 +24,9 @@ namespace DAL
                 k.AgeKids = kidDal.AgeKids;
                 k.ClassId = kidDal.ClassId;
                 k.DateBorn = kidDal.DateBorn;
-                k.ParentsId = kidDal.ParentsId;
-                k.AttendanceId = kidDal.AttendanceId;
-                k.Attendance = kidDal.Attendance;
-                k.Class = kidDal.Class;
-                k.Parents = kidDal.Parents;
+                k.TzKid = kidDal.TzKid;
+       
+            
                 
                 try
                 {
@@ -48,9 +46,9 @@ namespace DAL
         public bool Delete(long tz)
         {
 
-            Kid k = DB.PlacementOfATeacher.FirstOrDefault(x => x.TzKids == tz);
+            Kid k = DB.Kids.FirstOrDefault(x => x.KidId == tz);
 
-            DB.PlacementOfATeacher.Remove(k);
+            DB.Kids.Remove(k);
             try
             {
                 DB.SaveChanges();
@@ -64,7 +62,7 @@ namespace DAL
 
         public bool AddKids(Kid kidDal)
         {
-            DB.PlacementOfATeacher.Add(kidDal);
+            DB.Kids.Add(kidDal);
             
             try
             {

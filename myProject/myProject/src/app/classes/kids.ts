@@ -1,12 +1,16 @@
-export class kids{
-    constructor(public TzKids?:number,
-        public NameKids?:string,
-        public  AgeKids?:number,
-        public  ClassId?:number,
-        // public  DateBorn?:Date,
-        public  ParentsId?:number,
-        public  AttendanceId?:number 
-         //פה צריך להוסיף עד
-        //public  IdPlacementOfATeacher?:number 
-             ){};
+import { Classes } from "./Classes";
+import { User } from "./Users";
+
+export interface Kids{
+    KidId:number;
+    NameKids:string;
+    TzKid:string;
+    AgeKids:number;
+    ClassId:number;
+    DateBorn:Date;
+    ParentId:number;
+
+    Class:Classes;
+    UserParent:User;
+
 }

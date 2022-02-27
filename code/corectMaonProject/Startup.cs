@@ -35,10 +35,14 @@ namespace corectMaonProject
                     .AllowAnyHeader());
             });
             services.AddControllers();
-            
-           
+
             services.AddDbContext<newMaonContext>(options => options.UseSqlServer(
-               "Server=mbyserver2\\pupils;Database=Manager;Trusted_Connection=True;"), ServiceLifetime.Scoped);
+           Configuration.GetSection("ConnectionString")["ProjectConnection"]), ServiceLifetime.Scoped);
+
+
+
+            //services.AddDbContext<newMaonContext>(options => options.UseSqlServer(
+            //   "Server=mbyserver2\\pupils;Database=Manager;Trusted_Connection=True;"), ServiceLifetime.Scoped);
 
 
         }

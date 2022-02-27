@@ -26,9 +26,9 @@ namespace corectMaonProject.Controllers
 
         [HttpPut]
         //עדכון
-        public IActionResult uppdate(KidsDTO kids)
+        public IActionResult update(KidsDTO kids)
         {
-            return Ok(_kidsBL.uppdate(kids));
+            return Ok(_kidsBL.update(kids));
         }
 
         [HttpPost]
@@ -40,7 +40,7 @@ namespace corectMaonProject.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(long tz)
+        public IActionResult Delete(int tz)
         {
             return Ok(_kidsBL.Delete(tz));
 

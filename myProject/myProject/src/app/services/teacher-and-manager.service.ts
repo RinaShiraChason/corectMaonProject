@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
-import { teacherAndManager } from '../classes/teacherAndManager';
+import { Images } from '../classes/Images';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeacherAndManagerService {
-URL="https://localhost:44397/api/teacherAndManager/";
+URL="https://localhost:44397/api/Images/";
 
   constructor(private http:HttpClient) { }
 
-  getAllׁׂׂׂׂׂׂ():Observable<teacherAndManager[]>{
-    return this.http.get<teacherAndManager[]>(this.URL)
+  getAllׁׂׂׂׂׂׂ():Observable<Images[]>{
+    return this.http.get<Images[]>(this.URL)
   }
-  update(tm: teacherAndManager ):Observable<teacherAndManager[]>{
-    return this.http.put<teacherAndManager[]>(this.URL,tm)
-  }
-  
-  add(tm: teacherAndManager):Observable<teacherAndManager[]>{
-    return this.http.post<teacherAndManager[]>(this.URL,tm)
+  update(tm: Images ):Observable<Images[]>{
+    return this.http.put<Images[]>(this.URL,tm)
   }
   
-  delete(TeacherId:number):Observable<teacherAndManager[]>{
-    return this.http.delete<teacherAndManager[]>(this.URL+TeacherId)
+  add(tm: Images):Observable<Images[]>{
+    return this.http.post<Images[]>(this.URL,tm)
+  }
+  
+  delete(TeacherId:number):Observable<Images[]>{
+    return this.http.delete<Images[]>(this.URL+TeacherId)
   }
 }
