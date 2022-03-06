@@ -17,13 +17,20 @@ namespace corectMaonProject.Controllers
         KidsBL _kidsBL = new KidsBL();
 
         [HttpGet]
-        //שליפה
+        [Route("getAll")]
         public IActionResult getAll()
         {
             return Ok(_kidsBL.getAll());
 
         }
+        [HttpGet]
+        [Route("getKidsByTeachID/{teacherId}")]
+       
+        public IActionResult GetKidsByTeacher(int teacherId)
+        {
+            return Ok(_kidsBL.GetKidsByTeacher(teacherId));
 
+        }
         [HttpPut]
         //עדכון
         public IActionResult update(KidsDTO kids)

@@ -14,6 +14,8 @@ namespace DTO
         public string PhoneNamber1 { get; set; }
         public string PhoneNamber2 { get; set; }
         public string Password { get; set; }
+
+        public int ClassId { get; set; }
         public int UserTypeId { get; set; }
     }
 }

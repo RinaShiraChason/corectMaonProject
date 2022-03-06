@@ -8,20 +8,17 @@
         <th scope="row">כיתה</th>
         <th scope="row">ת.לידה</th>
         <th scope="row">הורים</th>
-        <th scope="row">נוכחות</th>
-        <th scope="row">גננת</th>
 
     </tr>
-</thead>
+</thead> 
     <tr *ngFor="let item of childList">
-        <td>{{item.tzKids}}</td>
-        <td>{{item.nameKids}}</td>
-        <td>{{item.ageKids}}</td>
-        <td>{{item.classId}}</td>
-        <td>{{item.dateBorn}}</td>
-        <td>{{item.ParentId}}</td>
-        <td>{{item.attendanceId}}</td>
-        <td>{{item.idPlacementOfATeacher}}</td>
+        <td>{{item.TzKid}}</td>
+        <td>{{item.NameKids}}</td>
+        <td>{{item.AgeKids}}</td>
+        <td>{{item.ClassId}}</td>
+        <td>{{item.DateBorn| date:"dd/MM/yyyy"}}</td>
+        <td>{{item.UserParent ?item.UserParent.UserName: '-' }}</td>
+
 
 
     </tr>

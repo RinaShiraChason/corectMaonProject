@@ -29,9 +29,12 @@ namespace DAL.models
         public string Address { get; set; }
         public string Email { get; set; }
         public string PhoneNamber1 { get; set; }
-        public string PhoneNamber2 { get; set; }
+        public string? PhoneNamber2 { get; set; }
         public string Password { get; set; }
         public int UserTypeId { get; set; }
+
+        public int? ClassId { get; set; }
+        public virtual Class Class { get; set; }
         public virtual ICollection<ActivityUpdate> ActivityUpdates { get; set; }
         public virtual ICollection<Kid> Kids { get; set; }
         public virtual ICollection<ExternalData> ExternalData { get; set; }

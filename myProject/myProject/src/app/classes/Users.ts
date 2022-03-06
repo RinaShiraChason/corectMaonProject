@@ -8,4 +8,5 @@ export interface User {
   PhoneNamber2: string;
   Password: string;
   UserTypeId: number;
+  ClassId?:number;
 }

@@ -8,24 +8,25 @@ import { KidsService } from '../services/kid.service';
   styleUrls: ['./child-list.component.scss']
 })
 export class ChildListComponent implements OnInit {
-  childList:Kids[];
-   
-  constructor(private KidsSer:KidsService) { }
+  childList: Kids[];
+
+  constructor(private KidsSer: KidsService) { }
 
   ngOnInit(): void {
-    
-    this.KidsSer.getAllׁׂׂׂׂׂׂ().subscribe(
-      
-      data=>{{
-        debugger
-        this.childList=data
-        console.log(data);
-      }
-        err=>console.log(err)
-        
+
+    this.KidsSer.getKidsByTeacherׁׂׂׂׂׂׂ(5).subscribe(
+
+      data => {
+        {
+          debugger
+          this.childList = data;
+          console.log(data);
+        }
+        err => console.log(err)
+
       })
-      console.log(this.childList);
-  
+    console.log(this.childList);
+
   }
 
 }

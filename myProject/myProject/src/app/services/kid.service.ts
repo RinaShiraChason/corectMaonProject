@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
 import { Kids } from '../classes/Kids';
+
 @Injectable({
   providedIn: 'root'
 })
 export class KidsService {
-  URL = "https://localhost:44397/api/Kids/";
+  URL ="https://localhost:44397/api/Kids/";
 
   constructor(private http: HttpClient) { }
 
@@ -14,7 +15,11 @@ export class KidsService {
 
     return this.http.get<Kids[]>(this.URL)
   }
+  getKidsByTeacherׁׂׂׂׂׂׂ(teacherId: number): Observable<Kids[]> {
+  var urlData = this.URL + "getKidsByTeachID/" + teacherId +"";
 
+    return this.http.get<Kids[]>(urlData);
+  }
   update(k: Kids): Observable<Kids[]> {
     return this.http.put<Kids[]>(this.URL, k)
   }

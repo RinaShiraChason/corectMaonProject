@@ -27,7 +27,13 @@ namespace BL
           List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
           return lDTO;
         }
-
+        public List<KidsDTO> GetKidsByTeacher(int teacherId)
+        {
+            List<Kid> l = _kidsDal.getAllByTeacherId(teacherId);
+            List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
+            return lDTO;
+        }
+        
         public bool update(KidsDTO kids)
         {
             Kid kidDal = imapper.Map<KidsDTO, Kid>(kids);

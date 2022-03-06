@@ -15,9 +15,10 @@ namespace DAL.models
             PlacementOfATeachers = new HashSet<PlacementOfATeacher>();
             ExternalData= new HashSet<ExternalData>();
             Images = new HashSet<Images>();
+            TeacherUsers = new HashSet<User>();
 
 
-            
+
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ClassId")]
@@ -31,6 +32,8 @@ namespace DAL.models
         public virtual ICollection<ExternalData> ExternalData { get; set; }
         public virtual ICollection<Images> Images { get; set; }
         public virtual ICollection<Kid> Kids { get; set; }
+        public virtual ICollection<User> TeacherUsers { get; set; }
+
         public virtual ICollection<PlacementOfATeacher> PlacementOfATeachers { get; set; }
     }
 }

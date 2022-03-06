@@ -1,4 +1,5 @@
 ﻿using DAL.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,19 @@ namespace DAL
         {
             return DB.Kids.ToList();
         }
+        public List<Kid> getAllByTeacherId(int teacherId)
+        {
+            using (var db2 = new newMaonContext())
+            {
+                var classID = db2.Users.FirstOrDefault(x => x.UserId == teacherId).ClassId;
+                var kids = db2.Kids.Include("Class").Include("UserParent").Where(x => x.ClassId == classID).ToList();
 
+                return kids;
+
+            }
+              
+        }
+        
         public bool update(Kid kidDal)
         {
             Kid k = DB.Kids.FirstOrDefault(x => x.KidId == kidDal.KidId);
