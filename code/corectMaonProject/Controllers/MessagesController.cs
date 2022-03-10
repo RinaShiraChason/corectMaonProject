@@ -28,8 +28,8 @@ namespace corectMaonProject.Controllers
 
         public IActionResult GetMessgesByTeacher(int teacherId)
         {
-            return Ok(_MessagesBL.GetMessgesByTeacher(teacherId));
-
+            return Ok(_MessagesBL.GetMessagesByTo(teacherId));
+        }
         [HttpGet]
         [Route("GetMessagesByTo/{id}")]
         //שליפה
