@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+
 namespace DAL
 {
     public class MessagesDAL
@@ -44,6 +46,18 @@ namespace DAL
                 return false;
             }
             return true;
+        }
+
+        public List<Messages> getAllByTeacherId(int teacherId)
+        {
+            using (var db2 = new newMaonContext())
+            {
+                var userToID = db2.Users.FirstOrDefault(x => x.UserId == teacherId).ClassId;
+                var messages = db2.Messages.Include("Class").Include("UserParent").Where(x => x.UserToId== userToID).ToList();
+
+                return messages;
+
+            }
         }
 
         //public Messages getByTZAndPass(long tz, string pass)

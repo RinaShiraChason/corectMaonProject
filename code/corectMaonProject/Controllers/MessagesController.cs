@@ -15,6 +15,7 @@ namespace corectMaonProject.Controllers
         MessagesBL _MessagesBL = new MessagesBL();
 
         [HttpGet]
+        [Route("getAll")]
         //שליפה
         public IActionResult getAll()
         {
@@ -22,6 +23,14 @@ namespace corectMaonProject.Controllers
 
         }
 
+        [HttpGet]
+        [Route("getMessgesByTeachID/{teacherId}")]
+
+        public IActionResult GetMessgesByTeacher(int teacherId)
+        {
+            return Ok(_MessagesBL.GetMessgesByTeacher(teacherId));
+
+        }
         [HttpPut]
         //עדכון
         public IActionResult update(MessagesDTO Messages)

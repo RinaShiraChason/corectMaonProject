@@ -1,1 +1,24 @@
 <p>parents-messages works!</p>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="row">תוכן ההודעה</th>
+        <th scope="row">תאריך</th>
+        <th scope="row">ההודה מ:</th>
+        <th scope="row">ילד</th>
+
+
+    </tr>
+</thead> 
+    <tr *ngFor="let item of messgesList">
+        <td>{{item.MessageContent}}</td>
+        <td>{{item.MessageDateTime| date:"dd/MM/yyyy"}}</td>
+        <td>{{item.UserFrom}}</td>
+        <td>{{item.Kid}}</td>
+
+
+
+
+    </tr>
+</table>
