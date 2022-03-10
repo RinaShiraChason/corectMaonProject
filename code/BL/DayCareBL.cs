@@ -23,9 +23,9 @@ namespace BL
             imapper = config.CreateMapper();
         }
 
-        public List<DayCareDTO> getAll()
+        public List<DayCareDTO> GetAll()
         {
-            List<DayCare> l = _day_CareDal.getAll();
+            List<DayCare> l = _day_CareDal.GetAll();
             List<DayCareDTO> lDTO = imapper.Map<List<DayCare>, List<DayCareDTO>>(l);
             return lDTO;
         }

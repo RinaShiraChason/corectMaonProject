@@ -1,1 +1,38 @@
-<p>teachers-placement works!</p>
+<h1 *ngIf="teacherDays; else noData">שיבוץ שבועי</h1>
+<ng-template #noData>
+    <h1>לא נמצאו נתונים</h1>
+</ng-template>
+<table *ngIf="teacherDays" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>זמן</th>
+            <th>יום ראשון</th>
+            <th>יום שני</th>
+            <th>יום שלישי</th>
+            <th>יום רביעי</th>
+            <th>יום חמישי</th>
+            <th>יום שישי</th>
+
+        </tr>
+    </thead>
+    <tr>
+
+        <td><strong>בוקר</strong></td>
+        <td>{{ teacherDays.DayInWeek1MStr }}</td>
+        <td>{{ teacherDays.DayInWeek2MStr }}</td>
+        <td>{{ teacherDays.DayInWeek3MStr }}</td>
+        <td>{{ teacherDays.DayInWeek4MStr }}</td>
+        <td>{{ teacherDays.DayInWeek5MStr }}</td>
+        <td>{{ teacherDays.DayInWeek6MStr }}</td>
+    </tr>
+    <tr>
+        <td><strong>צהרים</strong></td>
+        <td>{{ teacherDays.DayInWeek1AStr }}</td>
+        <td>{{ teacherDays.DayInWeek2AStr }}</td>
+        <td>{{ teacherDays.DayInWeek3AStr }}</td>
+        <td>{{ teacherDays.DayInWeek4AStr }}</td>
+        <td>{{ teacherDays.DayInWeek5AStr }}</td>
+        <td> </td>
+
+    </tr>
+</table>

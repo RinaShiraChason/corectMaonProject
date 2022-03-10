@@ -20,10 +20,10 @@ namespace BL
             });
             imapper = config.CreateMapper();
         }
-        public List<Images> getAll()
+        public List<Images> GetAll()
         {
 
-            List<Images> l = imagesDAL.getAll();
+            List<Images> l = imagesDAL.GetAll();
 
             return l;
         }

@@ -12,7 +12,6 @@ namespace DAL.models
         {
             ActivityUpdates = new HashSet<ActivityUpdate>();
             Kids = new HashSet<Kid>();
-            PlacementOfATeachers = new HashSet<PlacementOfATeacher>();
             ExternalData= new HashSet<ExternalData>();
             Images = new HashSet<Images>();
             TeacherUsers = new HashSet<User>();
@@ -33,7 +32,5 @@ namespace DAL.models
         public virtual ICollection<Images> Images { get; set; }
         public virtual ICollection<Kid> Kids { get; set; }
         public virtual ICollection<User> TeacherUsers { get; set; }
-
-        public virtual ICollection<PlacementOfATeacher> PlacementOfATeachers { get; set; }
     }
 }

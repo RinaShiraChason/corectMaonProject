@@ -6,64 +6,108 @@ using System.Text;
 
 namespace DAL
 {
-   public class KidsAttendanceDAL
+    public class KidsAttendanceDAL
     {
-        newMaonContext DB = new newMaonContext();
-        public List<KidsAttendance> getAll()
+
+        public List<KidsAttendance> GetAll()
         {
-            return DB.KidsAttendances.ToList();
+            using (var db = new newMaonContext())
+            {
+                return db.KidsAttendances.ToList();
+            }
         }
 
         public bool update(KidsAttendance kidsAttendanceDal)
         {
-            KidsAttendance k = DB.KidsAttendances.FirstOrDefault(x => x.AttendanceId == kidsAttendanceDal.AttendanceId);
-            if (k != null)
+            using (var db = new newMaonContext())
             {
-                k.CurrentDate = kidsAttendanceDal.CurrentDate;
-                k.IsArrived = kidsAttendanceDal.IsArrived;
+                KidsAttendance k = db.KidsAttendances.FirstOrDefault(x => x.AttendanceId == kidsAttendanceDal.AttendanceId);
+                if (k != null)
+                {
+                    k.CurrentDate = kidsAttendanceDal.CurrentDate;
+                    k.IsArrived = kidsAttendanceDal.IsArrived;
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+
+                }
+                return true;
+            }
+        }
+
+        public bool AddKids_Attendance(KidsAttendance kidsAttendanceDal)
+        {
+            using (var db = new newMaonContext())
+            {
+                db.KidsAttendances.Add(kidsAttendanceDal);
+
                 try
                 {
-                    DB.SaveChanges();
+                    db.SaveChanges();
                 }
                 catch
                 {
                     return false;
                 }
-
-
+                return true;
             }
-            return true;
-
-        }
-
-        public bool AddKids_Attendance(KidsAttendance kidsAttendanceDal)
-        {
-            DB.KidsAttendances.Add(kidsAttendanceDal);
-
-            try
-            {
-                DB.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
 
         public bool Delete(int attendanceId)
         {
-            KidsAttendance k = DB.KidsAttendances.FirstOrDefault(x => x.AttendanceId == attendanceId);
+            using (var db = new newMaonContext())
+            {
+                KidsAttendance k = db.KidsAttendances.FirstOrDefault(x => x.AttendanceId == attendanceId);
 
-            DB.KidsAttendances.Remove(k);
-            try
-            {
-                DB.SaveChanges();
+                db.KidsAttendances.Remove(k);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
             }
-            catch
+        }
+
+        public bool SetKidAttendence(KidsAttendance kidsAttendanceDal)
+        {
+            using (var db = new newMaonContext())
             {
-                return false;
+                KidsAttendance k = db.KidsAttendances.FirstOrDefault(x => x.KidId == kidsAttendanceDal.KidId && x.CurrentDate.Date == DateTime.Today);
+                if (k != null)
+                {
+                    k.CurrentDate = DateTime.Now;
+                    k.IsArrived = kidsAttendanceDal.IsArrived;
+                }
+                else
+                {
+                    k = new KidsAttendance();
+                    k.KidId = kidsAttendanceDal.KidId;
+                    k.CurrentDate = DateTime.Now;
+                    k.IsArrived = true;
+                    db.KidsAttendances.Add(k);
+
+                }
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
             }
+
+
             return true;
         }
     }

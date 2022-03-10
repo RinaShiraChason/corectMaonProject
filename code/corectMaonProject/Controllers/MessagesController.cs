@@ -16,12 +16,29 @@ namespace corectMaonProject.Controllers
 
         [HttpGet]
         //שליפה
-        public IActionResult getAll()
+        public IActionResult GetAll()
         {
-            return Ok(_MessagesBL.getAll());
+            return Ok(_MessagesBL.GetAll());
 
         }
 
+
+        [HttpGet]
+        [Route("GetMessagesByTo/{id}")]
+        //שליפה
+        public IActionResult GetMessagesByTo(int id)
+        {
+            return Ok(_MessagesBL.GetMessagesByTo(id));
+
+        }
+        [HttpGet]
+        [Route("GetMessagesByFrom/{id}")]
+        //שליפה
+        public IActionResult GetMessagesByFrom(int id)
+        {
+            return Ok(_MessagesBL.GetMessagesByFrom(id));
+
+        }
         [HttpPut]
         //עדכון
         public IActionResult update(MessagesDTO Messages)

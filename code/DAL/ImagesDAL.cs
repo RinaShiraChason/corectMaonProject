@@ -6,76 +6,84 @@ using System.Text;
 
 namespace DAL
 {
-   public class ImagesDAL
+    public class ImagesDAL
     {
-        newMaonContext DB = new newMaonContext();
 
-        public List<Images> getAll()
+
+        public List<Images> GetAll()
         {
-            List<Images> lImagess = DB.Images.ToList();
-        
-         
-
-            return lImagess;
+            using (var db = new newMaonContext())
+            {
+                List<Images> lImagess = db.Images.ToList();
+                return lImagess;
+            }
         }
 
         public bool update(Images imagesDal)
         {
-            Images prt = DB.Images.FirstOrDefault(x => x.ImageId == imagesDal.ImageId);
-            if (prt != null)
+            using (var db = new newMaonContext())
             {
-                prt.ImageData = imagesDal.ImageData;
-                prt.ImageDate = imagesDal.ImageDate;
-                prt.ImageTitle = imagesDal.ImageTitle;
-                prt.ImageURL = imagesDal.ImageURL;
-                try
+                Images prt = db.Images.FirstOrDefault(x => x.ImageId == imagesDal.ImageId);
+                if (prt != null)
                 {
-                    DB.SaveChanges();
-                }
-                catch
-                {
-                    return false;
-                }
+                    prt.ImageData = imagesDal.ImageData;
+                    prt.ImageDate = imagesDal.ImageDate;
+                    prt.ImageTitle = imagesDal.ImageTitle;
+                    prt.ImageURL = imagesDal.ImageURL;
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
 
 
+                }
+                return true;
             }
-            return true;
-
         }
 
         public void AddImagess(Images tModel)
         {
-            try
+            using (var db = new newMaonContext())
             {
-                DB.Images.Add(tModel);
-                DB.SaveChanges();
-            }
-            catch
-            {
-            
+                try
+                {
+                    db.Images.Add(tModel);
+                    db.SaveChanges();
+                }
+                catch
+                {
 
 
+
+                }
             }
         }
 
         public bool Delete(int imagesId)
         {
-            Images k = DB.Images.FirstOrDefault(x => x.ImageId == imagesId);
-             try
+            using (var db = new newMaonContext())
             {
-                DB.Images.Remove(k);
-                DB.SaveChanges();
-            
+                Images k = db.Images.FirstOrDefault(x => x.ImageId == imagesId);
+                try
+                {
+                    db.Images.Remove(k);
+                    db.SaveChanges();
 
+
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
             }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
 
-       
+
     }
-    }
+}
 

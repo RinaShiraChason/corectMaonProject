@@ -1,0 +1,40 @@
+<div class="form-wrapper-lg">
+    <h1 class="h1-form" style="max-width: 300px;"> השבת אבידה</h1>
+    <small>
+        *יש לקחת את המוצרים תוך 30 יום, לאחר מכן דינם כהפקר
+    </small>
+    <mat-icon class="add-icon" (click)="openDialog();">add_circle_outline</mat-icon>
+    <br>
+    <div id="recoverLostsList" #recoverLostsList>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>פרטים</th>
+                    <th>תאריך</th>
+                    <th>תמונה</th>
+                    <th> המוצא</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let recoverLost of recoverLosts">
+                    <td>{{recoverLost.RecoverLostsInfo}}</td>
+                    <td> {{recoverLost.RecoverLostsDate | date:"dd/MM/yyyy HH:mm"}}</td>
+                    <td> {{recoverLost.Weigh}}</td>
+
+                    <td>
+                        <img *ngIf="recoverLost.RecoverLostsImage" [src]="recoverLost.RecoverLostsImage" width="25" height="25">
+                    </td>
+                    <td>
+                        <span *ngIf="recoverLost.IdUser != userId;else thisUser">{{recoverLost.User.UserName + ' ' + recoverLost.User.PhoneNamber1}}</span>
+                        <ng-template #thisUser>
+
+                            <mat-icon class="icon" (click)="openDialog(recoverLost.RecoverLostsId);">edit</mat-icon>&nbsp;
+                            <mat-icon class="icon" (click)="delete(recoverLost.RecoverLostsId);">cancel</mat-icon>
+                        </ng-template>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

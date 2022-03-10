@@ -22,13 +22,18 @@ namespace BL
             imapper = config.CreateMapper();
         }
 
-        public List<PlacementOfATeacherDTO> getAll()
+        public List<PlacementOfATeacherDTO> GetAll()
         {
-            List<PlacementOfATeacher> l = _Placement_Of_A_TeacherDAL.getAll();
+            List<PlacementOfATeacher> l = _Placement_Of_A_TeacherDAL.GetAll();
             List<PlacementOfATeacherDTO> lDTO = imapper.Map<List<PlacementOfATeacher>, List<PlacementOfATeacherDTO>>(l);
             return lDTO;
         }
-
+        public PlacementOfATeacherDTO GetByTeacherId(int id)
+        {
+            PlacementOfATeacher l = _Placement_Of_A_TeacherDAL.GetByTeacherId(id);
+            PlacementOfATeacherDTO lDTO = imapper.Map<PlacementOfATeacher, PlacementOfATeacherDTO>(l);
+            return lDTO;
+        }
         public bool update(PlacementOfATeacherDTO pot)
         {
             PlacementOfATeacher Placement_Of_A_TeacherDAL = imapper.Map<PlacementOfATeacherDTO, PlacementOfATeacher>(pot);

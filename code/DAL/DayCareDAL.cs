@@ -8,69 +8,78 @@ namespace DAL
 {
     public class DayCareDAL
     {
-        newMaonContext DB = new newMaonContext();
 
-        public List<DayCare> getAll()
+
+        public List<DayCare> GetAll()
         {
-            return DB.DayCares.ToList();
+            using (var db = new newMaonContext())
+            {
+                return db.DayCares.ToList();
+            }
         }
-
         public bool update(DayCare dayCareDal)
         {
-            DayCare k = DB.DayCares.FirstOrDefault(x => x.IdDayCare == dayCareDal.IdDayCare);
-            if (k != null)
+            using (var db = new newMaonContext())
             {
-                k.IdDayCare = dayCareDal.IdDayCare;
-                k.BehaviorDayCare = dayCareDal.BehaviorDayCare;
-                k.FoodDayCare = dayCareDal.FoodDayCare;
-                k.DressDayCare = dayCareDal.DressDayCare;
-                k.CommentDayCare = dayCareDal.CommentDayCare;
-                k.SleepDayCare = dayCareDal.SleepDayCare;
-                k.DateCare = dayCareDal.DateCare;
+                DayCare k = db.DayCares.FirstOrDefault(x => x.IdDayCare == dayCareDal.IdDayCare);
+                if (k != null)
+                {
+                    k.IdDayCare = dayCareDal.IdDayCare;
+                    k.BehaviorDayCare = dayCareDal.BehaviorDayCare;
+                    k.FoodDayCare = dayCareDal.FoodDayCare;
+                    k.DressDayCare = dayCareDal.DressDayCare;
+                    k.CommentDayCare = dayCareDal.CommentDayCare;
+                    k.SleepDayCare = dayCareDal.SleepDayCare;
+                    k.DateCare = dayCareDal.DateCare;
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+
+                }
+                return true;
+            }
+        }
+
+        public bool AddDayCare(DayCare DayCareDal)
+        {
+            using (var db = new newMaonContext())
+            {
+                db.DayCares.Add(DayCareDal);
+
                 try
                 {
-                    DB.SaveChanges();
+                    db.SaveChanges();
                 }
                 catch
                 {
                     return false;
                 }
-
-
+                return true;
             }
-            return true;
-
         }
-
-        public bool AddDayCare(DayCare DayCareDal)
-        {
-            DB.DayCares.Add(DayCareDal);
-
-            try
-            {
-                DB.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
-
         public bool Delete(int idDayCare)
         {
-            DayCare k = DB.DayCares.FirstOrDefault(x => x.IdDayCare == idDayCare);
+            using (var db = new newMaonContext())
+            {
+                DayCare k = db.DayCares.FirstOrDefault(x => x.IdDayCare == idDayCare);
 
-            DB.DayCares.Remove(k);
-            try
-            {
-                DB.SaveChanges();
+                db.DayCares.Remove(k);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
             }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
     }
 }

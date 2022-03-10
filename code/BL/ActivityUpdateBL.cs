@@ -23,9 +23,9 @@ namespace BL
             imapper = config.CreateMapper();
         }
 
-        public List<ActivityUpdateDTO> getAll()
+        public List<ActivityUpdateDTO> GetAll()
         {
-            List<ActivityUpdate> l = _activity_UpdateDal.getAll();
+            List<ActivityUpdate> l = _activity_UpdateDal.GetAll();
             List<ActivityUpdateDTO> lDTO = imapper.Map<List<ActivityUpdate>, List<ActivityUpdateDTO>>(l);
             return lDTO;
         }

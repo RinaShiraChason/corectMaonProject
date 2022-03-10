@@ -21,13 +21,19 @@ namespace BL
             });
             imapper = config.CreateMapper();
         }
-        public List<RecoverLostsDTO> getAll()
+        public List<RecoverLostsDTO> GetAll()
         {
-            List<RecoverLosts> l = _RecoverLostDAL.getAll();
+            List<RecoverLosts> l = _RecoverLostDAL.GetAll();
             List<RecoverLostsDTO> lDTO = imapper.Map<List<RecoverLosts>, List<RecoverLostsDTO>>(l);
             return lDTO;
         }
-
+        public RecoverLostsDTO GetById(int id)
+        {
+            RecoverLosts l = _RecoverLostDAL.GetById(id);
+            RecoverLostsDTO sDTO = imapper.Map<RecoverLosts, RecoverLostsDTO>(l);
+            return sDTO;
+        }
+        
         public object Delete(int idRecoverLost)
         {
             bool b = _RecoverLostDAL.Delete(idRecoverLost);
@@ -44,6 +50,31 @@ namespace BL
             return b;
         }
 
+        public object AddUpdateRecoverLost(RecoverLostsDTO recoverLosts)
+        {
+            RecoverLosts rec = imapper.Map<RecoverLostsDTO, RecoverLosts>(recoverLosts);
+
+            bool b = false;
+            if (rec.RecoverLostsId == 0)
+            {
+                b = _RecoverLostDAL.AddRecoverLostsId(rec);
+            }
+            else
+            {
+                b = _RecoverLostDAL.update(rec);
+            }
+
+
+
+            return b;
+        }
+
+        public bool UploadImage(int id, string image)
+        {
+            bool b = _RecoverLostDAL.UploadImage(id, image);
+
+            return b;
+        }
         public object update(RecoverLostsDTO recoverLost)
         {
             RecoverLosts rec = imapper.Map<RecoverLostsDTO, RecoverLosts>(recoverLost);

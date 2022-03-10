@@ -16,12 +16,12 @@ namespace corectMaonProject.Controllers
 
         [HttpGet]
         //שליפה
-        public IActionResult getAll()
+        public IActionResult GetAll()
         {
-            return Ok(_Kids_AttendanceBL.getAll());
+            return Ok(_Kids_AttendanceBL.GetAll());
 
         }
-
+   
         [HttpPut]
         //עדכון
         public IActionResult update(KidsAttendanceDTO Kids_Attendance)
@@ -36,6 +36,16 @@ namespace corectMaonProject.Controllers
             return Ok(_Kids_AttendanceBL.AddKids_Attendance(Kids_Attendance));
 
         }
+
+        [HttpPost]
+        [Route("SetKidAttendence")]
+        //הוספה
+        public IActionResult SetKidAttendence(KidsAttendanceDTO Kids_Attendance)
+        {
+            return Ok(_Kids_AttendanceBL.SetKidAttendence(Kids_Attendance));
+
+        }
+        
         [HttpDelete]
         public IActionResult Delete(int AttendanceId)
         {

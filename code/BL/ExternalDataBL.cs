@@ -20,10 +20,10 @@ namespace BL
             });
             imapper = config.CreateMapper();
         }
-        public List<ExternalData> getAll()
+        public List<ExternalData> GetAll()
         {
 
-            List<ExternalData> l = externalDataDAL.getAll();
+            List<ExternalData> l = externalDataDAL.GetAll();
 
             return l;
         }

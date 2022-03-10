@@ -16,11 +16,21 @@ namespace corectMaonProject.Controllers
 
         [HttpGet]
         //שליפה
-        public IActionResult getAll()
+        public IActionResult GetAll()
         {
-            return Ok(_Placement_Of_A_TeacherBL.getAll());
+            return Ok(_Placement_Of_A_TeacherBL.GetAll());
 
         }
+        //
+        [HttpGet]
+        [Route("GetByTeacherId/{id}")]
+        //שליפה
+        public IActionResult GetByTeacherId(int id)
+        {
+            return Ok(_Placement_Of_A_TeacherBL.GetByTeacherId(id));
+
+        }
+
 
         [HttpPut]
         //עדכון

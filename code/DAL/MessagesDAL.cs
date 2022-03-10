@@ -3,53 +3,84 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+
 namespace DAL
 {
     public class MessagesDAL
     {
-        newMaonContext DB = new newMaonContext();
+
         public void AddMessages(Messages tModel)
         {
-            try
+            using (var db = new newMaonContext())
             {
-                DB.Messages.Add(tModel);
-                DB.SaveChanges();
-            }
-            catch
-            {
+                try
+                {
+                    db.Messages.Add(tModel);
+                    db.SaveChanges();
+                }
+                catch
+                {
+
+                }
 
             }
-
         }
 
-        public List<Messages> getAll()
+        public List<Messages> GetAll()
         {
-            List<Messages> lData = DB.Messages.ToList();
+            using (var db = new newMaonContext())
+            {
+                List<Messages> lData = db.Messages.ToList();
 
-            return lData;
+                return lData;
+            }
         }
 
         public bool Delete(int id)
         {
-            Messages t = DB.Messages.FirstOrDefault(x => x.MessageId == id);
-            try
+            using (var db = new newMaonContext())
             {
-                DB.Messages.Remove(t);
-                DB.SaveChanges();
-            
+                Messages t = db.Messages.FirstOrDefault(x => x.MessageId == id);
+                try
+                {
+                    db.Messages.Remove(t);
+                    db.SaveChanges();
 
+
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
             }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
+
+
+        public List<Messages> GetMessagesByTo(int userToId)
+        {
+            using (var db = new newMaonContext())
+            {
+                List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").Where(x => x.UserToId == userToId).OrderBy(x => x.MessageDateTime).ToList();
+                return lData;
+            }
+        }
+
+        public List<Messages> GetMessagesByFrom(int userFromId)
+        {
+            using (var db = new newMaonContext())
+            {
+                List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").Where(x => x.UserFromId == userFromId).OrderBy(x => x.MessageDateTime).ToList();
+                return lData;
+            }
+        }
+
 
         //public Messages getByTZAndPass(long tz, string pass)
         //{
-        //    Messages Teacher = DB.Messages.FirstOrDefault(x => x.TeacherTz == tz && x.UserTzNavigation.Password == pass);
-        //    User User = DB.Users.FirstOrDefault(x => x.UserTz == Teacher.UserTz);
+        //    Messages Teacher = db.Messages.FirstOrDefault(x => x.TeacherTz == tz && x.UserTzNavigation.Password == pass);
+        //    User User = db.Users.FirstOrDefault(x => x.UserTz == Teacher.UserTz);
 
         //    Messages teacherAndUser = new Messages();
 
@@ -68,23 +99,26 @@ namespace DAL
 
         public void update(Messages tModel)
         {
-            Messages k = DB.Messages.FirstOrDefault(x => x.MessageId == tModel.MessageId);
-            if (k != null)
+            using (var db = new newMaonContext())
             {
-
-                k.MessageDateTime = tModel.MessageDateTime;
-                k.MessageContent = tModel.MessageContent;
-                k.UserToId = tModel.UserToId;
-                k.UserFromId = tModel.UserFromId;
-                k.KidId = tModel.KidId;
-
-                try
-                {
-                    DB.SaveChanges();
-                }
-                catch
+                Messages k = db.Messages.FirstOrDefault(x => x.MessageId == tModel.MessageId);
+                if (k != null)
                 {
 
+                    k.MessageDateTime = tModel.MessageDateTime;
+                    k.MessageContent = tModel.MessageContent;
+                    k.UserToId = tModel.UserToId;
+                    k.UserFromId = tModel.UserFromId;
+                    k.KidId = tModel.KidId;
+
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
         }

@@ -1,17 +1,72 @@
-<form style="text-align: right; width: 40%;margin:auto ;">
-<h1>אזור אישי גננת:</h1>
-<a href="teachersPlacement"  ><button mdbBtn type="button"  gradient="aqua" rounded="true" mdbWavesEffect>דף שיבוץ גננות</button></a><br/>
-<a href="pageChildPlacement" ><button  mdbBtn type="button"  gradient="aqua" rounded="true" mdbWavesEffect> דף סימון נוכחות</button></a><br/>
-<a href="parentsMessages" ><button mdbBtn type="button"  gradient="aqua" rounded="true" mdbWavesEffect>הודעות מההורים</button></a><br/>
-<label mdbBtn type="button" (click)="openTextBox();"  gradient="aqua" rounded="true" mdbWavesEffect>כתיבת הודעה למהנהלת:  <mdb-icon far icon="edit" ></mdb-icon></label><br/>
-<div style="display:none;" id="TXTMSG" >
-   <input  border-width="thin" type="text"/>
-   <div mdbBtn type="button" color="info" outline="true" mdbWavesEffect>שליחה</div>
-</div>
-<a href="childList" ><button mdbBtn type="button"  gradient="aqua" rounded="true" mdbWavesEffect>רשימת הילדים בגן</button></a><br/>
-
-</form>
+<!-- <form style="text-align: right; width: 40%; margin: auto">
+    <h1>אזור אישי גננת:</h1>
+    <a href="teachersPlacement"><button mdbBtn type="button" gradient="aqua" rounded="true" mdbWavesEffect>
+      דף שיבוץ גננות
+    </button></a
+  ><br />
+  <a href="pageChildPlacement"
+    ><button mdbBtn type="button" gradient="aqua" rounded="true" mdbWavesEffect>
+      דף סימון נוכחות
+    </button></a
+  ><br />
+  <a href="parentsMessages"
+    ><button mdbBtn type="button" gradient="aqua" rounded="true" mdbWavesEffect>
+      הודעות מההורים
+    </button></a
+  ><br />
+  <label
+    mdbBtn
+    type="button"
+    (click)="openTextBox()"
+    gradient="aqua"
+    rounded="true"
+    mdbWavesEffect
+    >כתיבת הודעה למהנהלת: <mdb-icon far icon="edit"></mdb-icon></label
+  ><br />
+  <div style="display: none" id="TXTMSG">
+    <input border-width="thin" type="text" />
+    <div mdbBtn type="button" color="info" outline="true" mdbWavesEffect>
+      שליחה
+    </div>
+  </div>
+  <a href="childList"
+    ><button mdbBtn type="button" gradient="aqua" rounded="true" mdbWavesEffect>
+      רשימת הילדים בגן
+    </button></a
+  ><br />
+</form> -->
 
 <!-- href="pageChildPlacement" -->
 
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened mode="side" position="end" class="side-cont-admin">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/menuTeacher/childList" routerLinkActive="active_link">
+                <mat-icon>face</mat-icon> &nbsp;ילדי הגן
+            </a>
+            <a mat-list-item routerLink="/menuTeacher/pageChildPlacement" routerLinkActive="active_link">
+                <mat-icon>check_circle_outline</mat-icon> &nbsp;נוכחות
+            </a>
+            <a mat-list-item routerLink="/menuTeacher/teachersPlacement" routerLinkActive="active_link">
+                <mat-icon>calendar_today</mat-icon> &nbsp;שיבוץ שבועי
+            </a>
+            <a mat-list-item routerLink="/menuTeacher/message" routerLinkActive="active_link">
+                <mat-icon>message</mat-icon> &nbsp;הודעות
+            </a>
 
+            <a mat-list-item routerLink="/menuTeacher/parentsMessages" routerLinkActive="active_link">
+                <mat-icon>linked_camera</mat-icon> &nbsp;תמונות וקישורים
+            </a>
+            <a mat-list-item routerLink="/menuTeacher/recover-losts" routerLinkActive="active_link">
+                <mat-icon>star</mat-icon> &nbsp;השבת אבידה
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh">
+            <div class="content-div">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

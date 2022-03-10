@@ -1,1 +1,34 @@
-<p>page-child-placement works!</p>
+<h1>נוכחות בגן {{ today | date: "dd/MM/yyyy HH:mm" }}</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="row">ת.ז</th>
+            <th scope="row">שם</th>
+            <th scope="row"> זמן הגעה בבוקר</th>
+            <th scope="row">נוכחות</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let item of childList">
+        <td>{{ item.TzKid }}</td>
+        <td>{{ item.NameKids }}</td>
+        <td>
+            {{ item.KidsAttendance && item.KidsAttendance.length > 0 ? (item.KidsAttendance[0].CurrentDate| date: "dd/MM/yyyy HH:mm") : "-" }}
+        </td>
+
+        <td *ngIf="
+        item.KidsAttendance &&
+        item.KidsAttendance.length > 0 &&
+        item.KidsAttendance[0].IsArrived == true
+      ">
+            <!-- /KidsAttendance -->
+            <mat-icon class="checked" (click)="CheckKid(item.KidId, false)">check</mat-icon>
+        </td>
+        <td *ngIf="
+        !item.KidsAttendance ||
+        item.KidsAttendance.length == 0 ||
+        item.KidsAttendance[0].IsArrived == false
+      ">
+            <mat-icon (click)="CheckKid(item.KidId, true)">check</mat-icon>
+        </td>
+    </tr>
+</table>

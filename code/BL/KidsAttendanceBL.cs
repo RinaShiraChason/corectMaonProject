@@ -22,9 +22,9 @@ namespace BL
             imapper = config.CreateMapper();
         }
 
-        public List<KidsAttendanceDTO> getAll()
+        public List<KidsAttendanceDTO> GetAll()
         {
-            List<KidsAttendance> l = _kids_AttendanceDal.getAll();
+            List<KidsAttendance> l = _kids_AttendanceDal.GetAll();
             List<KidsAttendanceDTO> lDTO = imapper.Map<List<KidsAttendance>, List<KidsAttendanceDTO>>(l);
             return lDTO;
         }
@@ -40,6 +40,14 @@ namespace BL
         public object Delete(int attendanceId)
         {
             bool b = _kids_AttendanceDal.Delete(attendanceId);
+
+            return b;
+        }
+
+        public bool SetKidAttendence(KidsAttendanceDTO kids_Attendance)
+        {
+            KidsAttendance KidsAttendanceDal = imapper.Map<KidsAttendanceDTO, KidsAttendance>(kids_Attendance);
+            bool b = _kids_AttendanceDal.SetKidAttendence(KidsAttendanceDal);
 
             return b;
         }

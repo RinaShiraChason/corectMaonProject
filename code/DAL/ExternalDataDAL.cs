@@ -6,75 +6,81 @@ using System.Text;
 
 namespace DAL
 {
-   public class ExternalDataDAL
+    public class ExternalDataDAL
     {
-        newMaonContext DB = new newMaonContext();
 
-        public List<ExternalData> getAll()
-        { 
-            List<ExternalData> lExternalDatas = DB.ExternalData.ToList();
-        
-         
 
-            return lExternalDatas;
+        public List<ExternalData> GetAll()
+        {
+            using (var db = new newMaonContext())
+            {
+                List<ExternalData> lExternalDatas = db.ExternalData.ToList();
+                return lExternalDatas;
+            }
         }
 
         public bool update(ExternalData extDataDal)
         {
-            ExternalData prt = DB.ExternalData.FirstOrDefault(x => x.ExternalDataId == extDataDal.ExternalDataId);
-            if (prt != null)
+            using (var db = new newMaonContext())
             {
-                prt.ExternalDataDate = extDataDal.ExternalDataDate;
-                prt.ExternalDataTitle = extDataDal.ExternalDataTitle;
-                prt.ExternalDataLink = extDataDal.ExternalDataLink;
-                try
+                ExternalData prt = db.ExternalData.FirstOrDefault(x => x.ExternalDataId == extDataDal.ExternalDataId);
+                if (prt != null)
                 {
-                    DB.SaveChanges();
-                }
-                catch
-                {
-                    return false;
-                }
+                    prt.ExternalDataDate = extDataDal.ExternalDataDate;
+                    prt.ExternalDataTitle = extDataDal.ExternalDataTitle;
+                    prt.ExternalDataLink = extDataDal.ExternalDataLink;
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
 
 
+                }
+                return true;
             }
-            return true;
-
         }
 
         public void AddExternalDatas(ExternalData tModel)
         {
-            try
+            using (var db = new newMaonContext())
             {
-                DB.ExternalData.Add(tModel);
-                DB.SaveChanges();
-            }
-            catch
-            {
-            
+                try
+                {
+                    db.ExternalData.Add(tModel);
+                    db.SaveChanges();
+                }
+                catch
+                {
 
 
+                }
             }
         }
 
         public bool Delete(int extDataId)
         {
-            ExternalData k = DB.ExternalData.FirstOrDefault(x => x.ExternalDataId == extDataId);
-             try
+            using (var db = new newMaonContext())
             {
-                DB.ExternalData.Remove(k);
-                DB.SaveChanges();
-            
+                ExternalData k = db.ExternalData.FirstOrDefault(x => x.ExternalDataId == extDataId);
+                try
+                {
+                    db.ExternalData.Remove(k);
+                    db.SaveChanges();
 
+
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
             }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
 
-       
     }
-    }
+}
 

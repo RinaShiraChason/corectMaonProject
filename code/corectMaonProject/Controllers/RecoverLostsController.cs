@@ -15,13 +15,21 @@ namespace corectMaonProject.Controllers
        RecoverLostsBL _RecoverLostsBL = new RecoverLostsBL();
 
         [HttpGet]
+        [Route("GetAll")]
         //שליפה
-        public IActionResult getAll()
+        public IActionResult GetAll()
         {
-            return Ok(_RecoverLostsBL.getAll());
+            return Ok(_RecoverLostsBL.GetAll());
 
         }
+        [HttpGet]
+        [Route("GetById/{id}")]
+        //שליפה
+        public IActionResult GetById(int id)
+        {
+            return Ok(_RecoverLostsBL.GetById(id));
 
+        }
         [HttpPut]
         //עדכון
         public IActionResult update(RecoverLostsDTO RecoverLosts)
@@ -34,6 +42,15 @@ namespace corectMaonProject.Controllers
         public IActionResult AddRecoverLosts(RecoverLostsDTO RecoverLosts)
         {
             return Ok(_RecoverLostsBL.AddRecoverLosts(RecoverLosts));
+
+        }
+
+        [HttpPost]
+        [Route("AddUpdateRecoverLost")]
+        //הוספה
+        public IActionResult AddUpdateRecoverLost(RecoverLostsDTO RecoverLosts)
+        {
+            return Ok(_RecoverLostsBL.AddUpdateRecoverLost(RecoverLosts));
 
         }
         [HttpDelete]

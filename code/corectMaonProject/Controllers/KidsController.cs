@@ -17,10 +17,10 @@ namespace corectMaonProject.Controllers
         KidsBL _kidsBL = new KidsBL();
 
         [HttpGet]
-        [Route("getAll")]
-        public IActionResult getAll()
+        [Route("GetAll")]
+        public IActionResult GetAll()
         {
-            return Ok(_kidsBL.getAll());
+            return Ok(_kidsBL.GetAll());
 
         }
         [HttpGet]
@@ -31,6 +31,17 @@ namespace corectMaonProject.Controllers
             return Ok(_kidsBL.GetKidsByTeacher(teacherId));
 
         }
+
+        [HttpGet]
+        [Route("GetTodayKidsWithAttendenc/{classId}")]
+        //שליפה
+        public IActionResult GetTodayKidsWithAttendenc(int classId)
+        {
+            return Ok(_kidsBL.GetTodayKidsWithAttendenc(classId));
+
+        }
+
+
         [HttpPut]
         //עדכון
         public IActionResult update(KidsDTO kids)

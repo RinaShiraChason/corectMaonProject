@@ -18,8 +18,11 @@ URL="https://localhost:44397/api/KidsAttendance/";
     return this.http.put<KidsAttendance[]>(this.URL,ka)
   }
   
-  add(ka: KidsAttendance):Observable<KidsAttendance[]>{
-    return this.http.post<KidsAttendance[]>(this.URL,ka)
+  setKidAttendence(ka: KidsAttendance):Observable<KidsAttendance[]>{
+    var urlData = this.URL + "setKidAttendence" ;
+
+   
+    return this.http.post<KidsAttendance[]>(urlData,ka)
   }
   
   delete(AttendanceId:number):Observable<KidsAttendance[]>{
