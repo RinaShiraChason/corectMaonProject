@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DTO
 {
@@ -15,6 +16,9 @@ namespace DTO
 
         public  ClassesDTO Class { get; set; }
         public  UserDTO UserParent { get; set; }
+
+
+        public  ICollection<KidsAttendanceDTO> KidsAttendance { get; set; }
 
     }
 }

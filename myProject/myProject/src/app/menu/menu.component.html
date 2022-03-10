@@ -1,0 +1,51 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened mode="side" position="end" class="side-cont-admin">
+        <mat-nav-list>
+
+            <!-- <a mat-list-item *ngIf="checkIfManager()" (click)="GoToManager()">להוספת עובד 
+                    <mat-icon>mail_outline</mat-icon> &nbsp;שליחת הודעות </a>
+    
+                <a mat-list-item (click)="GoToUserTable()">
+                    <mat-icon>file_copy</mat-icon> &nbsp; עובדים </a>
+    
+                <a mat-list-item (click)="GoToMenu()">
+                    <mat-icon>announcement</mat-icon> &nbsp; תפריט שרותים </a> -->
+            <a mat-list-item routerLink="/menu/requestsTable/1" routerLinkActive="active_link">
+                <mat-icon>assignment_late</mat-icon> &nbsp; פניות בהמתנה
+            </a>
+            <a mat-list-item routerLink="/menu/requestsTable/2" routerLinkActive="active_link">
+                <mat-icon>assignment_turned_in</mat-icon> &nbsp;פניות שנסגרו
+            </a>
+            <a mat-list-item routerLink="/menu/requestsTable/4" routerLinkActive="active_link">
+                <mat-icon>assignment_returned</mat-icon> &nbsp;פניות שהתקבלו
+            </a>
+
+
+
+
+            <a mat-list-item *ngIf="checkIfManager()" routerLink="/menu/manager" routerLinkActive="active_link">
+                <mat-icon>perm_identity</mat-icon> &nbsp;להוספת עובד
+            </a>
+            <a mat-list-item routerLink="/menu/userTable" routerLinkActive="active_link">
+                <mat-icon>supervisor_account</mat-icon> &nbsp;עובדים
+            </a>
+
+            <a mat-list-item routerLink="/menu/patientsTable" routerLinkActive="active_link">
+                <mat-icon>group</mat-icon> &nbsp;רשימת התלמידים הכללית
+            </a>
+            <a mat-list-item routerLink="/menu/updatestudents" routerLinkActive="active_link">
+                <mat-icon>group_add</mat-icon> &nbsp;עדכון תלמידים
+            </a>
+
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh;">
+            <div class="content-div">
+
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

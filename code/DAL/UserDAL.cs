@@ -6,76 +6,88 @@ using System.Text;
 
 namespace DAL
 {
-   public class UserDAL
+    public class UserDAL
     {
 
-        newMaonContext DB = new newMaonContext();
-        
-        public List<User> getAll()
+        public List<User> GetAll()
         {
-            return DB.Users.ToList();
+            using (var db = new newMaonContext())
+            {
+                return db.Users.ToList();
+            }
         }
         public User Login(string userTz, string pas)
         {
-            return DB.Users.FirstOrDefault(x=>x.UserName == userTz && x.Password == pas);
+            using (var db = new newMaonContext())
+            {
+                return db.Users.FirstOrDefault(x => x.UserName == userTz && x.Password == pas);
+            }
         }
-        
+
         public bool update(User UserDAL)
         {
-            User p = DB.Users.FirstOrDefault(x => x.UserId == UserDAL.UserId);
-            if (p != null)
+            using (var db = new newMaonContext())
             {
-                p.UserName = UserDAL.UserName;
-                p.Address = UserDAL.Address;
-                p.Email = UserDAL.Email;
-                p.PhoneNamber1 = UserDAL.PhoneNamber1;
-                p.PhoneNamber2 = UserDAL.PhoneNamber2;
-                p.UserTz = UserDAL.UserTz;
+                User p = db.Users.FirstOrDefault(x => x.UserId == UserDAL.UserId);
+                if (p != null)
+                {
+                    p.UserName = UserDAL.UserName;
+                    p.Address = UserDAL.Address;
+                    p.Email = UserDAL.Email;
+                    p.PhoneNamber1 = UserDAL.PhoneNamber1;
+                    p.PhoneNamber2 = UserDAL.PhoneNamber2;
+                    p.UserTz = UserDAL.UserTz;
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+
+                }
+                return true;
+            }
+        }
+
+        public int AddUser(User UserDAL)
+        {
+            using (var db = new newMaonContext())
+            {
+                db.Users.Add(UserDAL);
+
                 try
                 {
-                    DB.SaveChanges();
+                    db.SaveChanges();
+                    return UserDAL.UserId;
+                }
+                catch
+                {
+                    return 0;
+                }
+
+            }
+        }
+
+        public bool Delete(int UserId)
+        {
+            using (var db = new newMaonContext())
+            {
+                User k = db.Users.FirstOrDefault(x => x.UserId == UserId);
+
+                db.Users.Remove(k);
+                try
+                {
+                    db.SaveChanges();
                 }
                 catch
                 {
                     return false;
                 }
-
-
+                return true;
             }
-            return true;
-
-        }
-
-        public int AddUser(User UserDAL)
-        {
-            DB.Users.Add(UserDAL);
-
-            try
-            {
-                DB.SaveChanges();
-                return UserDAL.UserId;
-            }
-            catch
-            {
-                return 0;
-            }
-        
-        }
-
-        public bool Delete(int UserId)
-        {
-            User k = DB.Users.FirstOrDefault(x => x.UserId == UserId);
-
-            DB.Users.Remove(k);
-            try
-            {
-                DB.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
     }
 }

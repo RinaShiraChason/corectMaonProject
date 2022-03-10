@@ -17,9 +17,9 @@ namespace corectMaonProject.Controllers
         [HttpGet]
         [Route("getAll")]
         //שליפה
-        public IActionResult getAll()
+        public IActionResult GetAll()
         {
-            return Ok(_MessagesBL.getAll());
+            return Ok(_MessagesBL.GetAll());
 
         }
 
@@ -29,6 +29,21 @@ namespace corectMaonProject.Controllers
         public IActionResult GetMessgesByTeacher(int teacherId)
         {
             return Ok(_MessagesBL.GetMessgesByTeacher(teacherId));
+
+        [HttpGet]
+        [Route("GetMessagesByTo/{id}")]
+        //שליפה
+        public IActionResult GetMessagesByTo(int id)
+        {
+            return Ok(_MessagesBL.GetMessagesByTo(id));
+
+        }
+        [HttpGet]
+        [Route("GetMessagesByFrom/{id}")]
+        //שליפה
+        public IActionResult GetMessagesByFrom(int id)
+        {
+            return Ok(_MessagesBL.GetMessagesByFrom(id));
 
         }
         [HttpPut]

@@ -36,11 +36,11 @@ namespace DAL.models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-FKUPS69\\SQLEXPRESS;Initial Catalog=NewMaonProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                optionsBuilder.UseSqlServer("Data Source=ILY9E484-TP\\SQLEXPRESS;Initial Catalog=NewMaonProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
 
-//
-        //        optionsBuilder.UseSqlServer("Data Source=DESKTOP-FKUPS69;Initial Catalog=newMaon;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //
+                //        optionsBuilder.UseSqlServer("Data Source=ILY9E484-TP;Initial Catalog=newMaon;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 
@@ -65,7 +65,7 @@ namespace DAL.models
                     .HasColumnName("DailyActivitySubject");
 
                 entity.Property(e => e.DailyActivityDate)
-              .HasColumnType("date")
+              .HasColumnType("datetime")
               .HasColumnName("DailyActivityDate");
 
 
@@ -125,7 +125,7 @@ namespace DAL.models
 
 
                 entity.Property(e => e.DateCare)
-                    .HasColumnType("date")
+                    .HasColumnType("datetime")
                     .HasColumnName("DateCare");
 
 
@@ -180,7 +180,7 @@ namespace DAL.models
                     .IsUnicode(false)
                     .HasColumnName("MessageContent");
 
-                entity.Property(e => e.MessageDateTime).HasColumnType("date")
+                entity.Property(e => e.MessageDateTime).HasColumnType("datetime")
                     .HasColumnName("MessageDateTime");
 
 
@@ -225,7 +225,7 @@ namespace DAL.models
                 entity.Property(e => e.ClassId).HasColumnName("ClassId");
 
                 entity.Property(e => e.DateBorn)
-                    .HasColumnType("date")
+                    .HasColumnType("datetime")
                     .HasColumnName("DateBorn");
 
                 entity.Property(e => e.NameKids)
@@ -268,7 +268,7 @@ namespace DAL.models
                 entity.Property(e => e.IsArrived).HasDefaultValue(true).HasColumnName("IsArrived");
 
                 entity.Property(e => e.CurrentDate)
-                    .HasColumnType("date")
+                    .HasColumnType("datetime")
                     .HasColumnName("CurrentDate");
 
                 entity.Property(e => e.KidId).HasColumnName("KidId");
@@ -288,7 +288,7 @@ namespace DAL.models
 
                 entity.Property(e => e.RecoverLostsId).HasColumnName("RecoverLostsId");
 
-                entity.Property(e => e.RecoverLostsDate).HasColumnType("date").HasColumnName("RecoverLostsDate");
+                entity.Property(e => e.RecoverLostsDate).HasColumnType("datetime").HasColumnName("RecoverLostsDate");
                 entity.Property(e => e.RecoverLostsImage)
                   .IsRequired()
                   .HasMaxLength(200)
@@ -318,7 +318,7 @@ namespace DAL.models
 
                 entity.Property(e => e.ImageId).HasColumnName("ImageId");
 
-                entity.Property(e => e.ImageDate).HasColumnType("date").HasColumnName("ImageDate");
+                entity.Property(e => e.ImageDate).HasColumnType("datetime").HasColumnName("ImageDate");
                 entity.Property(e => e.ImageTitle)
                   .IsRequired()
                   .HasMaxLength(200)
@@ -362,7 +362,7 @@ namespace DAL.models
 
                 entity.Property(e => e.ExternalDataId).HasColumnName("ExternalDataId");
 
-                entity.Property(e => e.ExternalDataDate).HasColumnType("date").HasColumnName("ExternalDataDate");
+                entity.Property(e => e.ExternalDataDate).HasColumnType("datetime").HasColumnName("ExternalDataDate");
                 entity.Property(e => e.ExternalDataLink)
                   .IsRequired()
                   .HasMaxLength(200)
@@ -437,11 +437,17 @@ namespace DAL.models
                     .HasColumnName("PhoneNamber1");
 
                 entity.Property(e => e.PhoneNamber2)
-                    .IsRequired()
+                    .IsRequired(false)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("PhoneNamber2");
 
+                entity.Property(e => e.ClassId).HasColumnName("ClassId");
+
+                entity.HasOne(d => d.Class)
+                    .WithMany(p => p.TeacherUsers)
+                    .HasForeignKey(d => d.ClassId)
+                    .HasConstraintName("FK__exte__class___5DCAEF64");
 
             });
 
@@ -454,22 +460,28 @@ namespace DAL.models
 
                 entity.Property(e => e.IdPlacementOfATeacher).HasColumnName("IdPlacementOfATeacher");
 
-                entity.Property(e => e.ClassId).HasColumnName("ClassId");
+                entity.Property(e => e.DayInWeek1M).HasColumnName("DayInWeek1M");
+                entity.Property(e => e.DayInWeek1A).HasColumnName("DayInWeek1A");
 
-                entity.Property(e => e.IsMorning)
-                    .HasColumnName("IsMorning");
+                entity.Property(e => e.DayInWeek2M).HasColumnName("DayInWeek2M");
 
-                entity.Property(e => e.DayInWeek)
-                    .HasColumnName("DayInWeek");
+                entity.Property(e => e.DayInWeek2A).HasColumnName("DayInWeek2A");
+
+                entity.Property(e => e.DayInWeek3M).HasColumnName("DayInWeek3M");
+                entity.Property(e => e.DayInWeek3A).HasColumnName("DayInWeek3A");
+                entity.Property(e => e.DayInWeek4M).HasColumnName("DayInWeek4M");
+                entity.Property(e => e.DayInWeek4A).HasColumnName("DayInWeek4A");
+                entity.Property(e => e.DayInWeek5M).HasColumnName("DayInWeek5M");
+                entity.Property(e => e.DayInWeek5A).HasColumnName("DayInWeek5A");
+                entity.Property(e => e.DayInWeek6M).HasColumnName("DayInWeek6M");
+
+
 
                 entity.Property(e => e.TeacherId)
                   .HasColumnName("TeacherId");
 
 
-                entity.HasOne(d => d.Class)
-                    .WithMany(p => p.PlacementOfATeachers)
-                    .HasForeignKey(d => d.ClassId)
-                    .HasConstraintName("FK__placement__class__6754599E");
+
 
                 entity.HasOne(d => d.UserTeacher)
                     .WithMany(p => p.PlacementOfATeacher)
@@ -487,14 +499,14 @@ namespace DAL.models
 
                 entity.Property(e => e.IdTypeClass).HasColumnName("IdTypeClass");
 
-             
+
                 entity.Property(e => e.TypeClassName)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("TypeClassName");
 
-             
+
             });
 
 

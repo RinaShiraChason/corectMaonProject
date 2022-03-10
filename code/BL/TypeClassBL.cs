@@ -22,9 +22,9 @@ namespace BL
             imapper = config.CreateMapper();
         }
 
-        public List<TypeClassDTO> getAll()
+        public List<TypeClassDTO> GetAll()
         {
-            List<TypeClass> l = _type_ClassDAL.getAll();
+            List<TypeClass> l = _type_ClassDAL.GetAll();
             List<TypeClassDTO> lDTO = imapper.Map<List<TypeClass>, List<TypeClassDTO>>(l);
             return lDTO;
         }

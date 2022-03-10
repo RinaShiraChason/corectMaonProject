@@ -1,26 +1,24 @@
-<p>ילדים בגן</p>
+<h1>ילדים בגן</h1>
 <table class="table table-bordered">
     <thead>
-    <tr>
-        <th scope="row">ת.ז</th>
-        <th scope="row">שם</th>
-        <th scope="row">גיל</th>
-        <th scope="row">כיתה</th>
-        <th scope="row">ת.לידה</th>
-        <th scope="row">הורים</th>
+        <tr>
+            <th scope="row">ת.ז</th>
+            <th scope="row">שם</th>
+            <th scope="row">גיל</th>
+            <th scope="row">ת.לידה</th>
+            <th scope="row">הורה</th>
+            <th scope="row">טלפון הורה</th>
 
-    </tr>
-</thead> 
+        </tr>
+    </thead>
     <tr *ngFor="let item of childList">
         <td>{{item.TzKid}}</td>
         <td>{{item.NameKids}}</td>
         <td>{{item.AgeKids}}</td>
-        <td>{{item.ClassId}}</td>
-        <td>{{item.DateBorn| date:"dd/MM/yyyy"}}</td>
+        <td>{{item.DateBorn | date:"dd/MM/yyyy"}}</td>
         <td>{{item.UserParent ?item.UserParent.UserName: '-' }}</td>
-
+        <td>{{item.UserParent ?item.UserParent.PhoneNamber1: '-' }}</td>
 
 
     </tr>
 </table>
-

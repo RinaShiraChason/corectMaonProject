@@ -21,15 +21,15 @@ namespace BL
             imapper = config.CreateMapper();
         }
 
-        public List<KidsDTO> getAll()
+        public List<KidsDTO> GetAll()
         {
-          List<Kid> l=  _kidsDal.getAll();
+          List<Kid> l=  _kidsDal.GetAll();
           List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
           return lDTO;
         }
         public List<KidsDTO> GetKidsByTeacher(int teacherId)
         {
-            List<Kid> l = _kidsDal.getAllByTeacherId(teacherId);
+            List<Kid> l = _kidsDal.GetAllByTeacherId(teacherId);
             List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
             return lDTO;
         }
@@ -40,6 +40,13 @@ namespace BL
             bool b = _kidsDal.update(kidDal);
 
             return b;
+        }
+
+        public object GetTodayKidsWithAttendenc(int classId)
+        {
+            List<Kid> l = _kidsDal.GetTodayKidsWithAttendenc(classId);
+            List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
+            return lDTO;
         }
 
         public bool AddKids(KidsDTO kids)

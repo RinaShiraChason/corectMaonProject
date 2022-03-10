@@ -8,65 +8,77 @@ namespace DAL
 {
     public class ClassesDAL
     {
-        newMaonContext DB = new newMaonContext();
-        public List<Class> getAll()
+
+        public List<Class> GetAll()
         {
-            return DB.Classes.ToList();
+            using (var db = new newMaonContext())
+            {
+                return db.Classes.ToList();
+            }
         }
 
         public bool update(Class classDal)
         {
-            Class k = DB.Classes.FirstOrDefault(x => x.ClassId == classDal.ClassId);
-            if (k != null)
+            using (var db = new newMaonContext())
             {
-           
-                k.ClassName = classDal.ClassName;
-                k.ClassTypeId = classDal.ClassTypeId;
+                Class k = db.Classes.FirstOrDefault(x => x.ClassId == classDal.ClassId);
+                if (k != null)
+                {
+
+                    k.ClassName = classDal.ClassName;
+                    k.ClassTypeId = classDal.ClassTypeId;
+
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+
+                }
+
+                return true;
+            }
+        }
+
+        public bool AddClasses(Class ClassDal)
+        {
+            using (var db = new newMaonContext())
+            {
+                db.Classes.Add(ClassDal);
 
                 try
                 {
-                    DB.SaveChanges();
+                    db.SaveChanges();
                 }
                 catch
                 {
                     return false;
                 }
-
-
+                return true;
             }
-            return true;
-
-        }
-
-        public bool AddClasses(Class ClassDal)
-        {
-            DB.Classes.Add(ClassDal);
-
-            try
-            {
-                DB.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
 
         public bool Delete(int classId)
         {
-            Class k = DB.Classes.FirstOrDefault(x => x.ClassId == classId);
+            using (var db = new newMaonContext())
+            {
+                Class k = db.Classes.FirstOrDefault(x => x.ClassId == classId);
 
-            DB.Classes.Remove(k);
-            try
-            {
-                DB.SaveChanges();
+                db.Classes.Remove(k);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
             }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
     }
 

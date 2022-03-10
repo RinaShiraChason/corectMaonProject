@@ -1,4 +1,5 @@
 import { Classes } from "./Classes";
+import { KidsAttendance } from "./KidsAttendance";
 import { User } from "./Users";
 
 export interface Kids{
@@ -12,5 +13,6 @@ export interface Kids{
 
     Class:Classes;
     UserParent:User;
+    KidsAttendance:KidsAttendance[];
 
 }

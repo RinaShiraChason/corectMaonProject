@@ -8,63 +8,74 @@ namespace DAL
 {
     public class TypeClassDAL
     {
-        newMaonContext DB = new newMaonContext();
 
-        public List<TypeClass> getAll()
+
+        public List<TypeClass> GetAll()
         {
-            return DB.TypeClasses.ToList();
+            using (var db = new newMaonContext())
+            {
+                return db.TypeClasses.ToList();
+            }
         }
 
         public bool update(TypeClass typeClassDal)
         {
-            TypeClass k = DB.TypeClasses.FirstOrDefault(x => x.IdTypeClass == typeClassDal.IdTypeClass);
-            if (k != null)
+            using (var db = new newMaonContext())
             {
-
-                 k.TypeClassName = typeClassDal.TypeClassName;
-                  try
+                TypeClass k = db.TypeClasses.FirstOrDefault(x => x.IdTypeClass == typeClassDal.IdTypeClass);
+                if (k != null)
                 {
-                    DB.SaveChanges();
+
+                    k.TypeClassName = typeClassDal.TypeClassName;
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+
+                }
+                return true;
+            }
+        }
+        public bool AddTypeClass(TypeClass typeClassDal)
+        {
+            using (var db = new newMaonContext())
+            {
+                db.TypeClasses.Add(typeClassDal);
+
+                try
+                {
+                    db.SaveChanges();
                 }
                 catch
                 {
                     return false;
                 }
-
-
+                return true;
             }
-            return true;
-        }
-
-        public bool AddTypeClass(TypeClass typeClassDal)
-        {
-            DB.TypeClasses.Add(typeClassDal);
-
-            try
-            {
-                DB.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
 
         public bool Delete(int idTypeClass)
         {
-            TypeClass k = DB.TypeClasses.FirstOrDefault(x => x.IdTypeClass == idTypeClass);
+            using (var db = new newMaonContext())
+            {
+                TypeClass k = db.TypeClasses.FirstOrDefault(x => x.IdTypeClass == idTypeClass);
 
-            DB.TypeClasses.Remove(k);
-            try
-            {
-                DB.SaveChanges();
+                db.TypeClasses.Remove(k);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
             }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
     }
 }

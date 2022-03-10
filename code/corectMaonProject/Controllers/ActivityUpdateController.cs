@@ -17,9 +17,9 @@ namespace corectMaonProject.Controllers
 
         [HttpGet]
         //שליפה
-        public IActionResult getAll()
+        public IActionResult GetAll()
         {
-            return Ok(_ActivityUpdateBL.getAll());
+            return Ok(_ActivityUpdateBL.GetAll());
 
         }
 
