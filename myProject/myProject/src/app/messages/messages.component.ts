@@ -19,10 +19,10 @@ export class MessagesComponent implements OnInit {
     this.getAll();
   }
   getAll() {
-    this.messageService.getMessagesByTo(2).subscribe((x) => {
+    this.messageService.getMessagesByTo(5).subscribe((x) => {
       this.messagesTo = x;
     });
-    this.messageService.getMessagesByFrom(2).subscribe((x) => {
+    this.messageService.getMessagesByFrom(5).subscribe((x) => {
       this.messagesFrom = x;
     });
   }

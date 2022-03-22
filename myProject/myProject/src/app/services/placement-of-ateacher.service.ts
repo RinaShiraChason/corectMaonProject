@@ -14,8 +14,8 @@ export class PlacementOfATeacherService {
   getAllׁׂׂׂׂׂׂ(): Observable<PlacementOfATeacher[]> {
     return this.http.get<PlacementOfATeacher[]>(this.URL);
   }
-  getByTeacherId(id: number): Observable<PlacementOfATeacher> {
-    return this.http.get<PlacementOfATeacher>(this.URL +'GetByTeacherId/'+ id);
+  getByteacherId(id: number): Observable<PlacementOfATeacher> {
+    return this.http.get<PlacementOfATeacher>(this.URL +'GetByteacherId/'+ id);
   }
   update(pot: PlacementOfATeacher): Observable<PlacementOfATeacher[]> {
     return this.http.put<PlacementOfATeacher[]>(this.URL, pot);

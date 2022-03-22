@@ -1,4 +1,5 @@
 ﻿using DAL.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,16 @@ namespace DAL
 
                 }
                 return true;
+            }
+        }
+
+        public DayCare GetDayCareByKids(int kidsId)
+        {
+            var today = DateTime.Today;
+            using (var db = new newMaonContext())
+            {
+               var data = db.DayCares.Include("Kid").FirstOrDefault(x => x.KidId == kidsId && today== x.DateCare.Date);
+                return data;
             }
         }
 

@@ -58,6 +58,12 @@ import { RecoverLostsListComponent } from './recover-losts-list/recover-losts-li
 import { SetRecoverLostsComponent } from './set-recover-losts/set-recover-losts.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ImagesComponent } from './images/images.component';
+import { ExternalDataComponent } from './external-data/external-data.component';
+import { SetExternalDataComponent } from './set-external-data/set-external-data.component';
+import { SetImagesComponent } from './set-images/set-images.component';
+import { ActivityUpdateComponent } from './activity-update/activity-update.component';
+import { DayCareComponent } from './day-care/day-care.component';
 
 
 
@@ -91,7 +97,13 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
     MenuComponent,
     MessagesComponent,
     RecoverLostsListComponent,
-    SetRecoverLostsComponent
+    SetRecoverLostsComponent,
+    ImagesComponent,
+    ExternalDataComponent,
+    SetExternalDataComponent,
+    SetImagesComponent,
+    ActivityUpdateComponent,
+    DayCareComponent
     //AddChildComponent
   ],
   imports: [

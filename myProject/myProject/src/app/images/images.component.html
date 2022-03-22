@@ -1,0 +1,29 @@
+<h1 class="h1-form" style="max-width: 300px;"> תמונות מהווי הגן</h1>
+
+<mat-icon class="add-icon" (click)="openDialog();">add_circle_outline</mat-icon>
+<br>
+<div class="row" style="    margin: 20px;"  *ngIf="!images || images.length >0; else noImages">
+    <div class="mat-card col-4" *ngFor="let img of images">
+        <p class="title"><strong>{{img.imageTitle }}</strong></p>
+        <img *ngIf="img.imageURL"
+         [src]="img.imageURL" width="100" >
+           <p class="sub-title">{{img.imageData}}</p>
+      <p class="createDate-msg">{{img.imageDate | date:"dd/MM/yyyy"}}</p>
+
+      <span *ngIf="img.teacherId != userId;else thisUser">{{img.userTeacher? ('הועלה ע"י '+img.userTeacher.userName):''}}</span>
+      <ng-template #thisUser>
+
+          <mat-icon class="icon" (click)="openDialog(img.imageId);">edit</mat-icon>&nbsp;
+          <mat-icon class="icon" (click)="delete(img.imageId);">cancel</mat-icon>
+      </ng-template>
+
+    </div>
+</div>
+
+<!-- teacherId -->
+<ng-template #noImages>
+    <br>
+
+    <h1> לא נמצאו תמונות וקישורים</h1>
+
+</ng-template>

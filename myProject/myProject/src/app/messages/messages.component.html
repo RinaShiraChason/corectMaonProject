@@ -1,8 +1,8 @@
 <div *ngIf="!messagesTo || messagesTo.length >0; else noMessages">
     <div class="speech-bubble" *ngFor="let message of messagesTo">
-        <p><strong>{{message.MessageContent}}</strong></p>
-        <p>מאת {{message.UserFrom.UserName }} ההורה של {{message.Kid.NameKids }}</p>
-        <p class="createDate-msg"><strong>{{message.MessageDateTime | date:"dd/MM/yyyy HH:mm"}}</strong></p>
+        <p><strong>{{message.messageContent }}</strong></p>
+        <p>מאת {{message.userFrom.userName }} ההורה של {{message.kid .nameKids  }}</p>
+        <p class="createDate-msg"><strong>{{message.messageDateTime  | date:"dd/MM/yyyy HH:mm"}}</strong></p>
     </div>
 </div>
 <ng-template #noMessages>

@@ -21,7 +21,15 @@ namespace corectMaonProject.Controllers
             return Ok(_ImagesBl.GetAll());
 
         }
+        [HttpGet]
+        [Route("GetAllByClassId/{classId}")]
+        //שליפה
+        public IActionResult GetAllByClassId(int classId)
+        {
+            return Ok(_ImagesBl.GetAllByClassId(classId));
 
+        }
+        //
         [HttpPut]
         //עדכון
         public IActionResult update(ImagesDTO image)

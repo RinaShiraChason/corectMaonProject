@@ -1,18 +1,20 @@
 import { Classes } from "./Classes";
+import { DayCare } from "./DayCare";
 import { KidsAttendance } from "./KidsAttendance";
 import { User } from "./Users";
 
 export interface Kids{
-    KidId:number;
-    NameKids:string;
-    TzKid:string;
-    AgeKids:number;
-    ClassId:number;
-    DateBorn:Date;
-    ParentId:number;
+    kidId :number;
+    nameKids :string;
+    tzKid :string;
+    ageKids :number;
+    classId:number;
+    dateBorn :Date;
+    parentId :number;
 
-    Class:Classes;
-    UserParent:User;
-    KidsAttendance:KidsAttendance[];
+    class :Classes;
+    userParent :User;
+    kidsAttendance:KidsAttendance[];
+    dayCare:DayCare[];
 
 }

@@ -28,11 +28,11 @@ export class AddChildComponent implements OnInit {
   addKids() {
     //delete
     //זה מילוי נוכחות וזה לא קשור לטופס הזה אז מה עושים
-    this.myKids.KidId = 0;
-    // this.myKids.AgeKids = 0;
-    // this.myKids.DateBorn = new Date();
+    this.myKids.kidId  = 0;
+    // this.myKids.ageKids  = 0;
+    // this.myKids.dateBorn  = new Date();
 
-    this.myKids.ClassId = 1;
+    this.myKids.classId = 1;
 
     console.log(this.myKids);
     debugger

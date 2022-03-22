@@ -22,7 +22,7 @@ URL="https://localhost:44397/api/User/";
     return this.http.post<User[]>(this.URL,pr)
   }
   
-  delete(UserTz:number):Observable<User[]>{
-    return this.http.delete<User[]>(this.URL+UserTz)
+  delete(userTz:number):Observable<User[]>{
+    return this.http.delete<User[]>(this.URL+userTz)
   }
 }

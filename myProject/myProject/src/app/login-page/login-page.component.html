@@ -15,21 +15,21 @@
       <!-- Form -->
       <form class="text-center" style="color: #757575;" [formGroup]="form">
 
-        <!-- Email -->
+        <!-- email -->
         <div class="md-form">
-          <input type="email" id="materialLoginFormEmail" required formControlName="email" class="form-control"
+          <input type="email" id="materialLoginFormemail" required formControlName="email" class="form-control"
             mdbInput>
-          <label for="materialLoginFormEmail">מייל</label>
+          <label for="materialLoginFormemail">מייל</label>
           <small *ngIf="form.get('email').errors?.required"> חובה להזין מייל.</small>
           <small *ngIf="form.get('email').errors?.pattern"> מייל לא תקין</small>
 
         </div>
 
-        <!-- Password -->
+        <!-- password -->
         <div class="md-form">
-          <input type="password" id="materialLoginFormPassword" required formControlName="password" class="form-control"
+          <input type="password" id="materialLoginFormpassword" required formControlName="password" class="form-control"
             mdbInput>
-          <label for="materialLoginFormPassword" >סיסמא</label>
+          <label for="materialLoginFormpassword" >סיסמא</label>
           <small *ngIf="form.get('password').errors?.required"> חובה להזין סיסמא.</small>
           <small *ngIf="form.get('password').errors?.pattern"> אורך הסיסמא 8 תוים, חייב להכיל אות גדולה, קטנה, מספרים
             ותו מיוחד באנגלית בלבד</small>

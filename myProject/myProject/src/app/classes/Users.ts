@@ -1,12 +1,12 @@
 export interface User {
-  UserId: number;
-  UserTz: string;
-  UserName: string;
-  Address: string;
-  Email: string;
-  PhoneNamber1: string;
-  PhoneNamber2: string;
-  Password: string;
-  UserTypeId: number;
-  ClassId?:number;
+  userId: number;
+  userTz: string;
+  userName: string;
+  address: string;
+  email: string;
+  phoneNamber1: string;
+  phoneNamber2: string;
+  password: string;
+  userTypeId: number;
+  classId?:number;
 }

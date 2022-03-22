@@ -25,7 +25,7 @@ URL="https://localhost:44397/api/KidsAttendance/";
     return this.http.post<KidsAttendance[]>(urlData,ka)
   }
   
-  delete(AttendanceId:number):Observable<KidsAttendance[]>{
-    return this.http.delete<KidsAttendance[]>(this.URL+AttendanceId)
+  delete(attendanceId :number):Observable<KidsAttendance[]>{
+    return this.http.delete<KidsAttendance[]>(this.URL+attendanceId )
   }
 }

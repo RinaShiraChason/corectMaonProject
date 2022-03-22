@@ -24,12 +24,12 @@ export class SetRecoverLostsComponent implements OnInit {
  
   recoverLosts: RecoverLosts;
   setRecoverLostForm = this.fb.group({
-    RecoverLostsInfo: this.fb.control('', [Validators.required]),
-    RecoverLostsImage: this.fb.control('', [Validators.required]),
-    RecoverLostsDate: this.fb.control(null),
+    recoverLostsInfo: this.fb.control('', [Validators.required]),
+    recoverLostsImage: this.fb.control(''),
+    recoverLostsDate: this.fb.control(null),
     postalCode: this.fb.control(null),
-    IdUser: this.fb.control(null),
-    RecoverLostsId: this.fb.control(null),
+    idUser: this.fb.control(null),
+    recoverLostsId: this.fb.control(null),
   });
   url: string | ArrayBuffer;
   serviceBase: string = 'https://localhost:44397/UploadFile/';
@@ -42,8 +42,8 @@ export class SetRecoverLostsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.data && this.data.RecoverLostsId) {
-      this.recService.getById(this.data.RecoverLostsId).subscribe(
+    if (this.data && this.data.recoverLostsId) {
+      this.recService.getById(this.data.recoverLostsId).subscribe(
         (response) => {
           this.setRecoverLostForm = this.fb.group(response);
          
@@ -78,7 +78,7 @@ export class SetRecoverLostsComponent implements OnInit {
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       if (this.recoverLosts) {
-        this.recoverLosts.RecoverLostsImage = null;
+        this.recoverLosts.recoverLostsImage = null;
       }
       this.url = reader.result;
     };

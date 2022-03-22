@@ -15,9 +15,16 @@ import { ParentsMessagesComponent } from "./parents-messages/parents-messages.co
 import { RecoverLostsListComponent } from "./recover-losts-list/recover-losts-list.component";
 import { TeachersPlacementComponent } from "./teachers-placement/teachers-placement.component";
 import { TecherAreaComponent } from "./techer-area/techer-area.component";
+import { ChildAreaComponent } from "./child-area/child-area.component";
+import { ImagesComponent } from "./images/images.component";
+import { ExternalDataComponent } from "./external-data/external-data.component";
+import { DayCareComponent } from "./day-care/day-care.component";
+import { ActivityUpdateComponent } from "./activity-update/activity-update.component";
+
+
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  
   { path: "about", component: AboutComponent },
   { path: "registerTeacher", component: AddTecherComponent },
   { path: "registerChild", component: AddChildComponent },
@@ -25,21 +32,29 @@ const routes: Routes = [
   { path: "news", component: NewsComponent },
   { path: "loginPage", component: LoginPageComponent },
   { path: "techerArea", component: TecherAreaComponent },
+  { path: "childArea", component: ChildAreaComponent },
+
   { path: "teachersPlacement", component: TeachersPlacementComponent },
 
   { path: "parentsMessages", component: ParentsMessagesComponent },
-
+  { path: "", component: HomeComponent },
   {
     path: "menuTeacher",
     component: TecherAreaComponent,
-
+    
     children: [
       { path: "pageChildPlacement", component: PageChildPlacementComponent },
       { path: "teachersPlacement", component: TeachersPlacementComponent },
       // { path: "requestsTable/:statusId", component: RequestsTableComponent },
       { path: "childList", component: ChildListComponent },
       { path: "recover-losts", component: RecoverLostsListComponent },
-      { path: "message", component: MessagesComponent },
+      
+      { path: "externalData", component: ExternalDataComponent },
+      { path: "dayCare", component: DayCareComponent },
+      { path: "activityUpdate", component: ActivityUpdateComponent },
+
+      { path: "images", component: ImagesComponent },
+     { path: "message", component: MessagesComponent },
       {
         path: "",
         outlet: "childList",

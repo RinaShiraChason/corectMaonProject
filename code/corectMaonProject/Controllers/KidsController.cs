@@ -40,7 +40,15 @@ namespace corectMaonProject.Controllers
             return Ok(_kidsBL.GetTodayKidsWithAttendenc(classId));
 
         }
+        [HttpGet]
+        [Route("GetTodayKidsWithDayCare/{classId}")]
+        //שליפה
+        public IActionResult GetTodayKidsWithDayCare(int classId)
+        {
+            return Ok(_kidsBL.GetTodayKidsWithDayCare(classId));
 
+        }
+        
 
         [HttpPut]
         //עדכון

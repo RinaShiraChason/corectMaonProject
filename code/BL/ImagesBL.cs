@@ -27,7 +27,14 @@ namespace BL
 
             return l;
         }
+        public List<Images> GetAllByClassId(int classId)
+        {
 
+            List<Images> l = imagesDAL.GetAllByClassId(classId);
+
+            return l;
+        }
+        
         public object update(ImagesDTO image)
         {
       

@@ -79,6 +79,34 @@ namespace DAL
             }
         }
 
+        public List<Kid> GetTodayKidsWithDayCare(int classId)
+        {
+            using (var db = new newMaonContext())
+            {
+
+                var kids = db.Kids.Where(x => x.ClassId == classId).ToList();
+                var lKidsIds = kids.Select(x => x.KidId).ToList();
+                var dayCares = db.DayCares.Where(x => lKidsIds.Contains(x.KidId)
+                && x.DateCare.Date == DateTime.Today).ToList();
+                foreach (var kid in kids)
+                {
+                    kid.DayCare = dayCares.Where(x => x.KidId == kid.KidId).
+                        Select(x => new DayCare()
+                        {
+                            CommentDayCare = x.CommentDayCare,
+                            DateCare = x.DateCare,
+                            BehaviorDayCare = x.BehaviorDayCare,
+                            DressDayCare = x.DressDayCare,
+                            FoodDayCare = x.FoodDayCare,
+                            SleepDayCare = x.SleepDayCare
+                        }).ToList();
+                }
+                return kids;
+
+            }
+        }
+
+
         public bool Delete(long tz)
         {
             using (var db = new newMaonContext())

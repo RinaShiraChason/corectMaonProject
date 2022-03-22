@@ -36,11 +36,11 @@ namespace DAL.models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=ILY9E484-TP\\SQLEXPRESS;Initial Catalog=NewMaonProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-FKUPS69\\SQLEXPRESS;Initial Catalog=NewMaonProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
 
                 //
-                //        optionsBuilder.UseSqlServer("Data Source=ILY9E484-TP;Initial Catalog=newMaon;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //        optionsBuilder.UseSqlServer("Data Source=DESKTOP-FKUPS69;Initial Catalog=newMaon;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 

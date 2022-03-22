@@ -19,6 +19,7 @@ namespace DTO
 
 
         public  ICollection<KidsAttendanceDTO> KidsAttendance { get; set; }
+        public ICollection<DayCareDTO> DayCare { get; set; }
 
     }
 }

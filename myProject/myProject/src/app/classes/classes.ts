@@ -1,8 +1,8 @@
 import { TypeClass } from "./TypeClass";
 
 export interface Classes {
-  ClassId: number;
-  ClassName: string;
-  ClassTypeId: number;
-  TypeClass: TypeClass;
+  classId: number;
+  className : string;
+  classTypeId : number;
+  typeClass: TypeClass;
 }

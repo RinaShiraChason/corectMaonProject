@@ -1,0 +1,41 @@
+<h1>פעילות יומית בגן {{ today | date: "dd/MM/yyyy" }}</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="row">ת.ז</th>
+            <th scope="row">שם</th>
+            <th scope="row"> התנהגות</th>
+            <th scope="row"> לבוש</th>
+            <th scope="row"> אוכל</th>
+            <th scope="row"> שינה</th>
+            <th scope="row"> הערות</th>
+            <th scope="row">עדכון</th>
+        </tr>
+    </thead>
+
+
+    <tr *ngFor="let item of childList">
+        <td>{{ item.tzKid  }}</td>
+        <td>{{ item.nameKids  }}</td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].behaviorDayCare) : "-" }}
+        </td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].dressDayCare) : "-" }}
+        </td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].foodDayCare) : "-" }}
+        </td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].sleepDayCare) : "-" }}
+        </td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].commentDayCare) : "-" }}
+        </td>
+        <td >
+            <!-- /dayCare -->
+            <mat-icon class="checked" (click)="edit(item.kidId)">edit</mat-icon>
+        </td>
+       
+    </tr>
+</table>

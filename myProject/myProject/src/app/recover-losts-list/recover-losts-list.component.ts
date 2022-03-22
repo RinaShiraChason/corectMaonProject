@@ -27,8 +27,8 @@ export class RecoverLostsListComponent implements OnInit {
     this.recoverLostService.getAllׁׂׂׂׂׂׂ().subscribe(
       (response: any[]) => {
         response.forEach((element) => {
-          if (element.Picture) {
-            element.imageUrl = this.serviceBase + element.Picture;
+          if (element.recoverLostsImage) {
+            element.recoverLostsImage = this.serviceBase + element.recoverLostsImage;
           }
         });
 

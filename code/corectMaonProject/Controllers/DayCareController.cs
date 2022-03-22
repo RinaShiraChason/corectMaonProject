@@ -15,12 +15,21 @@ namespace corectMaonProject.Controllers
         DayCareBL _DayCareBL = new DayCareBL();
 
         [HttpGet]
+        [Route("getAll")]
         //שליפה
         public IActionResult GetAll()
         {
             return Ok(_DayCareBL.GetAll());
 
         }
+
+        [HttpGet]
+        [Route("getDayCareByKids/{kidsId}")]
+        public IActionResult GetDayCareByKids(int kidsId)
+        {
+            return Ok(_DayCareBL.GetDayCareByKids(kidsId));
+        }
+
 
         [HttpPut]
         //עדכון

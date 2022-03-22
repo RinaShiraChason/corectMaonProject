@@ -2,14 +2,14 @@ import { Kids } from "./Kids";
 
 export interface DayCare{
 
-     IdDayCare:number;
-     DateCare:Date;
-     BehaviorDayCare:string;
-     DressDayCare:string;
-     CommentDayCare:string;
-     SleepDayCare:string;
-     FoodDayCare:string;
-     KidId:number;
-     Kid:Kids;
+     idDayCare :number;
+     dateCare :Date;
+     behaviorDayCare:string;
+     dressDayCare :string;
+     commentDayCare :string;
+     sleepDayCare :string;
+     foodDayCare :string;
+     kidId :number;
+     kid :Kids;
     
 }
