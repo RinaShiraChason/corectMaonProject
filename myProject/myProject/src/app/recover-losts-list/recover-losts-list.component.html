@@ -17,19 +17,18 @@
             </thead>
             <tbody>
                 <tr *ngFor="let recoverLost of recoverLosts">
-                    <td>{{recoverLost.RecoverLostsInfo}}</td>
-                    <td> {{recoverLost.RecoverLostsDate | date:"dd/MM/yyyy HH:mm"}}</td>
-                    <td> {{recoverLost.Weigh}}</td>
-
+                    <td>{{recoverLost.recoverLostsInfo}}</td>
+                    <td> {{recoverLost.recoverLostsDate | date:"dd/MM/yyyy HH:mm"}}</td>
+                    
                     <td>
-                        <img *ngIf="recoverLost.RecoverLostsImage" [src]="recoverLost.RecoverLostsImage" width="25" height="25">
+                        <img *ngIf="recoverLost.recoverLostsImage" [src]="recoverLost.recoverLostsImage" width="25" height="25">
                     </td>
                     <td>
-                        <span *ngIf="recoverLost.IdUser != userId;else thisUser">{{recoverLost.User.UserName + ' ' + recoverLost.User.PhoneNamber1}}</span>
+                        <span *ngIf="recoverLost.idUser != userId;else thisUser">{{recoverLost.User.userName + ' ' + recoverLost.User.phoneNamber1}}</span>
                         <ng-template #thisUser>
 
-                            <mat-icon class="icon" (click)="openDialog(recoverLost.RecoverLostsId);">edit</mat-icon>&nbsp;
-                            <mat-icon class="icon" (click)="delete(recoverLost.RecoverLostsId);">cancel</mat-icon>
+                            <mat-icon class="icon" (click)="openDialog(recoverLost.recoverLostsId);">edit</mat-icon>&nbsp;
+                            <mat-icon class="icon" (click)="delete(recoverLost.recoverLostsId);">cancel</mat-icon>
                         </ng-template>
                     </td>
 

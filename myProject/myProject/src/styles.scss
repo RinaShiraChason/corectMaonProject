@@ -393,7 +393,7 @@
             letter-spacing: 1px;
             font-size: 28px;
             border-bottom: 1px solid;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             line-height: 44px;
             width: 150px;
             margin: auto;
@@ -405,8 +405,6 @@
             text-align: center;
             font-weight: 100;
             font-size: 26px;
-            border-bottom: 1px solid;
-            border-top: 1px solid;
             line-height: 50px;
             width: 180px;
             margin: auto;
@@ -692,17 +690,7 @@
         /* mat-nav-list {
     margin-right: 10px;
 } */
-        
-        mat-nav-list a {
-            display: block;
-            text-decoration: none;
-            font-size: 18px;
-            line-height: 50px;
-            /* margin-bottom: 20px; */
-            border-bottom: 1px solid;
-            color: white;
-            margin: 10px 15px;
-        }
+     
         
         mat-sidenav-container {
             display: flex;
@@ -1016,31 +1004,7 @@
             margin-bottom: 30px;
         }
         
-        mat-card,
-        .form-wrapper,
-        .form-wrapper-100 {
-            text-align: center;
-            margin: 0px auto;
-            border: 1px solid #ff4081;
-            background-color: #fff;
-            padding: 30px !important;
-            direction: ltr;
-            color: #ff4081 !important;
-            box-shadow: 0 0 15px 1px #ff4081 !important;
-            -webkit-box-flex: 1;
-            flex-grow: 1;
-            position: relative;
-            font-size: 16px;
-            line-height: 28px;
-            max-width: 400px;
-            min-width: 300px;
-            opacity: 0.9;
-            /* height: calc(100% - 105px); */
-            margin-top: 50px;
-            min-height: 300px;
-            margin-right: 5%;
-        }
-        
+     
         .form-wrapper-large {
             text-align: center;
             margin: 0px auto;
@@ -1126,33 +1090,7 @@
         input:focus {
             outline: none !important;
         }
-        
-        .form-wrapper-large h1,
-        .form-wrapper-sub h1 {
-            text-align: center;
-            font-weight: 100;
-            letter-spacing: 1px;
-            font-size: 28px;
-            border-bottom: 1px solid;
-            margin-bottom: 20px;
-            line-height: 44px;
-            width: 150px;
-            margin: auto;
-        }
-        
-        .form-wrapper h1,
-        mat-card h1,
-        .table-wrapper h1 {
-            text-align: center;
-            font-weight: 100;
-            font-size: 26px;
-            border-bottom: 1px solid;
-            border-top: 1px solid;
-            line-height: 50px;
-            width: 180px;
-            margin: auto;
-            margin-bottom: 30px;
-        }
+      
         
         .form-wrapper label,
         mat-cardlabel {
@@ -1427,7 +1365,7 @@
             /* margin-bottom: 20px; */
             border-bottom: 1px solid;
             color: white;
-            margin: 10px 15px;
+            margin: 2px 15px;
         }
         
         mat-sidenav-container {

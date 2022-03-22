@@ -22,7 +22,7 @@ URL="https://localhost:44397/api/Type_Class/";
     return this.http.post<TypeClass[]>(this.URL,k)
   }
   
-  delete(IdTypeClass:number):Observable<TypeClass[]>{
-    return this.http.delete<TypeClass[]>(this.URL+IdTypeClass)
+  delete(idTypeClass:number):Observable<TypeClass[]>{
+    return this.http.delete<TypeClass[]>(this.URL+idTypeClass)
   }
 }

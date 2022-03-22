@@ -22,7 +22,14 @@ namespace corectMaonProject.Controllers
             return Ok(_ActivityUpdateBL.GetAll());
 
         }
+        [HttpGet]
+        [Route("GetTodayActivityUpdateByClass/{classId}")]
+        //שליפה
+        public IActionResult GetTodayActivityUpdateByClass(int classId)
+        {
+            return Ok(_ActivityUpdateBL.GetTodayActivityUpdateByClass(classId));
 
+        }
         [HttpPut]
         //עדכון
         public IActionResult uppdata(ActivityUpdateDTO ActivityUpdate)

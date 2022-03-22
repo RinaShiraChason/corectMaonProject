@@ -30,6 +30,13 @@ namespace BL
             return lDTO;
         }
 
+        public DayCareDTO GetDayCareByKids(int kidsId)
+        {
+            DayCare l = _day_CareDal.GetDayCareByKids(kidsId);
+            DayCareDTO lDTO = imapper.Map<DayCare, DayCareDTO>(l);
+            return lDTO;
+        }
+
         public bool update(DayCareDTO day_Care)
         {
             DayCare dayCareDal = imapper.Map<DayCareDTO, DayCare>(day_Care);

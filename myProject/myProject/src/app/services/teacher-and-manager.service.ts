@@ -22,7 +22,7 @@ URL="https://localhost:44397/api/Images/";
     return this.http.post<Images[]>(this.URL,tm)
   }
   
-  delete(TeacherId:number):Observable<Images[]>{
-    return this.http.delete<Images[]>(this.URL+TeacherId)
+  delete(teacherId:number):Observable<Images[]>{
+    return this.http.delete<Images[]>(this.URL+teacherId)
   }
 }

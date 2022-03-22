@@ -1,28 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { ActivityUpdate } from '../classes/ActivityUpdate';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivityUpdateService {
-  URL="https://localhost:44397/api/ActivityUpdate/";
+  URL = "https://localhost:44397/api/ActivityUpdate/";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAllׁׂׂׂׂׂׂ():Observable<ActivityUpdate[]>{
+  getAllׁׂׂׂׂׂׂ(): Observable<ActivityUpdate[]> {
     return this.http.get<ActivityUpdate[]>(this.URL)
   }
-  update(av: ActivityUpdate ):Observable<ActivityUpdate[]>{
-    return this.http.put<ActivityUpdate[]>(this.URL,av)
+  getTodayActivityUpdateByClass(classId: number): Observable<ActivityUpdate> {
+    return this.http.get<ActivityUpdate>(this.URL + 'GetTodayActivityUpdateByClass/' + classId)
   }
-  
-  add(av: ActivityUpdate):Observable<ActivityUpdate[]>{
-    return this.http.post<ActivityUpdate[]>(this.URL,av)
+
+  update(av: ActivityUpdate): Observable<ActivityUpdate[]> {
+    return this.http.put<ActivityUpdate[]>(this.URL, av)
   }
-  
-  delete(IdActivityUpdate:number):Observable<ActivityUpdate[]>{
-    return this.http.delete<ActivityUpdate[]>(this.URL+IdActivityUpdate)
-  } 
+
+  add(av: ActivityUpdate): Observable<ActivityUpdate[]> {
+    return this.http.post<ActivityUpdate[]>(this.URL, av)
+  }
+
+  delete(idActivityUpdate: number): Observable<ActivityUpdate[]> {
+    return this.http.delete<ActivityUpdate[]>(this.URL + idActivityUpdate)
+  }
 }

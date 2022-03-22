@@ -23,8 +23,8 @@ URL="https://localhost:44397/api/Classes/";
     return this.http.post<Classes[]>(this.URL,c)
   }
   
-  delete(ClassId:number):Observable<Classes[]>{
-    return this.http.delete<Classes[]>(this.URL+ClassId)
+  delete(classId:number):Observable<Classes[]>{
+    return this.http.delete<Classes[]>(this.URL+classId)
   }
 
 }

@@ -14,7 +14,7 @@ export class ChildListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.KidsSer.getKidsByTeacherׁׂׂׂׂׂׂ(2).subscribe(
+    this.KidsSer.getKidsByTeacherׁׂׂׂׂׂׂ(5).subscribe(
 
       data => {
         {

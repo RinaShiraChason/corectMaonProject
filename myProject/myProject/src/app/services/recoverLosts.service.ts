@@ -28,8 +28,8 @@ export class RecoverLostsService {
     return this.http.post<RecoverLosts[]>(this.URL, p);
   }
 
-  delete(ParentId: number): Observable<RecoverLosts[]> {
-    return this.http.delete<RecoverLosts[]>(this.URL + ParentId);
+  delete(parentId : number): Observable<RecoverLosts[]> {
+    return this.http.delete<RecoverLosts[]>(this.URL + parentId );
   }
 
   AddUpdateRecoverLost(rec) {

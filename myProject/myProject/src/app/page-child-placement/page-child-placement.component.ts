@@ -35,11 +35,11 @@ export class PageChildPlacementComponent implements OnInit {
   }
   CheckKid(kidId: number, isArrived: boolean) {
     let attendence: KidsAttendance = {
-      AttendanceId: 0,
-      CurrentDate: new Date(),
-      IsArrived: isArrived,
-      KidId: kidId,
-      Kid: null,
+      attendanceId : 0,
+      currentDate : new Date(),
+      isArrived : isArrived,
+      kidId : kidId,
+      kid : null,
     };
     this.kAttenService.setKidAttendence(attendence).subscribe((x) => {
       if (x) {

@@ -1,5 +1,5 @@
 <div class="form-wrapper-modal">
-    <h1 *ngIf="data && data.RecoverLostsId; else newProduct">עדכון השבת אבידה</h1>
+    <h1 *ngIf="data && data.recoverLostsId; else newProduct">עדכון השבת אבידה</h1>
     <ng-template #newProduct>
         <h1>הוספת השבת אבידה</h1>
     </ng-template>
@@ -8,23 +8,23 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label> פרטים</mat-label>
-            <input type="text" matInput rows="4" autocomplete="autocomplete" formControlName="RecoverLostsInfo" required/>
-            <mat-error *ngIf="setRecoverLostForm.get('RecoverLostsInfo').errors?.required">חובה להזין פרטים</mat-error>
+            <input type="text" matInput rows="4" autocomplete="autocomplete" formControlName="recoverLostsInfo" required/>
+            <mat-error *ngIf="setRecoverLostForm.get('recoverLostsInfo').errors?.required">חובה להזין פרטים</mat-error>
         </mat-form-field>
 
 
 
         <!-- <label>פרטים</label><br />
-        <input type="text" formControlName="RecoverLostsInfo" id="RecoverLostsInfo" name="RecoverLostsInfo" required />
-        <small class="error" *ngIf="setRecoverLostForm.get('RecoverLostsInfo').errors?.required">חובה להזין פרטים</small
+        <input type="text" formControlName="recoverLostsInfo" id="recoverLostsInfo" name="recoverLostsInfo" required />
+        <small class="error" *ngIf="setRecoverLostForm.get('recoverLostsInfo').errors?.required">חובה להזין פרטים</small
     ><br /> -->
 
 
         <img *ngIf="
-        data.RecoverLostsId && recoverLosts && recoverLosts.RecoverLostsImage
-      " [src]="serviceBase + recoverLosts.RecoverLostsImage" width="100" height="auto" />
+        data.recoverLostsId && recoverLosts && recoverLosts.recoverLostsImage
+      " [src]="serviceBase + recoverLosts.recoverLostsImage" width="100" height="auto" />
         <img *ngIf="
-        !data.RecoverLostsId || !recoverLosts || !recoverLosts.RecoverLostsImage
+        !data.recoverLostsId || !recoverLosts || !recoverLosts.recoverLostsImage
       " [src]="url" width="100" height="auto" /><br />
         <div>
             <div class="custom-file-upload-wrapper">

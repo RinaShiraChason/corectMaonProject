@@ -48,7 +48,12 @@ namespace BL
             List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
             return lDTO;
         }
-
+        public object GetTodayKidsWithDayCare(int classId)
+        {
+            List<Kid> l = _kidsDal.GetTodayKidsWithDayCare(classId);
+            List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
+            return lDTO;
+        }
         public bool AddKids(KidsDTO kids)
         {
             Kid kidDal = imapper.Map<KidsDTO, Kid>(kids);

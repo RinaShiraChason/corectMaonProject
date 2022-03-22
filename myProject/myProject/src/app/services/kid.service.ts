@@ -24,14 +24,18 @@ export class KidsService {
 
     return this.http.get<Kids[]>(urlData);
   }
+  GetTodayKidsWithDayCare(cId: number): Observable<Kids[]> {
+    var urlData = this.URL + "GetTodayKidsWithDayCare/" + cId + "";
 
+    return this.http.get<Kids[]>(urlData);
+  }
   update(k: Kids): Observable<Kids[]> {
     return this.http.put<Kids[]>(this.URL, k);
   }
 
   add(k: Kids): Observable<Kids[]> {
-    k.KidId = Number(k.KidId);
-    k.ParentId = Number(k.ParentId);
+    k.kidId  = Number(k.kidId );
+    k.parentId  = Number(k.parentId );
     debugger;
     return this.http.post<Kids[]>(this.URL, k);
   }

@@ -1,4 +1,5 @@
 ﻿using DAL.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,18 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                List<Images> lImagess = db.Images.ToList();
+                List<Images> lImagess = db.Images.OrderByDescending(z=>z.ImageDate).ToList();
                 return lImagess;
             }
         }
-
+        public List<Images> GetAllByClassId(int classId)
+        {
+            using (var db = new newMaonContext())
+            {
+                List<Images> lImagess = db.Images.Include("UserTeacher").Where(x => x.ClassId == classId).OrderByDescending(z => z.ImageDate).ToList();
+                return lImagess;
+            }
+        }
         public bool update(Images imagesDal)
         {
             using (var db = new newMaonContext())

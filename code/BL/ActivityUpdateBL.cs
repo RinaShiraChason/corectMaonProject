@@ -29,7 +29,13 @@ namespace BL
             List<ActivityUpdateDTO> lDTO = imapper.Map<List<ActivityUpdate>, List<ActivityUpdateDTO>>(l);
             return lDTO;
         }
-
+        public ActivityUpdateDTO GetTodayActivityUpdateByClass(int classId)
+        {
+            ActivityUpdate l = _activity_UpdateDal.GetTodayActivityUpdateByClass(classId);
+            ActivityUpdateDTO lDTO = imapper.Map<ActivityUpdate, ActivityUpdateDTO>(l);
+            return lDTO;
+        }
+        //
         public bool update(ActivityUpdateDTO ActivityUpdate)
         {
             ActivityUpdate ActivityUpdateDal = imapper.Map<ActivityUpdateDTO, ActivityUpdate>(ActivityUpdate);

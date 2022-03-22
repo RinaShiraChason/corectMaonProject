@@ -17,6 +17,15 @@ namespace DAL
                 return db.ActivityUpdates.ToList();
             }
         }
+        public ActivityUpdate GetTodayActivityUpdateByClass(int classId)
+        {
+            var today = DateTime.Today;
+            using (var db = new newMaonContext())
+            {
+                return db.ActivityUpdates.FirstOrDefault(x => x.ClassId == classId
+                && x.DailyActivityDate.Date == today);
+            }
+        }
 
         public bool update(ActivityUpdate activityUpdateDal)
         {

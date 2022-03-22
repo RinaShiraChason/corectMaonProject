@@ -30,6 +30,7 @@ namespace corectMaonProject.Controllers
         {
             return Ok(_MessagesBL.GetMessagesByTo(teacherId));
         }
+
         [HttpGet]
         [Route("GetMessagesByTo/{id}")]
         //שליפה
@@ -46,6 +47,8 @@ namespace corectMaonProject.Controllers
             return Ok(_MessagesBL.GetMessagesByFrom(id));
 
         }
+
+
         [HttpPut]
         //עדכון
         public IActionResult update(MessagesDTO Messages)

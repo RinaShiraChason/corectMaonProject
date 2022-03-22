@@ -1,0 +1,29 @@
+<div *ngIf="activityUpdate" class="form-wrapper">
+    <h1 style="width: auto;border-top:0px solid;" >עדכון  פעילות יומית</h1>
+    
+    <form [formGroup]="setActivityUpdateForm" (ngSubmit)="SetActivityUpdate()">
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> כותרת</mat-label>
+            <input type="text" matInput rows="2" autocomplete="autocomplete" formControlName="dailyActivitySubject" required/>
+            <mat-error *ngIf="setActivityUpdateForm.get('dailyActivitySubject').errors?.required">חובה להזין כותרת</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> פרטים</mat-label>
+            <input type="text" matInput rows="4" autocomplete="autocomplete" formControlName="dailyActivityInfo" required/>
+            <mat-error *ngIf="setActivityUpdateForm.get('dailyActivityInfo').errors?.required">חובה להזין פרטים</mat-error>
+        </mat-form-field>
+          <!-- <label>פרטים</label><br />
+        <input type="text" formControlName="recoverLostsInfo" id="recoverLostsInfo" name="recoverLostsInfo" required />
+        <small class="error" *ngIf="setActivityUpdateForm.get('recoverLostsInfo').errors?.required">חובה להזין פרטים</small
+    ><br /> -->
+
+
+            <button type="submit" id="submitForm" name="submitForm" class="btn-color" [disabled]="!setActivityUpdateForm.valid">
+      שמור
+    </button>
+    </form>
+    </div>
