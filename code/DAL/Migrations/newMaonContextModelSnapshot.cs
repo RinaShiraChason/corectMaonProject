@@ -33,7 +33,7 @@ namespace DAL.Migrations
                         .HasColumnName("ClassId");
 
                     b.Property<DateTime>("DailyActivityDate")
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasColumnName("DailyActivityDate");
 
                     b.Property<string>("DailyActivityInfo")
@@ -114,7 +114,7 @@ namespace DAL.Migrations
                         .HasColumnName("CommentDayCare");
 
                     b.Property<DateTime>("DateCare")
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasColumnName("DateCare");
 
                     b.Property<string>("DressDayCare")
@@ -163,7 +163,7 @@ namespace DAL.Migrations
                         .HasColumnName("ClassId");
 
                     b.Property<DateTime>("ExternalDataDate")
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasColumnName("ExternalDataDate");
 
                     b.Property<string>("ExternalDataLink")
@@ -214,7 +214,7 @@ namespace DAL.Migrations
                         .HasColumnName("ImageData");
 
                     b.Property<DateTime>("ImageDate")
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasColumnName("ImageDate");
 
                     b.Property<string>("ImageTitle")
@@ -262,7 +262,7 @@ namespace DAL.Migrations
                         .HasColumnName("ClassId");
 
                     b.Property<DateTime>("DateBorn")
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasColumnName("DateBorn");
 
                     b.Property<string>("NameKids")
@@ -302,7 +302,7 @@ namespace DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CurrentDate")
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasColumnName("CurrentDate");
 
                     b.Property<bool>("IsArrived")
@@ -343,7 +343,7 @@ namespace DAL.Migrations
                         .HasColumnName("MessageContent");
 
                     b.Property<DateTime>("MessageDateTime")
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasColumnName("MessageDateTime");
 
                     b.Property<int>("UserFromId")
@@ -374,17 +374,49 @@ namespace DAL.Migrations
                         .HasColumnName("IdPlacementOfATeacher")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClassId")
+                    b.Property<int?>("DayInWeek1A")
                         .HasColumnType("int")
-                        .HasColumnName("ClassId");
+                        .HasColumnName("DayInWeek1A");
 
-                    b.Property<int>("DayInWeek")
+                    b.Property<int?>("DayInWeek1M")
                         .HasColumnType("int")
-                        .HasColumnName("DayInWeek");
+                        .HasColumnName("DayInWeek1M");
 
-                    b.Property<bool>("IsMorning")
-                        .HasColumnType("bit")
-                        .HasColumnName("IsMorning");
+                    b.Property<int?>("DayInWeek2A")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek2A");
+
+                    b.Property<int?>("DayInWeek2M")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek2M");
+
+                    b.Property<int?>("DayInWeek3A")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek3A");
+
+                    b.Property<int?>("DayInWeek3M")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek3M");
+
+                    b.Property<int?>("DayInWeek4A")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek4A");
+
+                    b.Property<int?>("DayInWeek4M")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek4M");
+
+                    b.Property<int?>("DayInWeek5A")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek5A");
+
+                    b.Property<int?>("DayInWeek5M")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek5M");
+
+                    b.Property<int?>("DayInWeek6M")
+                        .HasColumnType("int")
+                        .HasColumnName("DayInWeek6M");
 
                     b.Property<int>("TeacherId")
                         .HasColumnType("int")
@@ -392,8 +424,6 @@ namespace DAL.Migrations
 
                     b.HasKey("IdPlacementOfATeacher")
                         .HasName("PK__placemen__EC1AB144B1E88409");
-
-                    b.HasIndex("ClassId");
 
                     b.HasIndex("TeacherId");
 
@@ -413,7 +443,7 @@ namespace DAL.Migrations
                         .HasColumnName("IdUser");
 
                     b.Property<DateTime>("RecoverLostsDate")
-                        .HasColumnType("date")
+                        .HasColumnType("datetime")
                         .HasColumnName("RecoverLostsDate");
 
                     b.Property<string>("RecoverLostsImage")
@@ -475,7 +505,8 @@ namespace DAL.Migrations
                         .HasColumnName("Address");
 
                     b.Property<int?>("ClassId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ClassId");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -498,7 +529,6 @@ namespace DAL.Migrations
                         .HasColumnName("PhoneNamber1");
 
                     b.Property<string>("PhoneNamber2")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)")
@@ -676,21 +706,12 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.models.PlacementOfATeacher", b =>
                 {
-                    b.HasOne("DAL.models.Class", "Class")
-                        .WithMany("PlacementOfATeachers")
-                        .HasForeignKey("ClassId")
-                        .HasConstraintName("FK__placement__class__6754599E")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DAL.models.User", "UserTeacher")
                         .WithMany("PlacementOfATeacher")
                         .HasForeignKey("TeacherId")
                         .HasConstraintName("FK__placement__teach__68487DD7")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Class");
 
                     b.Navigation("UserTeacher");
                 });
@@ -711,7 +732,8 @@ namespace DAL.Migrations
                 {
                     b.HasOne("DAL.models.Class", "Class")
                         .WithMany("TeacherUsers")
-                        .HasForeignKey("ClassId");
+                        .HasForeignKey("ClassId")
+                        .HasConstraintName("FK__exte__class___5DCAEF64");
 
                     b.Navigation("Class");
                 });
@@ -725,8 +747,6 @@ namespace DAL.Migrations
                     b.Navigation("Images");
 
                     b.Navigation("Kids");
-
-                    b.Navigation("PlacementOfATeachers");
 
                     b.Navigation("TeacherUsers");
                 });

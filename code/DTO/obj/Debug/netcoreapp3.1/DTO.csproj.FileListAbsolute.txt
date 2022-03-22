@@ -16,3 +16,13 @@ C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\net
 C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.dll
 C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
 C:\Users\AyalaYankelevitz\Desktop\AYALA\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+C:\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+C:\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+C:\corectMaonProject\code\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.AssemblyReference.cache
+C:\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+C:\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+C:\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+C:\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+C:\corectMaonProject\code\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
