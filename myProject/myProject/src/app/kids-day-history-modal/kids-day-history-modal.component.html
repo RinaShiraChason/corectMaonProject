@@ -18,22 +18,27 @@
         </mat-form-field>
     </div>
 </div>
+
+<div class="t-wrapper">
 <table class="table table-bordered" *ngIf="kid">
     <thead>
         <tr>
-            <th scope="row">ת.ז</th>
-            <th scope="row">שם</th>
+            <th scope="row"> יום</th>
             <th scope="row"> התנהגות</th>
             <th scope="row"> לבוש</th>
             <th scope="row"> אוכל</th>
             <th scope="row"> שינה</th>
             <th scope="row"> הערות</th>
-            <th scope="row"> זמן הגעה בבוקר</th>
+        
             <th scope="row"> נוכחות</th>
 
         </tr>
     </thead>
+    <tbody>
     <tr *ngFor="let item of kid.dayCare; let i=index;">
+        <td>
+            {{ i+1 }}
+        </td>
         <td>
             {{ item.behaviorDayCare }}
         </td>
@@ -50,16 +55,12 @@
             {{ item.commentDayCare }}
         </td>
       
-        <td>{{i}}{{kid.kidsAttendance[i-1]? (kid.kidsAttendance[i-1].isArrived? 'כן':'לא'):''}}
-            <!-- {{ kid.kidsAttendance && kid.kidsAttendance.length > 0 ? (kid.kidsAttendance[i-1].currentDate | date:
-            "dd/MM/yyyy HH:mm") : "-" }} -->
+        <td>
+            <mat-icon *ngIf="kid.kidsAttendance[i-1] && kid.kidsAttendance[i-1].isArrived" class="checked" >check</mat-icon>
         </td>
 
-        <td >
-        <!-- {{ kid.kidsAttendance && kid.kidsAttendance.length > 0 ? (kid.kidsAttendance[i-1].isArrived? 'כן':'לא' ): '-'}}
-        -->
-       </td>
-       
+    
 
     </tr>
-</table></div>
+</tbody>
+</table></div></div>

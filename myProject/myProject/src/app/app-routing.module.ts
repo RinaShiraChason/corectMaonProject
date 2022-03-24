@@ -38,7 +38,8 @@ const routes: Routes = [
   { path: "loginPage", component: LoginPageComponent },
   { path: "techerArea", component: TecherAreaComponent },
   { path: "childArea", component: ChildAreaComponent },
-
+  { path: "childArea/:id", component: ChildAreaComponent },
+  
   { path: "teachersPlacement", component: TeachersPlacementComponent },
 
   { path: "parentsMessages", component: ParentsMessagesComponent },

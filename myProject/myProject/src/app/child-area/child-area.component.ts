@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DayCare } from '../classes/DayCare';
 import { DayCareService } from '../services/day-care.service';
 
@@ -10,14 +11,17 @@ import { DayCareService } from '../services/day-care.service';
 export class ChildAreaComponent implements OnInit {
   dayCareByKids: DayCare;
   today = new Date();
-
-  constructor(private dcSerice: DayCareService) { }
+  id = 0;
+  constructor(private dcSerice: DayCareService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+    });
     this.getAll();
   }
   getAll() {
-    this.dcSerice.getDayCareByKids(3).subscribe((x) => {
+    this.dcSerice.getDayCareByKids(this.id).subscribe((x) => {
       this.dayCareByKids = x;
     });
 

@@ -35,7 +35,14 @@ export class LoginPageComponent implements OnInit {
         localStorage.setItem('user',JSON.stringify(x));
         this.userService.loginUser.next(x);
         if (x.userTypeId === 1) {
-          this.route.navigateByUrl('childArea');
+          if(x.kids.length > 0)
+          {
+            var id = x.kids[0].kidId;
+            this.route.navigateByUrl('childArea/'+id);
+          }
+        else{
+          Swal.fire('Oooops','ארעה תקלה, פנה להנהלת המעון','error')
+        }
 
         }
         else if (x.userTypeId === 2) {

@@ -44,13 +44,22 @@
           <mdb-icon fas icon="user"></mdb-icon>
         </a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a *ngIf="!user"  href="loginPage" class="dropdown-item waves-light" mdbWavesEffect>
+          <a *ngIf="!user"  href="loginPage"
+           class="dropdown-item waves-light" mdbWavesEffect>
             כניסה
-        
+  
           </a>
+          <div *ngIf="user && user.kids && user.kids.length >0">
+            <a *ngFor="let k of user.kids" [routerLink]="['/childArea', k.kidId]"
+            
+            href="" class="dropdown-item waves-light" mdbWavesEffect>
+              {{k.nameKids}}
+            </a>
 
 
-        
+          </div>
+
+
           <a *ngIf="user" class="dropdown-item waves-light" mdbWavesEffect href="#" (click)="logout();">התנתק
             מהחשבון</a>
         </div>
