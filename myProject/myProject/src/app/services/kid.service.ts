@@ -7,6 +7,11 @@ import { Kids } from "../classes/Kids";
   providedIn: "root",
 })
 export class KidsService {
+  getHistoryKidsData(kidId: any, monthSelected: number, yearSelected: number) {
+    var urlData = this.URL + "getHistoryKidsData/" + kidId + "/"+ monthSelected + "/"+ yearSelected;
+
+    return this.http.get<Kids>(urlData);
+  }
   URL = "https://localhost:44397/api/Kids/";
 
   constructor(private http: HttpClient) {}
@@ -19,11 +24,22 @@ export class KidsService {
 
     return this.http.get<Kids[]>(urlData);
   }
+  getKidsByClass(classId: number): Observable<Kids[]> {
+    var urlData = this.URL + "getKidsByClassID/" + classId + "";
+
+    return this.http.get<Kids[]>(urlData);
+  }
   GetTodayKidsWithAttendenc(cId: number): Observable<Kids[]> {
     var urlData = this.URL + "GetTodayKidsWithAttendenc/" + cId + "";
 
     return this.http.get<Kids[]>(urlData);
   }
+  GetTodayKidsData(cId: number): Observable<Kids[]> {
+    var urlData = this.URL + "GetTodayKidsData/" + cId + "";
+    return this.http.get<Kids[]>(urlData);
+  }
+
+  
   GetTodayKidsWithDayCare(cId: number): Observable<Kids[]> {
     var urlData = this.URL + "GetTodayKidsWithDayCare/" + cId + "";
 
@@ -32,7 +48,9 @@ export class KidsService {
   update(k: Kids): Observable<Kids[]> {
     return this.http.put<Kids[]>(this.URL, k);
   }
-
+  addUpdateKid(k: Kids): Observable<Kids> {
+    return this.http.post<Kids>(this.URL + 'AddUpdateKid', k);
+  }
   add(k: Kids): Observable<Kids[]> {
     k.kidId  = Number(k.kidId );
     k.parentId  = Number(k.parentId );

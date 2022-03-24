@@ -37,6 +37,17 @@ namespace corectMaonProject.Controllers
             return Ok(_classesBL.AddClasses(classes));
 
         }
+
+        [HttpPost]
+        [Route("AddUpdateClass")]
+        //הוספה
+        public IActionResult AddUpdateClass(ClassesDTO classes)
+        {
+            return Ok(_classesBL.AddUpdateClass(classes));
+
+        }
+
+        
         [HttpDelete]
         public IActionResult Delete(int ClassId)
         {

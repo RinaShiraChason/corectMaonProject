@@ -64,6 +64,16 @@ import { SetExternalDataComponent } from './set-external-data/set-external-data.
 import { SetImagesComponent } from './set-images/set-images.component';
 import { ActivityUpdateComponent } from './activity-update/activity-update.component';
 import { DayCareComponent } from './day-care/day-care.component';
+import { ManagerAreaComponent } from './manager/manager-area/manager-area.component';
+import { TeacherListComponent } from './manager/teacher-list/teacher-list.component';
+import { SetTeacherComponent } from './manager/set-teacher/set-teacher.component';
+import { SetKidComponent } from './manager/set-kid/set-kid.component';
+import { ClassesListComponent } from './manager/classes-list/classes-list.component';
+import { TeacherPlacementListComponent } from './manager/teacher-placement-list/teacher-placement-list.component';
+import { ClassDayInfoListComponent } from './manager/class-day-info-list/class-day-info-list.component';
+import { SetClassComponent } from './manager/set-class/set-class.component';
+import { SetKidDayCareComponent } from './set-kid-day-care/set-kid-day-care.component';
+import { KidsDayHistoryModalComponent } from './kids-day-history-modal/kids-day-history-modal.component';
 
 
 
@@ -103,7 +113,17 @@ import { DayCareComponent } from './day-care/day-care.component';
     SetExternalDataComponent,
     SetImagesComponent,
     ActivityUpdateComponent,
-    DayCareComponent
+    DayCareComponent,
+    ManagerAreaComponent,
+    TeacherListComponent,
+    SetTeacherComponent,
+    SetKidComponent,
+    ClassesListComponent,
+    TeacherPlacementListComponent,
+    ClassDayInfoListComponent,
+    SetClassComponent,
+    SetKidDayCareComponent,
+    KidsDayHistoryModalComponent
     //AddChildComponent
   ],
   imports: [

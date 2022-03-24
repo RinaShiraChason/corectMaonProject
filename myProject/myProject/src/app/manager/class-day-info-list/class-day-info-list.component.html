@@ -1,0 +1,75 @@
+<h1>פעילות יומית בגן</h1>
+<div  class="row" style="margin-top:30px">
+    <mat-icon class="add-icon col-1" (click)="openDialog();">add_circle_outline</mat-icon>
+    <div class="col-9">
+        <mat-form-field appearance="fill">
+            <mat-label>בחר כיתה </mat-label>
+            <mat-select [(ngModel)]="classId" (selectionChange)="selectClass($event.value)">
+                <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="row">ת.ז</th>
+            <th scope="row">שם</th>
+            <th scope="row"> התנהגות</th>
+            <th scope="row"> לבוש</th>
+            <th scope="row"> אוכל</th>
+            <th scope="row"> שינה</th>
+            <th scope="row"> הערות</th>
+            <th scope="row"> עדכון פעילות</th>
+            <th scope="row"> זמן הגעה בבוקר</th>
+            <th scope="row">עדכון נוכחות</th>
+
+        </tr>
+    </thead>
+    <tr *ngFor="let item of childList">
+        <td>{{item.tzKid }}</td>
+        <td>{{item.nameKids }}</td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].behaviorDayCare) : "-" }}
+        </td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].dressDayCare) : "-" }}
+        </td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].foodDayCare) : "-" }}
+        </td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].sleepDayCare) : "-" }}
+        </td>
+        <td>
+            {{ item.dayCare && item.dayCare.length > 0 ? (item.dayCare[0].commentDayCare) : "-" }}
+        </td>
+        <td>
+            <mat-icon class="icon" (click)="openDialog(item);">edit</mat-icon>&nbsp;
+            <mat-icon class="icon" (click)="openHistoryModal(item.kidId);">timer</mat-icon>
+        </td>
+        <td>
+            {{ item.kidsAttendance && item.kidsAttendance.length > 0 ? (item.kidsAttendance[0].currentDate | date:
+            "dd/MM/yyyy HH:mm") : "-" }}
+        </td>
+
+        <td *ngIf="
+            item.kidsAttendance &&
+            item.kidsAttendance.length > 0 &&
+            item.kidsAttendance[0].isArrived  == true
+          ">
+            <!-- /kidsAttendance -->
+            <mat-icon class="checked" (click)="CheckKid(item.kidId , false)">check</mat-icon>
+        </td>
+        <td *ngIf="
+            !item.kidsAttendance ||
+            item.kidsAttendance.length == 0 ||
+            item.kidsAttendance[0].isArrived  == false
+          ">
+            <mat-icon (click)="CheckKid(item.kidId , true)">check</mat-icon>
+        </td>
+       
+
+    </tr>
+</table>

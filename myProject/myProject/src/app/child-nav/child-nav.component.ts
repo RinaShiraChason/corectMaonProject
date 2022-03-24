@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../classes/Users';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-child-nav',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./child-nav.component.scss']
 })
 export class ChildNavComponent implements OnInit {
- 
-  constructor() { }
+  user: User;
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-  }
+    this.user = <User>JSON.parse(localStorage.getItem('user'));
+    this.userService.loginUser.subscribe(x=>{
+      this.user = x;
 
+    })
+  }
+  logout(){
+    this.user = null;
+    localStorage.removeItem('user');
+
+  }
 }

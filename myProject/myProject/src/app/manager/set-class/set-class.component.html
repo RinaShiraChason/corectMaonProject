@@ -1,0 +1,28 @@
+<div class="form-wrapper-modal-w">
+    <h1 *ngIf="data && data.classes; else newC">עדכון
+        כיתה </h1>
+    <ng-template #newC>
+        <h1>הוספת כיתה </h1>
+    </ng-template>
+    <form [formGroup]="setClassForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> שם  </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="className" required />
+            <mat-error *ngIf="setClassForm.get('className').errors?.required">חובה להזין שם </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" >
+            <mat-label>בחר סוג כיתה </mat-label>
+            <mat-select formControlName="classTypeId" >
+                <mat-option [value]="c.idTypeClass" *ngFor="let c of typeClassList"> {{c.typeClassName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+    </form> <br>
+    <button type="submit" id="submitForm" name="submitForm" class="btn-color" (click)="setClass()"
+        [disabled]=" !setClassForm.valid">
+        שמור
+    </button>
+    <br>
+</div>

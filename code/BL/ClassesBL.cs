@@ -49,7 +49,14 @@ namespace BL
 
             return b;
         }
+        public bool AddUpdateClass(ClassesDTO classes)
+        {
+            Class ClassDal = imapper.Map<ClassesDTO, Class>(classes);
+            bool b = _classesDal.AddUpdateClass(ClassDal);
 
+            return b;
+        }
+        
         public object Delete(int classId)
         {
             bool b = _classesDal.Delete(classId);

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Microsoft.EntityFrameworkCore;
 namespace DAL
 {
     public class ClassesDAL
@@ -13,9 +14,10 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                return db.Classes.ToList();
+                return db.Classes.Include("TypeClass").ToList();
             }
         }
+
 
         public bool update(Class classDal)
         {
@@ -44,10 +46,38 @@ namespace DAL
             }
         }
 
-        public bool AddClasses(Class ClassDal)
+        public bool AddClasses(Class classDal)
         {
             using (var db = new newMaonContext())
             {
+                Class k = db.Classes.FirstOrDefault(x => x.ClassId == classDal.ClassId);
+                if (k != null)
+                {
+
+                    k.ClassName = classDal.ClassName;
+                    k.ClassTypeId = classDal.ClassTypeId;
+
+                }
+                else
+                {
+                    db.Classes.Add(classDal);
+                }
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+        public bool AddUpdateClass(Class ClassDal)
+        {
+            using (var db = new newMaonContext())
+            {
+
                 db.Classes.Add(ClassDal);
 
                 try

@@ -1,9 +1,9 @@
 ﻿using DAL.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 namespace DAL
 {
     public class UserDAL
@@ -16,11 +16,26 @@ namespace DAL
                 return db.Users.ToList();
             }
         }
+        public List<User> GetParents()
+        {
+            using (var db = new newMaonContext())
+            {
+                return db.Users.Where(x => x.UserTypeId == 1).ToList();
+            }
+        }
+        public List<User> GetTeachers()
+        {
+            using (var db = new newMaonContext())
+            {
+                return db.Users.Include("Class").Where(x => x.UserTypeId == 2).ToList();
+            }
+        }
+
         public User Login(string userTz, string pas)
         {
             using (var db = new newMaonContext())
             {
-                return db.Users.FirstOrDefault(x => x.UserName == userTz && x.Password == pas);
+                return db.Users.Include("Kids").FirstOrDefault(x => (x.Email == userTz || x.UserName == userTz) && x.Password == pas);
             }
         }
 
@@ -51,6 +66,43 @@ namespace DAL
                 return true;
             }
         }
+
+
+        public int AddUpdateUser(User UserDAL)
+        {
+            using (var db = new newMaonContext())
+            {
+                User p = db.Users.FirstOrDefault(x => x.UserId == UserDAL.UserId);
+                if (p != null)
+                {
+                    p.UserName = UserDAL.UserName;
+                    p.Address = UserDAL.Address;
+                    p.Email = UserDAL.Email;
+                    p.PhoneNamber1 = UserDAL.PhoneNamber1;
+                    p.PhoneNamber2 = UserDAL.PhoneNamber2;
+                    p.UserTz = UserDAL.UserTz;
+                    p.ClassId = UserDAL.ClassId;
+
+
+                }
+                else
+                {
+                    db.Users.Add(UserDAL);
+                }
+
+                try
+                {
+                    db.SaveChanges();
+                    return UserDAL.UserId;
+                }
+                catch
+                {
+                    return 0;
+                }
+
+            }
+        }
+
 
         public int AddUser(User UserDAL)
         {

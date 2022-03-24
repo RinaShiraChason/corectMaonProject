@@ -45,6 +45,15 @@ namespace corectMaonProject.Controllers
             return Ok(_DayCareBL.AddDayCare(DayCare));
 
         }
+        [HttpPost]
+        [Route("AddUpdateKidCare")]
+        //הוספה
+        public IActionResult AddUpdateKidCare(DayCareDTO DayCare)
+        {
+            return Ok(_DayCareBL.AddUpdateKidCare(DayCare));
+
+        }
+        
         [HttpDelete]
         public IActionResult Delete(int IdDayCare)
         {

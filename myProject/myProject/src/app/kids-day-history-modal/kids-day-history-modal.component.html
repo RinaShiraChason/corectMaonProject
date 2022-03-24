@@ -1,0 +1,65 @@
+<div class="form-wrapper-modal-w">
+<h1>הסטוריה פעילות יומית בגן </h1>
+<div  class="row" style="margin-top:30px">
+    <div class="col-5">
+        <mat-form-field appearance="fill">
+            <mat-label>בחר חודש </mat-label>
+            <mat-select [(ngModel)]="monthSelected" (selectionChange)="getHistory($event.value, yearSelected)">
+                <mat-option [value]="m" *ngFor="let m of month"> {{m}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-5">
+        <mat-form-field appearance="fill">
+            <mat-label>בחר שנה </mat-label>
+            <mat-select [(ngModel)]="yearSelected" (selectionChange)="getHistory(monthSelected,$event.value)">
+                <mat-option [value]="y" *ngFor="let y of years"> {{y}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<table class="table table-bordered" *ngIf="kid">
+    <thead>
+        <tr>
+            <th scope="row">ת.ז</th>
+            <th scope="row">שם</th>
+            <th scope="row"> התנהגות</th>
+            <th scope="row"> לבוש</th>
+            <th scope="row"> אוכל</th>
+            <th scope="row"> שינה</th>
+            <th scope="row"> הערות</th>
+            <th scope="row"> זמן הגעה בבוקר</th>
+            <th scope="row"> נוכחות</th>
+
+        </tr>
+    </thead>
+    <tr *ngFor="let item of kid.dayCare; let i=index;">
+        <td>
+            {{ item.behaviorDayCare }}
+        </td>
+        <td>
+            {{ item.dressDayCare}}
+        </td>
+        <td>
+            {{ item.foodDayCare }}
+        </td>
+        <td>
+            {{ item.sleepDayCare }}
+        </td>
+        <td>
+            {{ item.commentDayCare }}
+        </td>
+      
+        <td>{{i}}{{kid.kidsAttendance[i-1]? (kid.kidsAttendance[i-1].isArrived? 'כן':'לא'):''}}
+            <!-- {{ kid.kidsAttendance && kid.kidsAttendance.length > 0 ? (kid.kidsAttendance[i-1].currentDate | date:
+            "dd/MM/yyyy HH:mm") : "-" }} -->
+        </td>
+
+        <td >
+        <!-- {{ kid.kidsAttendance && kid.kidsAttendance.length > 0 ? (kid.kidsAttendance[i-1].isArrived? 'כן':'לא' ): '-'}}
+        -->
+       </td>
+       
+
+    </tr>
+</table></div>

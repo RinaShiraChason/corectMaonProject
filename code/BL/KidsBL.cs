@@ -27,6 +27,14 @@ namespace BL
           List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
           return lDTO;
         }
+        
+
+ public List<KidsDTO> GetKidsByClassID(int cId)
+        {
+            List<Kid> l = _kidsDal.GetKidsByClassID(cId);
+            List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
+            return lDTO;
+        }
         public List<KidsDTO> GetKidsByTeacher(int teacherId)
         {
             List<Kid> l = _kidsDal.GetAllByTeacherId(teacherId);
@@ -54,6 +62,19 @@ namespace BL
             List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
             return lDTO;
         }
+        public object GetTodayKidsData(int classId)
+        {
+            List<Kid> l = _kidsDal.GetTodayKidsData(classId);
+            List<KidsDTO> lDTO = imapper.Map<List<Kid>, List<KidsDTO>>(l);
+            return lDTO;
+        }
+        public object GetHistoryKidsData(int kidId,int month,int year)
+        {
+            Kid l = _kidsDal.GetHistoryKidsData(kidId,month,year);
+            KidsDTO lDTO = imapper.Map<Kid, KidsDTO>(l);
+            return lDTO;
+        }
+        
         public bool AddKids(KidsDTO kids)
         {
             Kid kidDal = imapper.Map<KidsDTO, Kid>(kids);
@@ -61,7 +82,14 @@ namespace BL
 
             return b;
         }
+        public bool AddUpdateKid(KidsDTO kids)
+        {
+            Kid kidDal = imapper.Map<KidsDTO, Kid>(kids);
+            bool b = _kidsDal.AddUpdateKid(kidDal);
 
+            return b;
+        }
+        
         public bool Delete(long tz)
         {
             bool b = _kidsDal.Delete(tz);

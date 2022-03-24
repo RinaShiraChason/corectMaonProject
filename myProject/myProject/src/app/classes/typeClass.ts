@@ -1,4 +1,4 @@
 export interface TypeClass {
   idTypeClass: number;
-  typeclassName : string;
+  typeClassName : string;
 }
