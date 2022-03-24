@@ -1,0 +1,66 @@
+<div class="form-wrapper-modal-w">
+<h1>הסטוריה פעילות יומית בגן </h1>
+<div  class="row" style="margin-top:30px">
+    <div class="col-5">
+        <mat-form-field appearance="fill">
+            <mat-label>בחר חודש </mat-label>
+            <mat-select [(ngModel)]="monthSelected" (selectionChange)="getHistory($event.value, yearSelected)">
+                <mat-option [value]="m" *ngFor="let m of month"> {{m}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-5">
+        <mat-form-field appearance="fill">
+            <mat-label>בחר שנה </mat-label>
+            <mat-select [(ngModel)]="yearSelected" (selectionChange)="getHistory(monthSelected,$event.value)">
+                <mat-option [value]="y" *ngFor="let y of years"> {{y}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+
+<div class="t-wrapper">
+<table class="table table-bordered" *ngIf="kid">
+    <thead>
+        <tr>
+            <th scope="row"> יום</th>
+            <th scope="row"> התנהגות</th>
+            <th scope="row"> לבוש</th>
+            <th scope="row"> אוכל</th>
+            <th scope="row"> שינה</th>
+            <th scope="row"> הערות</th>
+        
+            <th scope="row"> נוכחות</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of kid.dayCare; let i=index;">
+        <td>
+            {{ i+1 }}
+        </td>
+        <td>
+            {{ item.behaviorDayCare }}
+        </td>
+        <td>
+            {{ item.dressDayCare}}
+        </td>
+        <td>
+            {{ item.foodDayCare }}
+        </td>
+        <td>
+            {{ item.sleepDayCare }}
+        </td>
+        <td>
+            {{ item.commentDayCare }}
+        </td>
+      
+        <td>
+            <mat-icon *ngIf="kid.kidsAttendance[i-1] && kid.kidsAttendance[i-1].isArrived" class="checked" >check</mat-icon>
+        </td>
+
+    
+
+    </tr>
+</tbody>
+</table></div></div>

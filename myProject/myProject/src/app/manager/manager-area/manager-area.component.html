@@ -1,0 +1,44 @@
+
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened mode="side" position="end" class="side-cont-admin">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/menuManager/childList" routerLinkActive="active_link">
+                <mat-icon>face</mat-icon> &nbsp;ילדי הגן
+            </a>
+            <a mat-list-item routerLink="/menuManager/teachers" routerLinkActive="active_link">
+                <mat-icon>people</mat-icon> &nbsp;גננות
+            </a>
+            <a mat-list-item routerLink="/menuManager/classes" routerLinkActive="active_link">
+                <mat-icon>school</mat-icon> &nbsp;כיתות
+            </a>
+            <a mat-list-item routerLink="/menuManager/day" routerLinkActive="active_link">
+                <mat-icon>check_circle_outline</mat-icon> &nbsp;מידע יומי
+            </a>
+
+            <a mat-list-item routerLink="/menuManager/teachersPlacement" routerLinkActive="active_link">
+                <mat-icon>calendar_today</mat-icon> &nbsp;שיבוץ שבועי
+            </a>
+            <a mat-list-item routerLink="/menuManager/message" routerLinkActive="active_link">
+                <mat-icon>message</mat-icon> &nbsp;הודעות
+            </a>
+
+            <a mat-list-item routerLink="/menuManager/images" routerLinkActive="active_link">
+                <mat-icon>linked_camera</mat-icon> &nbsp;תמונות 
+            </a>
+            <a mat-list-item routerLink="/menuManager/externalData" routerLinkActive="active_link">
+              <mat-icon>folder_open</mat-icon> &nbsp;דפים וקישורים
+          </a>
+            <a mat-list-item routerLink="/menuManager/recover-losts" routerLinkActive="active_link">
+                <mat-icon>star</mat-icon> &nbsp;השבת אבידה
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh">
+            <div class="content-div">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

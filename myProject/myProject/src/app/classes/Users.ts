@@ -1,3 +1,5 @@
+import { Kids } from "./Kids";
+
 export interface User {
   userId: number;
   userTz: string;
@@ -9,4 +11,5 @@ export interface User {
   password: string;
   userTypeId: number;
   classId?:number;
+  kids:Kids[];
 }

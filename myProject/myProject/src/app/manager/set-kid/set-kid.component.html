@@ -1,0 +1,100 @@
+<div class="form-wrapper-modal-w">
+    <h1 *ngIf="data && data.kid; else newKid">עדכון ילד </h1>
+    <ng-template #newKid>
+        <h1>הוספת ילד </h1>
+    </ng-template>
+    <form [formGroup]="setKidForm">
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> שם</mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="nameKids" required />
+            <mat-error *ngIf="setKidForm.get('nameKids').errors?.required">חובה להזין שם</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> תז</mat-label>
+            <input type="number" min="0" max="999999999" matInput autocomplete="autocomplete" formControlName="tzKid"
+                required />
+            <mat-error *ngIf="setKidForm.get('tzKid').errors?.required">חובה להזין תז</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> גיל</mat-label>
+            <input type="number" matInput autocomplete="autocomplete" formControlName="ageKids" required />
+            <mat-error *ngIf="setKidForm.get('ageKids').errors?.required">חובה להזין גיל </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> תאריך לידה</mat-label>
+            <input max="{{date | date:'yyyy-MM-dd'}}" min="{{dateMin | date:'yyyy-MM-dd'}}" type="date" matInput
+                autocomplete="autocomplete" formControlName="dateBorn" required />
+            <mat-error *ngIf="setKidForm.get('dateBorn').errors?.required">חובה להזין תאריך לידה</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>  בחר כיתה  </mat-label>
+            <mat-select formControlName="classId" >
+                <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+     
+         
+    <hr>
+    <mat-form-field appearance="fill" *ngIf="!data.kid">
+        <mat-label>  בחר הורה מרשימה  </mat-label>
+        <mat-select formControlName="userParent" (selectionChange)="selectParent($event.value)">
+            <mat-option value="null">צור הורה חדש</mat-option>
+            <mat-option [value]="p" *ngFor="let p of parents"> {{p.userName}}  {{p.userTz}}  {{p.address}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+     </form>
+     
+    <form [formGroup]="setParentForm" *ngIf="showParent">
+
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> שם הורה </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="userName" required />
+            <mat-error *ngIf="setParentForm.get('userName').errors?.required">חובה להזין שם הורה</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> תז הורה</mat-label>
+            <input type="number" min="0" max="999999999" matInput autocomplete="autocomplete" formControlName="userTz"
+                required />
+            <mat-error *ngIf="setParentForm.get('userTz').errors?.required">חובה להזין תז הורה</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> כתובת</mat-label>
+            <input matInput autocomplete="autocomplete" formControlName="address" required />
+            <mat-error *ngIf="setParentForm.get('address').errors?.required">חובה להזין כתובת </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> אימייל</mat-label>
+            <input type="email" matInput autocomplete="autocomplete" formControlName="email" required />
+            <mat-error *ngIf="setParentForm.get('email').errors?.required">חובה להזין אימייל </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> פלאפון 1</mat-label>
+            <input type="tel" matInput autocomplete="autocomplete" formControlName="phoneNamber1" required />
+            <mat-error *ngIf="setParentForm.get('phoneNamber1').errors?.required">חובה להזין פלאפון 1 </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> פלאפון 2</mat-label>
+            <input type="tel" matInput autocomplete="autocomplete" formControlName="phoneNamber2" required />
+            <mat-error *ngIf="setParentForm.get('phoneNamber2').errors?.required">חובה להזין פלאפון 2 </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> סיסמא</mat-label>
+            <input type="password" matInput autocomplete="autocomplete" formControlName="password" required />
+            <mat-error *ngIf="setParentForm.get('password').errors?.required">חובה להזין סיסמא </mat-error>
+        </mat-form-field>
+
+
+
+
+    </form> <br>
+    <button type="submit" id="submitForm" name="submitForm" class="btn-color" (click)="setKid()"
+        [disabled]="!setKidForm.valid || !setParentForm.valid">
+        שמור
+    </button>
+    <br>
+</div>

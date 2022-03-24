@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivityUpdate } from '../classes/ActivityUpdate';
+import { ActivatedRoute } from '@angular/router';
 import { DayCare } from '../classes/DayCare';
 import { DayCareService } from '../services/day-care.service';
 import {ActivityUpdateService} from '../services/activity-update.service';
@@ -14,8 +15,8 @@ export class ChildAreaComponent implements OnInit {
   dayCareByKids: DayCare;
   activityUpdateByClass: ActivityUpdate;
   today = new Date();
-
-  constructor(private dcSerice: DayCareService, private auSerice: ActivityUpdateService,private renderer: Renderer2) { }
+  id = 0;
+  constructor(private dcSerice: DayCareService, private route: ActivatedRoute, private auSerice: ActivityUpdateService,private renderer: Renderer2) { }
 
   cards = [
     {img: 'assets/images/g(16).jpg'},
@@ -60,13 +61,16 @@ export class ChildAreaComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+    });
     this.getAll();
     this.getActivityUpdateByClass();
     this.slides = this.chunk(this.cards, 3);
   }
   
   getAll() {
-    this.dcSerice.getDayCareByKids(3).subscribe((x) => {
+    this.dcSerice.getDayCareByKids(this.id).subscribe((x) => {
       this.dayCareByKids = x;
     });
 

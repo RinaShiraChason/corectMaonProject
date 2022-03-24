@@ -18,7 +18,9 @@ URL="https://localhost:44397/api/Classes/";
   update(c: Classes ):Observable<Classes[]>{
     return this.http.put<Classes[]>(this.URL,c)
   }
-  
+  addUpdateClass(c: Classes):Observable<Classes>{
+    return this.http.post<Classes>(this.URL,c)
+  }
   add(c: Classes):Observable<Classes[]>{
     return this.http.post<Classes[]>(this.URL,c)
   }

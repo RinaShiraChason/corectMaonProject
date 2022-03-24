@@ -29,7 +29,19 @@ namespace BL
             List<UserDTO> lDTO = imapper.Map<List<User>, List<UserDTO>>(l);
             return lDTO;
         }
-
+        public List<UserDTO> GetParents()
+        {
+            List<User> l = _UserDAL.GetParents();
+            List<UserDTO> lDTO = imapper.Map<List<User>, List<UserDTO>>(l);
+            return lDTO;
+        }
+        public List<UserDTO> GetTeachers()
+        {
+            List<User> l = _UserDAL.GetTeachers();
+            List<UserDTO> lDTO = imapper.Map<List<User>, List<UserDTO>>(l);
+            return lDTO;
+        }
+        
         public bool update(UserDTO person)
         {
             User UserDAL = imapper.Map<UserDTO, User>(person);
@@ -45,10 +57,17 @@ namespace BL
 
             return prsonId;
         }
+        public int AddUpdateUser(UserDTO person)
+        {
+            User UserDAL = imapper.Map<UserDTO, User>(person);
+            int prsonId = _UserDAL.AddUpdateUser(UserDAL);
 
+            return prsonId;
+        }
+        
         public UserDTO Login(UserDTO userD)
         {
-            var u = _UserDAL.Login(userD.UserTz, userD.Password);
+            var u = _UserDAL.Login(userD.Email, userD.Password);
             var user = imapper.Map<User, UserDTO>(u);
             return user;
 

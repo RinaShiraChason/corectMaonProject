@@ -1,4 +1,16 @@
 <h1>ילדים בגן</h1>
+<div *ngIf="isManager" class="row" style="margin-top:30px">
+    <mat-icon class="add-icon col-1" (click)="openDialog();">add_circle_outline</mat-icon>
+  <div class="col-9">
+ <mat-form-field appearance="fill" >
+        <mat-label>בחר כיתה </mat-label>
+        <mat-select [(ngModel)]="classId" (selectionChange)="selectClass($event.value)">
+            <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+   
+</div>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -8,6 +20,7 @@
             <th scope="row">ת.לידה</th>
             <th scope="row">הורה</th>
             <th scope="row">טלפון הורה</th>
+            <th scope="row" *ngIf="isManager">פעולות</th>
 
         </tr>
     </thead>
@@ -15,10 +28,13 @@
         <td>{{item.tzKid }}</td>
         <td>{{item.nameKids }}</td>
         <td>{{item.ageKids }}</td>
-        <td>{{item.dateBorn  | date:"dd/MM/yyyy"}}</td>
-        <td>{{item.userParent  ?item.userParent .userName: '-' }}</td>
-        <td>{{item.userParent  ?item.userParent .phoneNamber1: '-' }}</td>
-
+        <td>{{item.dateBorn | date:"dd/MM/yyyy"}}</td>
+        <td>{{item.userParent ?item.userParent .userName: '-' }}</td>
+        <td>{{item.userParent ?item.userParent .phoneNamber1: '-' }}</td>
+        <td *ngIf="isManager">
+            <mat-icon class="icon" (click)="openDialog(item);">edit</mat-icon>&nbsp;
+            <!-- <mat-icon class="icon" (click)="delete(item.kidId);">cancel</mat-icon> -->
+        </td>
 
     </tr>
 </table>

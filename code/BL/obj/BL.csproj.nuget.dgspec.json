@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\BL\\BL.csproj": {}
+    "C:\\corectMaonProject\\code\\BL\\BL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\BL\\BL.csproj": {
+    "C:\\corectMaonProject\\code\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\BL\\BL.csproj",
+        "projectUniqueName": "C:\\corectMaonProject\\code\\BL\\BL.csproj",
         "projectName": "BL",
-        "projectPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\BL\\BL.csproj",
-        "packagesPath": "C:\\Users\\AyalaYankelevitz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\BL\\obj\\",
+        "projectPath": "C:\\corectMaonProject\\code\\BL\\BL.csproj",
+        "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
+        "outputPath": "C:\\corectMaonProject\\code\\BL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\AyalaYankelevitz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +33,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DAL\\DAL.csproj"
+              "C:\\corectMaonProject\\code\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\corectMaonProject\\code\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DTO\\DTO.csproj": {
-                "projectPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DTO\\DTO.csproj"
+              "C:\\corectMaonProject\\code\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\corectMaonProject\\code\\DTO\\DTO.csproj"
               }
             }
           }
@@ -67,21 +72,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DAL\\DAL.csproj": {
+    "C:\\corectMaonProject\\code\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\corectMaonProject\\code\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\AyalaYankelevitz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DAL\\obj\\",
+        "projectPath": "C:\\corectMaonProject\\code\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
+        "outputPath": "C:\\corectMaonProject\\code\\DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\AyalaYankelevitz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -143,21 +153,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DTO\\DTO.csproj": {
+    "C:\\corectMaonProject\\code\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DTO\\DTO.csproj",
+        "projectUniqueName": "C:\\corectMaonProject\\code\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DTO\\DTO.csproj",
-        "packagesPath": "C:\\Users\\AyalaYankelevitz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AyalaYankelevitz\\Desktop\\AYALA\\corectMaonProject\\code\\DTO\\obj\\",
+        "projectPath": "C:\\corectMaonProject\\code\\DTO\\DTO.csproj",
+        "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
+        "outputPath": "C:\\corectMaonProject\\code\\DTO\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\AyalaYankelevitz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -203,7 +218,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

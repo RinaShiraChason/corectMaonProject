@@ -52,7 +52,14 @@ namespace BL
 
             return b;
         }
+        public bool AddUpdateKidCare(DayCareDTO day_Care)
+        {
+            DayCare DayCareDal = imapper.Map<DayCareDTO, DayCare>(day_Care);
+            bool b = _day_CareDal.AddUpdateKidCare(DayCareDal);
 
+            return b;
+        }
+        
         public object Delete(int idDayCare)
         {
             bool b = _day_CareDal.Delete(idDayCare);

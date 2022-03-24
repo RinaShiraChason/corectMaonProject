@@ -1,0 +1,39 @@
+<div class="form-wrapper-modal">
+    <h1 *ngIf="data && data.kid; else newKid">עדכון
+        פעילות יומית </h1>
+    <ng-template #newKid>
+        <h1>הוספת פעילות יומית </h1>
+    </ng-template>
+    <form [formGroup]="setKidForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> התנהגות  </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="behaviorDayCare" required />
+            <mat-error *ngIf="setKidForm.get('behaviorDayCare').errors?.required">חובה להזין התנהגות </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> לבוש  </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="dressDayCare" required />
+            <mat-error *ngIf="setKidForm.get('dressDayCare').errors?.required">חובה להזין לבוש </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> אוכל  </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="foodDayCare" required />
+            <mat-error *ngIf="setKidForm.get('foodDayCare').errors?.required">חובה להזין אוכל </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> שינה  </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="sleepDayCare" required />
+            <mat-error *ngIf="setKidForm.get('sleepDayCare').errors?.required">חובה להזין שינה </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> הערות  </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="commentDayCare" required />
+            <mat-error *ngIf="setKidForm.get('commentDayCare').errors?.required">חובה להזין הערות </mat-error>
+        </mat-form-field>
+    </form> <br>
+    <button type="submit" id="submitForm" name="submitForm" class="btn-color" (click)="setKid()"
+        [disabled]=" !setKidForm.valid">
+        שמור
+    </button>
+    <br>
+</div>

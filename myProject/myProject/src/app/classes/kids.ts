@@ -11,10 +11,11 @@ export interface Kids{
     classId:number;
     dateBorn :Date;
     parentId :number;
-
     class :Classes;
     userParent :User;
     kidsAttendance:KidsAttendance[];
     dayCare:DayCare[];
+
+  
 
 }

@@ -17,5 +17,8 @@ namespace DTO
 
         public int? ClassId { get; set; }
         public int UserTypeId { get; set; }
+        public ClassesDTO Class { get; set; }
+        public ICollection<KidsDTO> Kids { get; set; }
+   
     }
 }

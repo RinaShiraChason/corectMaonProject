@@ -8,15 +8,16 @@
 
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect href="loginPage">כניסה<mdb-icon fas icon="sign-in-alt"></mdb-icon></a>
+      <li class="nav-item" *ngIf="!user">
+        <a class="nav-link waves-light" mdbWavesEffect href="loginPage">כניסה<mdb-icon fas icon="sign-in-alt">
+          </mdb-icon></a>
       </li>
       <li class="nav-item">
         <a class="nav-link waves-light" mdbWavesEffect href="about"> אודות <mdb-icon fas icon="ellipsis-h"></mdb-icon>
-          </a>
+        </a>
       </li>
 
-      <li class="nav-item dropdown active" dropdown>
+      <li class="nav-item dropdown active" dropdown *ngIf="!user">
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           כניסה<span class="caret"></span><span class="sr-only">(current)</span>
           <mdb-icon fas icon="user"></mdb-icon>
@@ -39,12 +40,28 @@
       <!-- Dropdown -->
       <li class="nav-item dropdown active" dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-          ארי הרשקוביץ<span class="caret"></span><span class="sr-only">(current)</span>
+          {{'שלום ' + (user? user.userName:'אורח')}}<span class="caret"></span><span class="sr-only">(current)</span>
           <mdb-icon fas icon="user"></mdb-icon>
         </a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">חיים הרשקוביץ</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">התנתק מהחשבון</a>
+          <a *ngIf="!user"  href="loginPage"
+           class="dropdown-item waves-light" mdbWavesEffect>
+            כניסה
+  
+          </a>
+          <div *ngIf="user && user.kids && user.kids.length >0">
+            <a *ngFor="let k of user.kids" [routerLink]="['/childArea', k.kidId]"
+            
+            href="" class="dropdown-item waves-light" mdbWavesEffect>
+              {{k.nameKids}}
+            </a>
+
+
+          </div>
+
+
+          <a *ngIf="user" class="dropdown-item waves-light" mdbWavesEffect href="#" (click)="logout();">התנתק
+            מהחשבון</a>
         </div>
       </li>
 

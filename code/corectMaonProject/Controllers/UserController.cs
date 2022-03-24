@@ -22,11 +22,40 @@ namespace corectMaonProject.Controllers
 
         }
 
+        [HttpGet]
+        [Route("GetTeachers")]
+        //שליפה
+        public IActionResult GetTeachers()
+        {
+            return Ok(_UserBL.GetTeachers());
+
+        }
+        [HttpGet]
+        [Route("GetParents")]
+        //שליפה
+        public IActionResult GetParents()
+        {
+            return Ok(_UserBL.GetParents());
+
+        }
+
+
         [HttpPut]
         //עדכון
         public IActionResult Update(UserDTO User)
         {
             return Ok(_UserBL.update(User));
+
+        }
+
+
+
+        [HttpPost]
+        [Route("AddUpdateUser")]
+        //הוספה
+        public IActionResult AddUpdateUser(UserDTO User)
+        {
+            return Ok(_UserBL.AddUpdateUser(User));
 
         }
         [HttpPost]
@@ -45,6 +74,9 @@ namespace corectMaonProject.Controllers
             return Ok(_UserBL.Login(User));
 
         }
+
+
+
         [HttpDelete]
         public IActionResult Delete(int UserTz)
         {

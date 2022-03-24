@@ -23,9 +23,18 @@ namespace corectMaonProject.Controllers
             return Ok(_kidsBL.GetAll());
 
         }
+
+        [HttpGet]
+        [Route("GetKidsByClassID/{classId}")]
+
+        public IActionResult GetKidsByClassID(int classId)
+        {
+            return Ok(_kidsBL.GetKidsByClassID(classId));
+
+        }
         [HttpGet]
         [Route("getKidsByTeachID/{teacherId}")]
-       
+
         public IActionResult GetKidsByTeacher(int teacherId)
         {
             return Ok(_kidsBL.GetKidsByTeacher(teacherId));
@@ -48,7 +57,33 @@ namespace corectMaonProject.Controllers
             return Ok(_kidsBL.GetTodayKidsWithDayCare(classId));
 
         }
-        
+        [HttpGet]
+        [Route("GetTodayKidsData/{classId}")]
+        //שליפה
+        public IActionResult GetTodayKidsData(int classId)
+        {
+            return Ok(_kidsBL.GetTodayKidsData(classId));
+
+        }
+        [HttpGet]
+        [Route("GetHistoryKidsData/{kidId}/{month}/{year}")]
+        //שליפה
+        public IActionResult GetHistoryKidsData(int kidId, int month, int year)
+        {
+            return Ok(_kidsBL.GetHistoryKidsData(kidId, month, year));
+
+        }
+
+
+        [HttpPost]
+        [Route("AddUpdateKid")]
+        //הוספה
+        public IActionResult AddUpdateKid(KidsDTO kids)
+        {
+            return Ok(_kidsBL.AddUpdateKid(kids));
+
+        }
+
 
         [HttpPut]
         //עדכון

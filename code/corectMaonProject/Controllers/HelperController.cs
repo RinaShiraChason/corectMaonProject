@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Web;
 //using System.Web.Http.Cors;
 
-
 namespace corectMaonProject.Controllers
 {
     public class HelperController : Controller

@@ -7,7 +7,7 @@ import { TypeClass } from '../classes/TypeClass';
   providedIn: 'root'
 })
 export class TypeClassService {
-URL="https://localhost:44397/api/Type_Class/";
+URL="https://localhost:44397/api/TypeClass/";
 
   constructor(private http:HttpClient) { }
 

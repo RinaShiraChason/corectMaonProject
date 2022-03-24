@@ -342,18 +342,7 @@
             direction: rtl;
         }
         
-        .form-wrapper-modal-w h1,
-        .form-wrapper-modal-t h1,
-        .form-wrapper-modal h1,
-        .mat-typography .form-wrapper-modal h1,
-        mat-card h1 {
-            background-color: #00bcd4;
-            color: white;
-            line-height: 60px;
-            font-size: 1.5rem;
-            margin: 0px;
-        }
-        
+      
         .form-wrapper-modal {
             text-align: right;
             margin: 0px auto;
@@ -557,6 +546,7 @@
             cursor: pointer;
             margin-right: 10%;
             margin-top: 0px;
+            color: #00bcd4;
         }
         
         menu input {
@@ -615,8 +605,8 @@
             margin-left: 10px;
             border: 1px solid;
             border-radius: 50%;
-            padding: 6px;
-            font-size: 12px;
+            padding: 4px;
+            font-size: 14px;
         }
         
         .table .mat-icon:hover,
@@ -737,14 +727,14 @@
             min-width: 400px;
         }
         
-        .mat-dialog-container h1 {
-            background-color: #a6a6a6;
-            color: white;
-            line-height: 60px;
-            font-size: 1.5rem;
-            text-align: center;
-            margin-block: 0px;
-        }
+        // .mat-dialog-container h1 {
+        //     background-color: #a6a6a6;
+        //     color: white;
+        //     line-height: 60px;
+        //     font-size: 1.5rem;
+        //     text-align: center;
+        //     margin-block: 0px;
+        // }
         
         .mat-dialog-container mat-label {
             margin: 10px;
@@ -1023,42 +1013,7 @@
             height: calc(100% - 64px);
         }
         
-        .form-wrapper-modal-w {
-            text-align: center;
-            margin: 0px auto;
-            background-color: #fff;
-            direction: ltr;
-            color: #ff4081 !important;
-            flex-grow: 1;
-            position: relative;
-            font-size: 16px;
-            line-height: 28px;
-            direction: rtl;
-        }
-        
-        .form-wrapper-modal-t {
-            text-align: center;
-            margin: 0px auto;
-            background-color: #fff;
-            direction: ltr;
-            color: #ff4081 !important;
-            flex-grow: 1;
-            position: relative;
-            font-size: 14px;
-            line-height: 20px;
-            direction: rtl;
-        }
-        
-        .form-wrapper-modal-w h1,
-        .form-wrapper-modal-t h1,
-        .form-wrapper-modal h1,
-        mat-card h1 {
-            background-color: #a6a6a6;
-            color: white;
-            line-height: 60px;
-            font-size: 1.5rem;
-        }
-        
+     
         .form-wrapper-modal {
             text-align: center;
             margin: 0px auto;
@@ -1405,14 +1360,14 @@
             min-width: 400px;
         }
         
-        .mat-dialog-container h1 {
-            background-color: #a6a6a6;
-            color: white;
-            line-height: 60px;
-            font-size: 1.5rem;
-            text-align: center;
-            margin-block: 0px;
-        }
+        // .mat-dialog-container h1 {
+        //     background-color: #a6a6a6;
+        //     color: white;
+        //     line-height: 60px;
+        //     font-size: 1.5rem;
+        //     text-align: center;
+        //     margin-block: 0px;
+        // }
         
         .mat-dialog-container mat-label {
             margin: 10px;
@@ -1497,4 +1452,51 @@
             color: #00bcd4;
             border-bottom: 2px solid;
             width: 400px;
+        }
+        .md-form label {
+            right: 0;
+            left: auto;
+        }
+     .md-form input[type=password], .md-form input[type=email]
+     {
+            text-align: left;;
+        }
+        .md-form > input[type]:-webkit-autofill:not(.browser-default):not([type=search]) + label, .md-form > input[type=time]:not(.browser-default) + label{
+            width: auto!important;
+        }
+
+        .navbar .dropdown-menu a {
+         
+            text-align: right;
+        }
+
+
+        .form-wrapper-modal-w h1,
+        .form-wrapper-modal-t h1,
+        .form-wrapper-modal h1,
+        .mat-typography .form-wrapper-modal h1,
+        mat-card h1 {
+            background-color: #00bcd4;
+            color: white;
+            line-height: 60px;
+            font-size: 1.5rem;
+            margin: 0 auto;
+        }
+        .form-wrapper-modal-w h1, .form-wrapper-modal-t h1, .form-wrapper-modal h1, .mat-typography .form-wrapper-modal h1, mat-card h1 {
+          
+          
+            width: 100%;
+        }
+        .form-wrapper-modal-w{
+            margin-bottom: 20px;
+        }
+
+        .form-wrapper-modal-w .mat-form-field-appearance-fill .mat-form-field-infix,
+        .form-wrapper-modal .mat-form-field-appearance-fill .mat-form-field-infix {
+            padding: 0.75em 0 0.25em 0!important;
+        }
+
+        .form-wrapper-modal .mat-form-field-appearance-fill .mat-form-field-flex {
+
+            padding: 0.35em 0.35em 0 0.35em;
         }
