@@ -1,1 +1,129 @@
-<p>teacher-placement-list works!</p>
+<h1 *ngIf="teacherDays; else noData">שיבוץ שבועי</h1>
+<ng-template #noData>
+    <h1>לא נמצאו נתונים</h1>
+</ng-template>
+
+
+<div class="row" style="margin-top:30px">
+    <div class="col-9">
+        <mat-form-field appearance="fill">
+            <mat-label>בחר גננת </mat-label>
+            <mat-select [(ngModel)]="teacherId" (selectionChange)="selectTeacher($event.value)">
+               
+                <mat-option [value]="c.userId" *ngFor="let c of teachersList"> {{c.userName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+<div class="col-2">  <button class="btn-color" (click)="saveTeacherPlacement()"
+   >
+    שמור
+</button></div>
+</div>
+
+<table *ngIf="teacherDays" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>זמן</th>
+            <th>יום ראשון</th>
+            <th>יום שני</th>
+            <th>יום שלישי</th>
+            <th>יום רביעי</th>
+            <th>יום חמישי</th>
+            <th>יום שישי</th>
+
+        </tr>
+    </thead>
+    <tr>
+
+        <td><strong>בוקר</strong></td>
+        <td>
+            <mat-form-field appearance="fill">
+                <mat-label>בחר כיתה </mat-label>
+                <mat-select [(ngModel)]="teacherDays.dayInWeek1M">
+                    <mat-option value=""> לא נמצאת</mat-option>
+       
+                    <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+        </td>
+        <td>
+            <mat-form-field appearance="fill">
+                <mat-label>בחר כיתה </mat-label>
+                <mat-select [(ngModel)]="teacherDays.dayInWeek2M">
+                    <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field appearance="fill">
+                <mat-label>בחר כיתה </mat-label>
+                <mat-select [(ngModel)]="teacherDays.dayInWeek3M">
+                    <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field appearance="fill">
+                <mat-label>בחר כיתה </mat-label>
+                <mat-select [(ngModel)]="teacherDays.dayInWeek4M">
+                    <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field appearance="fill">
+                <mat-label>בחר כיתה </mat-label>
+                <mat-select [(ngModel)]="teacherDays.dayInWeek5M">
+                    <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field appearance="fill">
+                <mat-label>בחר כיתה </mat-label>
+                <mat-select [(ngModel)]="teacherDays.dayInWeek6M">
+                    <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>צהרים</strong></td>
+        <td>
+            <mat-form-field appearance="fill">
+                <mat-label>בחר כיתה </mat-label>
+                <mat-select [(ngModel)]="teacherDays.dayInWeek1A">
+                    <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+                </mat-select>
+            </mat-form-field> 
+        </td>
+        <td> <mat-form-field appearance="fill">
+            <mat-label>בחר כיתה </mat-label>
+            <mat-select [(ngModel)]="teacherDays.dayInWeek2A">
+                <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+            </mat-select>
+        </mat-form-field> </td>
+        <td> <mat-form-field appearance="fill">
+            <mat-label>בחר כיתה </mat-label>
+            <mat-select [(ngModel)]="teacherDays.dayInWeek3A">
+                <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+            </mat-select>
+        </mat-form-field> </td>
+        <td> <mat-form-field appearance="fill">
+            <mat-label>בחר כיתה </mat-label>
+            <mat-select [(ngModel)]="teacherDays.dayInWeek4A">
+                <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+            </mat-select>
+        </mat-form-field> </td>
+        <td> <mat-form-field appearance="fill">
+            <mat-label>בחר כיתה </mat-label>
+            <mat-select [(ngModel)]="teacherDays.dayInWeek5A">
+                <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+            </mat-select>
+        </mat-form-field> </td>
+        <td> </td>
+
+    </tr>
+</table>

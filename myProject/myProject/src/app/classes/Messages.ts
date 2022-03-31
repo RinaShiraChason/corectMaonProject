@@ -9,6 +9,6 @@ export interface Messages {
   kidId : number;
   userToId : number;
   userFrom: User;
-  UserTo: User;
+  userTo: User;
   kid : Kids;
 }

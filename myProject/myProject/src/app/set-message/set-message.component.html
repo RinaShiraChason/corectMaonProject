@@ -1,0 +1,29 @@
+<p>set-message works!</p>
+<div class="form-wrapper-modal-w">
+    <h1 *ngIf="data && data.classes; else newC">עדכון
+        הודעה </h1>
+    <ng-template #newC>
+        <h1>הוספת הודעה </h1>
+    </ng-template>
+    <form [formGroup]="setMessageForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> תוכן  </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="className" required />
+            <mat-error *ngIf="setMessageForm.get('className').errors?.required">חובה להזין תוכן </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" >
+            <mat-label>עבור </mat-label>
+            <mat-select formControlName="classTypeId" >
+                <mat-option [value]="c.userId" *ngFor="let c of parents"> {{c.userName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+    </form> <br>
+    <button type="submit" id="submitForm" name="submitForm" class="btn-color" (click)="setClass()"
+        [disabled]=" !setMessageForm.valid">
+        שמור
+    </button>
+    <br>
+</div>
