@@ -1,1 +1,26 @@
-<p>set-external-data works!</p>
+<div class="form-wrapper-modal">
+    <h1 *ngIf="data && data.recoverLostsId; else newProduct">עדכון קישור</h1>
+    <ng-template #newProduct>
+        <h1>הוספת  קישור</h1>
+    </ng-template>
+    <form [formGroup]="setExtForm" (ngSubmit)="setExtData()">
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> כותרת</mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="externalDataTitle" required/>
+            <mat-error *ngIf="setExtForm.get('externalDataTitle').errors?.required">חובה להזין כותרת</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> קישור</mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="externalDataLink" required/>
+            <mat-error *ngIf="setExtForm.get('externalDataLink').errors?.required">חובה להזין קישור</mat-error>
+        </mat-form-field>
+
+     
+            <button type="submit" id="submitForm" name="submitForm" class="btn-color" [disabled]="!setExtForm.valid">
+      שמור
+    </button>
+    </form>
+    </div>

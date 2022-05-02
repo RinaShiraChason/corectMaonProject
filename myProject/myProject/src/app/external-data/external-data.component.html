@@ -1,0 +1,29 @@
+<h1 class="h1-form" style="max-width: 300px;"> קישורים מהווי הגן</h1>
+
+<mat-icon class="add-icon" (click)="openDialog();">add_circle_outline</mat-icon>
+<br>
+<div class="row" style="    margin: 20px;"  *ngIf="!externalDataList || externalDataList.length >0; else noexternalDataList">
+    <div class="mat-card col-4" *ngFor="let ext of externalDataList">
+      <p class="title"><strong>{{ext.externalDataTitle }}</strong></p>
+      
+        <!-- //   <p class="sub-title">{{ext.externalDataLink}}</p> -->
+           <a [href]="ext.externalDataLink" target="_blank">לחץ כאן</a>
+      <p class="createDate-msg">{{ext.externalDataDate | date:"dd/MM/yyyy"}}</p>
+
+      <span *ngIf="ext.teacherId != userId;else thisUser">{{ext.userTeacher? ('הועלה ע"י '+ext.userTeacher.userName):''}}</span>
+      <ng-template #thisUser>
+
+          <mat-icon class="icon" (click)="openDialog(ext);">edit</mat-icon>&nbsp;
+          <mat-icon class="icon" (click)="delete(ext.externalDataId);">cancel</mat-icon>
+      </ng-template>
+
+    </div>
+</div>
+
+<!-- teacherId -->
+<ng-template #noexternalDataList>
+    <br>
+
+    <h1> לא נמצאו קישורים </h1>
+
+</ng-template>
