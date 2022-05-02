@@ -42,7 +42,7 @@ namespace BL
 
 
             CreateMap<PlacementOfATeacher, PlacementOfATeacherDTO>();
-            CreateMap<PlacementOfATeacher, PlacementOfATeacher>();
+            CreateMap<PlacementOfATeacherDTO, PlacementOfATeacher>();
 
             CreateMap<Messages, MessagesDTO>();
             CreateMap<MessagesDTO, Messages>();

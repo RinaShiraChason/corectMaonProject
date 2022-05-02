@@ -21,7 +21,14 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                return db.PlacementOfATeachers.FirstOrDefault(x => x.TeacherId == id);
+               var p=  db.PlacementOfATeachers.FirstOrDefault(x => x.TeacherId == id);
+                if (p == null)
+                {
+                    p = new PlacementOfATeacher() { TeacherId = id};
+                    p = AddPlacementOfATeacher(p);
+                    return p;
+                }
+                return p;
             }
         }
 
@@ -60,7 +67,7 @@ namespace DAL
             }
         }
 
-        public bool AddPlacementOfATeacher(PlacementOfATeacher placement_Of_A_TeacherDAL)
+        public PlacementOfATeacher AddPlacementOfATeacher(PlacementOfATeacher placement_Of_A_TeacherDAL)
         {
             using (var db = new newMaonContext())
             {
@@ -72,9 +79,9 @@ namespace DAL
                 }
                 catch
                 {
-                    return false;
+                    return null;
                 }
-                return true;
+                return placement_Of_A_TeacherDAL;
             }
         }
 
