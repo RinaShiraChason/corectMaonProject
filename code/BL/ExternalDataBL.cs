@@ -27,7 +27,13 @@ namespace BL
 
             return l;
         }
+        public List<ExternalData> GetAllByClassID(int classId)
+        {
 
+            List<ExternalData> l = externalDataDAL.GetAllByClassID(classId);
+
+            return l;
+        }
         public object update(ExternalDataDTO externalData)
         {
       
@@ -43,7 +49,16 @@ namespace BL
 
             return b;
         }
+        
 
+               public bool AddUpdateExtData(ExternalDataDTO externalData)
+        {
+
+            ExternalData tModel = imapper.Map<ExternalDataDTO, ExternalData>(externalData);
+            externalDataDAL.AddUpdateExtData(tModel);
+            return true;
+
+        }
         public bool AddExternalData(ExternalDataDTO externalData)
         {
 

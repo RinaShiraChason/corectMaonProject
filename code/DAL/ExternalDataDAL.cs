@@ -1,4 +1,5 @@
 ﻿using DAL.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                List<ExternalData> lExternalDatas = db.ExternalData.ToList();
+                List<ExternalData> lExternalDatas = db.ExternalData.Include("UserTeacher").ToList();
                 return lExternalDatas;
             }
         }
@@ -43,6 +44,49 @@ namespace DAL
                 return true;
             }
         }
+
+        public List<ExternalData> GetAllByClassID(int classId)
+        {
+            using (var db = new newMaonContext())
+            {
+                List<ExternalData> lExternalDatas = db.ExternalData.Include("UserTeacher").Where(x => x.ClassId == classId).ToList();
+                return lExternalDatas;
+            };
+        }
+
+
+        public bool AddUpdateExtData(ExternalData extDataDal)
+        {
+            using (var db = new newMaonContext())
+            {
+                ExternalData prt = db.ExternalData.FirstOrDefault(x => x.ExternalDataId == extDataDal.ExternalDataId);
+                if (prt != null)
+                {
+                    prt.ExternalDataDate = extDataDal.ExternalDataDate;
+                    prt.ExternalDataTitle = extDataDal.ExternalDataTitle;
+                    prt.ExternalDataLink = extDataDal.ExternalDataLink;
+
+
+
+                }
+                else
+                {
+                    db.ExternalData.Add(extDataDal);
+                }
+                try
+                {
+
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+
+                }
+            }
+            return true;
+        }
+
 
         public void AddExternalDatas(ExternalData tModel)
         {

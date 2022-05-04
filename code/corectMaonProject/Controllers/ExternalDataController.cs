@@ -21,12 +21,28 @@ namespace corectMaonProject.Controllers
             return Ok(_ExternalDataBl.GetAll());
 
         }
+        [HttpGet]
+        [Route("GetAllByClassId/{classID}")]
+        //שליפה
+        public IActionResult GetAllByClassId(int classID)
+        {
+            return Ok(_ExternalDataBl.GetAllByClassID(classID));
 
+        }
         [HttpPut]
         //עדכון
         public IActionResult update(ExternalDataDTO externalData)
         {
             return Ok(_ExternalDataBl.update(externalData));
+
+        }
+
+        [Route("AddUpdateExtData")]
+        [HttpPost]
+        //הוספה
+        public IActionResult AddUpdateExtData(ExternalDataDTO externalData)
+        {
+            return Ok(_ExternalDataBl.AddUpdateExtData(externalData));
 
         }
         [HttpPost]
