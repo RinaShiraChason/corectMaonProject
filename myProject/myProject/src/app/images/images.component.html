@@ -6,7 +6,7 @@
     <div class="mat-card col-4" *ngFor="let img of images">
         <p class="title"><strong>{{img.imageTitle }}</strong></p>
         <img *ngIf="img.imageURL"
-         [src]="img.imageURL" width="100" >
+         [src]="img.imageURL" width="150" height="150">
            <p class="sub-title">{{img.imageData}}</p>
       <p class="createDate-msg">{{img.imageDate | date:"dd/MM/yyyy"}}</p>
 

@@ -5,11 +5,11 @@
 <ng-template #noData>
     <h1>עדיין לא התקבל הדיוח היומי</h1>
 </ng-template>
-<h1>  יום נעים להורי הילד  {{dayCareByKids.kid.nameKids}}</h1>
+<h1 *ngIf="dayCareByKids; else noData">  יום נעים להורי הילד  {{dayCareByKids.kid.nameKids}}</h1>
 <button  type="button" onclick="imgDrive()">להורדת התמונות מהדרייב</button>
 <!-- !!זה לא עובד!!! -->
 <div class="row">
-    <div *ngIf="dayCareByKids" class="form-wrapper col-6">
+    <div *ngIf="dayCareByKids; " class="form-wrapper col-6">
         <h1 style="width: auto">דיוח יומי של הילד:</h1>
 
         <div>
@@ -43,7 +43,7 @@
                         {{ activityUpdateByClass.dailyActivityInfo }}
                     </p>
                     <p>
-                         {{ activityUpdateByClass.teacherId}}
+                         {{ activityUpdateByClass.userTeacher?activityUpdateByClass.userTeacher.userName:'-' }}
                     </p>
                 
                 </div>
@@ -59,7 +59,7 @@
                         <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
                     </mdb-card>
                 </div>
-            </mdb-carousel-item>wwq
+            </mdb-carousel-item>kkk
         </mdb-carousel>
         </div>
     </div>

@@ -10,6 +10,37 @@ namespace DAL
     public class MessagesDAL
     {
 
+        public void AddUpdateMessage(Messages tModel)
+        {
+            using (var db = new newMaonContext())
+            {
+                Messages k = db.Messages.FirstOrDefault(x => x.MessageId == tModel.MessageId);
+                if (k != null)
+                {
+
+                    k.MessageDateTime = tModel.MessageDateTime;
+                    k.MessageContent = tModel.MessageContent;
+                    k.UserToId = tModel.UserToId;
+                    k.UserFromId = tModel.UserFromId;
+                    k.KidId = tModel.KidId;
+                }
+                else
+                {
+                    db.Messages.Add(tModel);
+                }
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+
+                }
+
+
+            }
+        }
+
         public void AddMessages(Messages tModel)
         {
             using (var db = new newMaonContext())
@@ -81,7 +112,7 @@ namespace DAL
             using (var db2 = new newMaonContext())
             {
                 var userToID = db2.Users.FirstOrDefault(x => x.UserId == teacherId).ClassId;
-                var messages = db2.Messages.Include("Class").Include("UserParent").Where(x => x.UserToId== userToID).ToList();
+                var messages = db2.Messages.Include("Class").Include("UserParent").Where(x => x.UserToId == userToID).ToList();
 
                 return messages;
 

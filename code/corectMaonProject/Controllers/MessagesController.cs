@@ -57,6 +57,14 @@ namespace corectMaonProject.Controllers
 
         }
         [HttpPost]
+        [Route("AddUpdateMessage")]
+        //הוספה
+        public IActionResult AddUpdateMessage(MessagesDTO Messages)
+        {
+            return Ok(_MessagesBL.AddUpdateMessage(Messages));
+
+        }
+        [HttpPost]
         //הוספה
         public IActionResult AddMessages(MessagesDTO Messages)
         {

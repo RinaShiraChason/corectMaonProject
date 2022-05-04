@@ -1,4 +1,5 @@
 ﻿using DAL.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace DAL
             var today = DateTime.Today;
             using (var db = new newMaonContext())
             {
-                return db.ActivityUpdates.FirstOrDefault(x => x.ClassId == classId
+                return db.ActivityUpdates.Include("UserTeacher").FirstOrDefault(x => x.ClassId == classId
                 && x.DailyActivityDate.Date == today);
             }
         }

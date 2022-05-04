@@ -23,6 +23,9 @@ export class MessagesService {
   add(ka: Messages): Observable<boolean> {
     return this.http.post<boolean>(this.URL, ka);
   }
+  addUpdateMessage(ka: Messages): Observable<boolean> {
+    return this.http.post<boolean>(this.URL + 'AddUpdateMessage', ka);
+  }
   delete(id: number): Observable<boolean> {
     return this.http.delete<boolean>(this.URL + id);
   }

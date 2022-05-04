@@ -63,9 +63,12 @@ export class ChildAreaComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
-    });
+    //TODO GET KID
+
     this.getAll();
     this.getActivityUpdateByClass();
+    });
+    
     this.slides = this.chunk(this.cards, 3);
   }
   
