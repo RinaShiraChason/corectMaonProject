@@ -1,9 +1,9 @@
 <div class="form-wrapper-modal">
-    <h1 *ngIf="data && data.recoverLostsId; else newProduct">עדכון השבת אבידה</h1>
-    <ng-template #newProduct>
+    <h1 *ngIf="data && data.recId; else newItem">עדכון השבת אבידה</h1>
+    <ng-template #newItem>
         <h1>הוספת השבת אבידה</h1>
     </ng-template>
-    <form [formGroup]="setRecoverLostForm" (ngSubmit)="AddProduct()">
+    <form [formGroup]="setRecoverLostForm" (ngSubmit)="setRecoverLost()">
 
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -21,11 +21,11 @@
 
 
         <img *ngIf="
-        data.recoverLostsId && recoverLosts && recoverLosts.recoverLostsImage
-      " [src]="serviceBase + recoverLosts.recoverLostsImage" width="100" height="auto" />
+        data.recId && recoverLosts && recoverLosts.recoverLostsImage
+      " [src]="serviceBase + recoverLosts.recoverLostsImage" width="150" height="auto" />
         <img *ngIf="
-        !data.recoverLostsId || !recoverLosts || !recoverLosts.recoverLostsImage
-      " [src]="url" width="100" height="auto" /><br />
+        !data.recId || !recoverLosts || !recoverLosts.recoverLostsImage
+      " [src]="url" width="150" height="auto" /><br />
         <div>
             <div class="custom-file-upload-wrapper">
                 <div class="custom-file-upload-name-wrapper">
@@ -41,7 +41,8 @@
                 </div>
                 <input id="file-input" #imageInput type="file" (change)="onFileChanged($event)" accept="image/*" />
             </div>
-            <button type="submit" id="submitForm" name="submitForm" class="btn-color" [disabled]="!setRecoverLostForm.valid">
+            <br>
+            <button type="submit" id="submitForm" name="submitForm" class="btn-color" [disabled]="!setRecoverLostForm.valid || (!fileToUpload && (!recoverLosts || !recoverLosts.recoverLostsImage)) ">
       שמור
     </button>
     </form>

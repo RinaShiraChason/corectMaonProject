@@ -2,7 +2,7 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false">
 
   <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" href="#">שם של המעון</a></mdb-navbar-brand>
+  <mdb-navbar-brand><a class="navbar-brand" href="#">מעון הדובדבן</a></mdb-navbar-brand>
   <!-- Collapsible content -->
   <links>
 
@@ -58,8 +58,24 @@
 
 
           </div>
+          <div *ngIf="user && (!user.kids || user.kids.length == 0) && user.userTypeId === 2">
+            <a  href="menuTeacher" 
+            
+            class="dropdown-item waves-light" mdbWavesEffect>
+             מסך ניהול גננת
+            </a>
 
 
+          </div>
+          <div *ngIf="user && (!user.kids || user.kids.length == 0) && user.userTypeId === 3">
+            <a  href="menuManager" 
+            
+            class="dropdown-item waves-light" mdbWavesEffect>
+             מסך ניהול מנהלת
+            </a>
+
+
+          </div>
           <a *ngIf="user" class="dropdown-item waves-light" mdbWavesEffect href="#" (click)="logout();">התנתק
             מהחשבון</a>
         </div>

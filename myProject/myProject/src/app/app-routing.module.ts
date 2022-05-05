@@ -25,6 +25,7 @@ import { TeacherPlacementListComponent } from "./manager/teacher-placement-list/
 import { TeacherListComponent } from "./manager/teacher-list/teacher-list.component";
 import { ClassesListComponent } from "./manager/classes-list/classes-list.component";
 import { ClassDayInfoListComponent } from "./manager/class-day-info-list/class-day-info-list.component";
+import { SetNewsComponent } from "./manager/set-news/set-news.component";
 
 
 
@@ -90,6 +91,9 @@ const routes: Routes = [
       { path: "day", component: ClassDayInfoListComponent },
       { path: "images", component: ImagesComponent },
       { path: "message", component: MessagesComponent },
+      { path: "news", component: SetNewsComponent },
+
+      
       {
         path: "",
         outlet: "childList",

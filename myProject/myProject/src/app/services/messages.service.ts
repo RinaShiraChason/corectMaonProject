@@ -9,7 +9,7 @@ import { Messages } from "../classes/Messages";
 export class MessagesService {
   URL = "https://localhost:44397/api/Messages/";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getMessagesByTo(id: number): Observable<Messages[]> {
     return this.http.get<Messages[]>(this.URL + "GetMessagesByTo/" + id);
@@ -17,6 +17,14 @@ export class MessagesService {
   getMessagesByFrom(id: number): Observable<Messages[]> {
     return this.http.get<Messages[]>(this.URL + "GetMessagesByFrom/" + id);
   }
+  getMessagesNews(): Observable<Messages[]> {
+    return this.http.get<Messages[]>(this.URL + "getMessagesNews");
+  }
+  saveNews(news): Observable<Messages[]> {
+    return this.http.post<Messages[]>(this.URL + "saveNews", news);
+  }
+
+
   update(ka: Messages): Observable<boolean> {
     return this.http.put<boolean>(this.URL, ka);
   }
@@ -27,6 +35,6 @@ export class MessagesService {
     return this.http.post<boolean>(this.URL + 'AddUpdateMessage', ka);
   }
   delete(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(this.URL + id);
+    return this.http.delete<boolean>(this.URL + 'Delete/' + id);
   }
 }

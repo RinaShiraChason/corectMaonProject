@@ -11,7 +11,7 @@
             <thead>
                 <tr>
                     <th>פרטים</th>
-                    <th>תאריך</th>
+                    <th>  תאריך עדכון</th>
                     <th>תמונה</th>
                     <th> המוצא</th>
             </thead>
@@ -21,10 +21,10 @@
                     <td> {{recoverLost.recoverLostsDate | date:"dd/MM/yyyy HH:mm"}}</td>
                     
                     <td>
-                        <img *ngIf="recoverLost.recoverLostsImage" [src]="recoverLost.recoverLostsImage" width="25" height="25">
+                        <img *ngIf="recoverLost.recoverLostsImage" [src]="recoverLost.recoverLostsImage" width="45" >
                     </td>
                     <td>
-                        <span *ngIf="recoverLost.idUser != userId;else thisUser">{{recoverLost.User.userName + ' ' + recoverLost.User.phoneNamber1}}</span>
+                        <span *ngIf="recoverLost.idUser != userId;else thisUser">{{recoverLost.user.userName + ' ' + recoverLost.user.phoneNamber1}}</span>
                         <ng-template #thisUser>
 
                             <mat-icon class="icon" (click)="openDialog(recoverLost.recoverLostsId);">edit</mat-icon>&nbsp;

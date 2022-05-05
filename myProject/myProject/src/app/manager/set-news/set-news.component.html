@@ -1,0 +1,15 @@
+<div class="pull-left"> <button class="btn-color" (click)="saveNews()">
+        שמור
+    </button></div>
+
+<ul>
+    <li *ngFor="let m of messages;let i=index">
+        <a href="#" contenteditable>
+            <h2>#{{i+1}} </h2>
+            <textarea type="text" rows="5" [(ngModel)]="m.messageContent"></textarea>
+            <!-- <p>{{m.messageContent}}</p> -->
+            <p class="p-date">{{m.messageDateTime | date:"dd/MM/yyyy"}}</p>
+        </a>
+    </li>
+
+</ul>

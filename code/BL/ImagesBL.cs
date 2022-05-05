@@ -34,6 +34,13 @@ namespace BL
 
             return l;
         }
+        public ImagesDTO GetById(int classId)
+        {
+
+            var lI = imagesDAL.GetById(classId);
+            var tModel = imapper.Map<Images, ImagesDTO>(lI);
+            return tModel;
+        }
         
         public object update(ImagesDTO image)
         {
@@ -43,6 +50,14 @@ namespace BL
             imagesDAL.update(tModel);
             return true;
         }
+
+        public bool UploadImage(int id, string image)
+        {
+            bool b = imagesDAL.UploadImage(id, image);
+
+            return b;
+        }
+
 
         public object Delete(int id)
         {
@@ -55,11 +70,19 @@ namespace BL
         {
 
             Images tModel = imapper.Map<ImagesDTO, Images>(images);
-            imagesDAL.AddImagess(tModel);
+            imagesDAL.AddImages(tModel);
             return true;
 
         }
+        public int AddUpdateImage(ImagesDTO images)
+        {
 
-      
+            Images tModel = imapper.Map<ImagesDTO, Images>(images);
+            var id = imagesDAL.AddUpdateImage(tModel);
+            return id;
+
+        }
+        
+
     }
 }

@@ -36,6 +36,15 @@ namespace BL
             return lDTO;
 
         }
+        public List<MessagesDTO> GetMessagesNews()
+        {
+
+            List<Messages> l = message.GetMessagesNews();
+            List<MessagesDTO> lDTO = imapper.Map<List<Messages>, List<MessagesDTO>>(l);
+            return lDTO;
+
+        }
+
 
         public List<MessagesDTO> GetMessagesByFrom(int userFromId)
         {
@@ -45,6 +54,27 @@ namespace BL
             return lDTO;
 
         }
+
+
+        public object AddUpdateMessage(MessagesDTO messages)
+        {
+
+            Messages tModel = imapper.Map<MessagesDTO, Messages>(messages);
+
+            message.AddUpdateMessage(tModel);
+            return true;
+        }
+
+        public List<MessagesDTO> SaveNews(List<MessagesDTO> messages)
+        {
+
+            var tModels = imapper.Map<List<MessagesDTO>, List<Messages>>(messages);
+
+            var l = message.SaveNews(tModels);
+            var lDTO = imapper.Map<List<Messages>, List<MessagesDTO>>(l);
+            return lDTO;
+        }
+
         public object update(MessagesDTO messages)
         {
 

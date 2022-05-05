@@ -45,7 +45,7 @@ namespace BL
         {
             RecoverLosts rec = imapper.Map<RecoverLostsDTO, RecoverLosts>(recoverLost);
 
-            bool b = _RecoverLostDAL.AddRecoverLostsId(rec);
+            int b = _RecoverLostDAL.AddRecoverLostsId(rec);
 
             return b;
         }
@@ -54,7 +54,7 @@ namespace BL
         {
             RecoverLosts rec = imapper.Map<RecoverLostsDTO, RecoverLosts>(recoverLosts);
 
-            bool b = false;
+            int b = 0;
             if (rec.RecoverLostsId == 0)
             {
                 b = _RecoverLostDAL.AddRecoverLostsId(rec);
@@ -78,7 +78,7 @@ namespace BL
         public object update(RecoverLostsDTO recoverLost)
         {
             RecoverLosts rec = imapper.Map<RecoverLostsDTO, RecoverLosts>(recoverLost);
-            bool b = _RecoverLostDAL.update(rec);
+            int b = _RecoverLostDAL.update(rec);
 
             return b;
         }

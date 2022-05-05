@@ -27,6 +27,6 @@ export class ExternalDataService {
     return this.http.post<boolean>(this.URL, ka);
   }
   delete(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(this.URL + id);
+    return this.http.delete<boolean>(this.URL + "Delete/" + id);
   }
 }

@@ -1,1 +1,48 @@
-<p>set-images works!</p>
+<div class="form-wrapper-modal">
+    <h1 *ngIf="data && data.imgId; else newItem">עדכון  תמונה</h1>
+    <ng-template #newItem>
+        <h1>הוספת תמונה </h1>
+    </ng-template>
+    <form [formGroup]="setImageForm" (ngSubmit)="setImage()">
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> כותרת</mat-label>
+            <input type="text" matInput rows="4" autocomplete="autocomplete" formControlName="imageTitle" required/>
+            <mat-error *ngIf="setImageForm.get('imageTitle').errors?.required">חובה להזין כותרת</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>  פרטים</mat-label>
+            <input type="text" matInput rows="4" autocomplete="autocomplete" formControlName="imageData" required/>
+            <mat-error *ngIf="setImageForm.get('imageData').errors?.required">חובה להזין פרטים</mat-error>
+        </mat-form-field>
+
+
+
+        <img *ngIf="
+        data.imgId && imageItem && imageItem.imageURL
+      " [src]="serviceBase + imageItem.imageURL" width="150" height="auto" />
+        <img *ngIf="
+        !data.imgId || !imageItem || !imageItem.imageURL
+      " [src]="url" width="150" height="auto" /><br />
+        <div>
+            <div class="custom-file-upload-wrapper">
+                <div class="custom-file-upload-name-wrapper">
+                    <label class="custom-file-upload-name" *ngIf="fileToUpload && fileToUpload.length > 0">
+            {{ fileToUpload[0].name }} </label
+          ><label class="custom-file-upload-name" *ngIf="!fileToUpload"
+            >לא נבחרה תמונה</label
+          >
+        </div>
+        <label class="custom-file-upload" for="file-input"
+          ><mat-icon>insert_drive_file</mat-icon><input type="file" />טען תמונה
+        </label>
+                </div>
+                <input id="file-input" #imageInput type="file" (change)="onFileChanged($event)" accept="image/*" />
+            </div>
+            <br>
+            <button type="submit" id="submitForm" name="submitForm" class="btn-color" [disabled]="!setImageForm.valid || (!fileToUpload && (!imageItem || !imageItem.imageURL)) ">
+      שמור
+    </button>
+    </form>
+    </div>

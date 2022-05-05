@@ -38,7 +38,18 @@ namespace corectMaonProject.Controllers
         {
             return Ok(_MessagesBL.GetMessagesByTo(id));
 
+
+
         }
+        [HttpGet]
+        [Route("GetMessagesNews")]
+        //שליפה
+        public IActionResult GetMessagesNews()
+        {
+            return Ok(_MessagesBL.GetMessagesNews());
+
+        }
+        
         [HttpGet]
         [Route("GetMessagesByFrom/{id}")]
         //שליפה
@@ -65,6 +76,15 @@ namespace corectMaonProject.Controllers
 
         }
         [HttpPost]
+        [Route("SaveNews")]
+        //הוספה
+        public IActionResult SaveNews([FromBody] List<MessagesDTO> mNews)
+        {
+            return Ok(_MessagesBL.SaveNews(mNews));
+
+        }
+        
+        [HttpPost]
         //הוספה
         public IActionResult AddMessages(MessagesDTO Messages)
         {
@@ -72,6 +92,7 @@ namespace corectMaonProject.Controllers
 
         }
         [HttpDelete]
+        [Route("delete/{id}")]
         public IActionResult Delete(int id)
         {
             return Ok(_MessagesBL.Delete(id));
@@ -80,5 +101,8 @@ namespace corectMaonProject.Controllers
    
    
 
+    }
+    public class MessagesNews {
+        public List<MessagesDTO> News { get; set; }
     }
 }

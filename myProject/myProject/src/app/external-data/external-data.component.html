@@ -1,7 +1,17 @@
 <h1 class="h1-form" style="max-width: 300px;"> קישורים מהווי הגן</h1>
 
-<mat-icon class="add-icon" (click)="openDialog();">add_circle_outline</mat-icon>
-<br>
+<div  class="row" style="margin-top:30px">
+  <mat-icon class="add-icon col-1" (click)="openDialog();">add_circle_outline</mat-icon>
+  <div class="col-9">
+      <mat-form-field appearance="fill">
+          <mat-label>בחר כיתה </mat-label>
+          <mat-select [(ngModel)]="classId" (selectionChange)="selectClass($event.value)">
+              <mat-option [value]="c.classId" *ngFor="let c of classes"> {{c.className}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+  </div>
+
+</div>
 <div class="row" style="    margin: 20px;"  *ngIf="!externalDataList || externalDataList.length >0; else noexternalDataList">
     <div class="mat-card col-4" *ngFor="let ext of externalDataList">
       <p class="title"><strong>{{ext.externalDataTitle }}</strong></p>
@@ -24,6 +34,6 @@
 <ng-template #noexternalDataList>
     <br>
 
-    <h1> לא נמצאו קישורים </h1>
+    <h2> לא נמצאו קישורים </h2>
 
 </ng-template>

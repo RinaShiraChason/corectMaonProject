@@ -1,6 +1,6 @@
 <div class="form-wrapper-modal">
-    <h1 *ngIf="data && data.recoverLostsId; else newProduct">עדכון קישור</h1>
-    <ng-template #newProduct>
+    <h1 *ngIf="data && data.recoverLostsId; else newItem">עדכון קישור</h1>
+    <ng-template #newItem>
         <h1>הוספת  קישור</h1>
     </ng-template>
     <form [formGroup]="setExtForm" (ngSubmit)="setExtData()">

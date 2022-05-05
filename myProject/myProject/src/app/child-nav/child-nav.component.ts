@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../classes/Users';
 import { UserService } from '../services/user.service';
 
@@ -9,7 +10,7 @@ import { UserService } from '../services/user.service';
 })
 export class ChildNavComponent implements OnInit {
   user: User;
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private route:Router) { }
 
   ngOnInit(): void {
     this.user = <User>JSON.parse(localStorage.getItem('user'));
@@ -22,5 +23,17 @@ export class ChildNavComponent implements OnInit {
     this.user = null;
     localStorage.removeItem('user');
 
+  }
+
+  loginSpecUser(){
+
+    if (this.user.userTypeId === 2) {
+      this.route.navigateByUrl('menuTeacher');
+
+    }
+    else if (this.user.userTypeId === 3) {
+      this.route.navigateByUrl('menuManager');
+
+    }
   }
 }

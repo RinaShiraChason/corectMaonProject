@@ -52,7 +52,7 @@ namespace corectMaonProject.Controllers
             return Ok(_ExternalDataBl.AddExternalData(externalData));
 
         }
-        [HttpDelete]
+        [HttpDelete("Delete/{externalDataId}")]
         public IActionResult Delete(int externalDataId)
         {
             return Ok(_ExternalDataBl.Delete(externalDataId));

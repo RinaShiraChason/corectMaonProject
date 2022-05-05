@@ -75,6 +75,7 @@ import { SetClassComponent } from './manager/set-class/set-class.component';
 import { SetKidDayCareComponent } from './set-kid-day-care/set-kid-day-care.component';
 import { KidsDayHistoryModalComponent } from './kids-day-history-modal/kids-day-history-modal.component';
 import { SetMessageComponent } from './set-message/set-message.component';
+import { SetNewsComponent } from './manager/set-news/set-news.component';
 
 
 
@@ -125,7 +126,8 @@ import { SetMessageComponent } from './set-message/set-message.component';
     SetClassComponent,
     SetKidDayCareComponent,
     KidsDayHistoryModalComponent,
-    SetMessageComponent
+    SetMessageComponent,
+    SetNewsComponent
     //AddChildComponent
   ],
   imports: [

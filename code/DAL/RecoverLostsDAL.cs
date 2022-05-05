@@ -19,7 +19,7 @@ namespace DAL
                 return db.RecoverLosts.Include("User").Where(x => x.RecoverLostsDate.Date >= date).OrderByDescending(x => x.RecoverLostsDate).ToList();
             }
         }
-        public bool update(RecoverLosts typeRecoverLostsIdDal)
+        public int update(RecoverLosts typeRecoverLostsIdDal)
         {
             using (var db = new newMaonContext())
             {
@@ -38,12 +38,12 @@ namespace DAL
                     }
                     catch
                     {
-                        return false;
+                        return typeRecoverLostsIdDal.RecoverLostsId; 
                     }
 
 
                 }
-                return true;
+                return typeRecoverLostsIdDal.RecoverLostsId;
             }
         }
 
@@ -55,7 +55,7 @@ namespace DAL
             }
         }
 
-        public bool AddRecoverLostsId(RecoverLosts typeRecoverLostsIdDal)
+        public int AddRecoverLostsId(RecoverLosts typeRecoverLostsIdDal)
         {
             using (var db = new newMaonContext())
             {
@@ -67,9 +67,9 @@ namespace DAL
                 }
                 catch
                 {
-                    return false;
+                    return typeRecoverLostsIdDal.RecoverLostsId;
                 }
-                return true;
+                return typeRecoverLostsIdDal.RecoverLostsId;
             }
         }
 

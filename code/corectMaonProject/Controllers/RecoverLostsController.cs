@@ -53,7 +53,7 @@ namespace corectMaonProject.Controllers
             return Ok(_RecoverLostsBL.AddUpdateRecoverLost(RecoverLosts));
 
         }
-        [HttpDelete]
+        [HttpDelete("delete/{recoverLostsId}")]
         public IActionResult Delete(int recoverLostsId)
         {
             return Ok(_RecoverLostsBL.Delete(recoverLostsId));

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { RecoverLosts } from "../classes/RecoverLosts";
 
 @Injectable({
@@ -28,8 +28,8 @@ export class RecoverLostsService {
     return this.http.post<RecoverLosts[]>(this.URL, p);
   }
 
-  delete(parentId : number): Observable<RecoverLosts[]> {
-    return this.http.delete<RecoverLosts[]>(this.URL + parentId );
+  delete(id : number): Observable<boolean> {
+    return this.http.delete<boolean>(this.URL  + "delete/"+ id );
   }
 
   AddUpdateRecoverLost(rec) {
@@ -38,8 +38,9 @@ export class RecoverLostsService {
   }
   uploadImage(recId, image) {
     let formData: FormData = new FormData();
-    formData.append("file", image);
+    formData.append('uploadFile', image, image.name);
     formData.append("RecoverLostId", recId);
-    return this.http.post(`${this.URLBASE}/Helper/UploadImage`, formData);
+    const headers = new HttpHeaders();//.set('Content-Type', 'multipart/form-data');
+    return this.http.post(`${this.URLBASE}/Helper/UploadImage/${recId}/forms`, formData, { headers });
   }
 }

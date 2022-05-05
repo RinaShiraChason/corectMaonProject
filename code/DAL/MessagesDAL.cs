@@ -41,6 +41,39 @@ namespace DAL
             }
         }
 
+        public List<Messages> SaveNews(List<Messages> tModels)
+        {
+            using (var db = new newMaonContext())
+            {
+                foreach (var tModel in tModels)
+                {
+
+
+                    Messages k = db.Messages.FirstOrDefault(x => x.MessageId == tModel.MessageId);
+                    if (k != null && k.MessageContent!= tModel.MessageContent)
+                    {
+
+                        k.MessageDateTime = DateTime.Now;
+                        k.MessageContent = tModel.MessageContent;
+                     
+
+                        try
+                        {
+                            db.SaveChanges();
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                }
+
+            }
+            return GetMessagesNews();
+        }
+
+
+
         public void AddMessages(Messages tModel)
         {
             using (var db = new newMaonContext())
@@ -93,7 +126,17 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").Where(x => x.UserToId == userToId).OrderBy(x => x.MessageDateTime).ToList();
+                List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").Where(x => x.UserToId == userToId &&
+                x.UserToId != x.UserFromId).OrderByDescending(x => x.MessageDateTime).ToList();
+                return lData;
+            }
+        }
+        public List<Messages> GetMessagesNews()
+        {
+            using (var db = new newMaonContext())
+            {
+                List<Messages> lData = db.Messages.Where(x => x.UserToId == x.UserFromId)
+                    .OrderByDescending(x => x.MessageDateTime).ToList();
                 return lData;
             }
         }
@@ -102,7 +145,8 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").Where(x => x.UserFromId == userFromId).OrderBy(x => x.MessageDateTime).ToList();
+                List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").Where(x => x.UserFromId == userFromId
+                && x.UserToId != x.UserFromId).OrderByDescending(x => x.MessageDateTime).ToList();
                 return lData;
             }
         }

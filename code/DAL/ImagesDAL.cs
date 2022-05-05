@@ -15,7 +15,7 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                List<Images> lImagess = db.Images.OrderByDescending(z=>z.ImageDate).ToList();
+                List<Images> lImagess = db.Images.OrderByDescending(z => z.ImageDate).ToList();
                 return lImagess;
             }
         }
@@ -27,6 +27,17 @@ namespace DAL
                 return lImagess;
             }
         }
+        public Images GetById(int id)
+        {
+            using (var db = new newMaonContext())
+            {
+                var image = db.Images.Include("UserTeacher").FirstOrDefault(x => x.ImageId == id);
+                return image;
+            }
+        }
+
+
+
         public bool update(Images imagesDal)
         {
             using (var db = new newMaonContext())
@@ -53,7 +64,60 @@ namespace DAL
             }
         }
 
-        public void AddImagess(Images tModel)
+        public bool UploadImage(int id, string image)
+        {
+            using (var db = new newMaonContext())
+            {
+                var k = db.Images.FirstOrDefault(x => x.ImageId == id);
+                if (k != null)
+                {
+                    k.ImageURL = image;
+
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+
+                }
+                return true;
+            }
+        }
+
+        public int AddUpdateImage(Images imagesDal)
+        {
+            using (var db = new newMaonContext())
+            {
+                var img = db.Images.FirstOrDefault(x => x.ImageId == imagesDal.ImageId);
+                if (img != null)
+                {
+                    img.ImageData = imagesDal.ImageData;
+                    img.ImageDate = imagesDal.ImageDate;
+                    img.ImageTitle = imagesDal.ImageTitle;
+                    img.ImageURL = imagesDal.ImageURL;
+                }
+                else
+                { db.Images.Add(imagesDal); }
+
+                try
+                {
+
+                    db.SaveChanges();
+                }
+                catch
+                {
+
+
+
+                }
+                return imagesDal.ImageId;
+            }
+        }
+        public void AddImages (Images tModel)
         {
             using (var db = new newMaonContext())
             {

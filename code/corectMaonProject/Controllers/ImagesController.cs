@@ -29,6 +29,16 @@ namespace corectMaonProject.Controllers
             return Ok(_ImagesBl.GetAllByClassId(classId));
 
         }
+
+        [HttpGet]
+        [Route("GetById/{id}")]
+        //שליפה
+        public IActionResult GetById(int id)
+        {
+            return Ok(_ImagesBl.GetById(id));
+
+        }
+        
         //
         [HttpPut]
         //עדכון
@@ -44,7 +54,18 @@ namespace corectMaonProject.Controllers
             return Ok(_ImagesBl.AddImages(image));
 
         }
-        [HttpDelete]
+        [HttpPost("AddUpdateImage")]
+        //הוספה
+        public IActionResult AddUpdateImage(ImagesDTO image)
+        {
+            return Ok(_ImagesBl.AddUpdateImage(image));
+
+        }
+
+        
+
+
+        [HttpDelete("Delete/{imageId}")]
         public IActionResult Delete(int imageId)
         {
             return Ok(_ImagesBl.Delete(imageId));

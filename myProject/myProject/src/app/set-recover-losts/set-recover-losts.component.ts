@@ -8,6 +8,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { User } from '../classes/Users';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-set-recover-losts',
   templateUrl: './set-recover-losts.component.html',
@@ -21,15 +23,14 @@ export class SetRecoverLostsComponent implements OnInit {
   imageUrl: string;
   fileToUpload: File[];
   componentId: string;
- 
+
   recoverLosts: RecoverLosts;
   setRecoverLostForm = this.fb.group({
     recoverLostsInfo: this.fb.control('', [Validators.required]),
     recoverLostsImage: this.fb.control(''),
-    recoverLostsDate: this.fb.control(null),
-    postalCode: this.fb.control(null),
+    recoverLostsDate: this.fb.control(new Date().toISOString().split('T')[0]),
     idUser: this.fb.control(null),
-    recoverLostsId: this.fb.control(null),
+    recoverLostsId: this.fb.control(0),
   });
   url: string | ArrayBuffer;
   serviceBase: string = 'https://localhost:44397/UploadFile/';
@@ -39,14 +40,14 @@ export class SetRecoverLostsComponent implements OnInit {
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<SetRecoverLostsComponent>
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    if (this.data && this.data.recoverLostsId) {
-      this.recService.getById(this.data.recoverLostsId).subscribe(
+
+    if (this.data && this.data.recId) {
+      this.recService.getById(this.data.recId).subscribe(
         (response) => {
           this.setRecoverLostForm = this.fb.group(response);
-         
           this.recoverLosts = response;
         },
         (error) => {
@@ -54,8 +55,11 @@ export class SetRecoverLostsComponent implements OnInit {
         }
       );
     }
+    else {
+      var user = <User>JSON.parse(localStorage.getItem('user'));
+      this.setRecoverLostForm.patchValue({ "idUser": user.userId });
+    }
 
-  
 
   }
   close() {
@@ -83,9 +87,10 @@ export class SetRecoverLostsComponent implements OnInit {
       this.url = reader.result;
     };
   }
-  AddProduct(): void {
+  setRecoverLost(): void {
     const p = <RecoverLosts>this.setRecoverLostForm.value;
-
+    p.recoverLostsDate = new Date();
+    var self = this;
     this.recService.AddUpdateRecoverLost(p).subscribe(
       (response) => {
         if (this.fileToUpload) {
@@ -93,10 +98,12 @@ export class SetRecoverLostsComponent implements OnInit {
             .uploadImage(response, this.fileToUpload[0])
             .subscribe(
               (data) => {
-                this.close();
+                Swal.fire('','השמירה בוצעה בהצלחה','success');
+                self.close();
               },
               (error) => {
                 console.log(error);
+                Swal.fire('Oooops','ארעה שגיאה בשמירה, פנה למנהל המערכת','error');
               }
             );
         } else {
