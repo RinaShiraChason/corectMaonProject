@@ -26,6 +26,8 @@ import { TeacherListComponent } from "./manager/teacher-list/teacher-list.compon
 import { ClassesListComponent } from "./manager/classes-list/classes-list.component";
 import { ClassDayInfoListComponent } from "./manager/class-day-info-list/class-day-info-list.component";
 import { SetNewsComponent } from "./manager/set-news/set-news.component";
+import { ChildNavComponent } from "./child-nav/child-nav.component";
+import { ChildInfoComponent } from "./child-info/child-info.component";
 
 
 
@@ -38,13 +40,37 @@ const routes: Routes = [
   { path: "news", component: NewsComponent },
   { path: "loginPage", component: LoginPageComponent },
   { path: "techerArea", component: TecherAreaComponent },
-  { path: "childArea", component: ChildAreaComponent },
-  { path: "childArea/:id", component: ChildAreaComponent },
+  // { path: "childArea", component: ChildAreaComponent },
+  // { path: "childArea/:id", component: ChildAreaComponent },
   
   { path: "teachersPlacement", component: TeachersPlacementComponent },
 
   { path: "parentsMessages", component: ParentsMessagesComponent },
   { path: "", component: HomeComponent },
+  {
+    path: "menuChild",
+    component: ChildAreaComponent,
+
+    children: [
+       { path: "recover-losts", component: RecoverLostsListComponent },
+      { path: "externalData", component: ExternalDataComponent },
+      { path: "dayCare", component: DayCareComponent },
+      { path: "images", component: ImagesComponent },
+      { path: "message", component: MessagesComponent },
+      { path: "childInfo", component: ChildInfoComponent },
+  
+      {
+        path: "",
+        outlet: "childInfo",
+        component: ChildInfoComponent,
+      },
+      {
+        path: "",
+        redirectTo: "childInfo",
+        pathMatch: "full",
+      },
+    ],
+  },
   {
     path: "menuTeacher",
     component: TecherAreaComponent,
@@ -86,8 +112,7 @@ const routes: Routes = [
       { path: "childList", component: ChildListComponent },
       { path: "recover-losts", component: RecoverLostsListComponent },
       { path: "externalData", component: ExternalDataComponent },
-      // { path: "dayCare", component: DayCareComponent },
-      // { path: "activityUpdate", component: ActivityUpdateComponent },
+   
       { path: "day", component: ClassDayInfoListComponent },
       { path: "images", component: ImagesComponent },
       { path: "message", component: MessagesComponent },
@@ -109,7 +134,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

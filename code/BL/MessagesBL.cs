@@ -28,10 +28,10 @@ namespace BL
             return l;
         }
 
-        public List<MessagesDTO> GetMessagesByTo(int userToId)
+        public List<MessagesDTO> GetMessagesByTo(int userToId, int kidId)
         {
 
-            List<Messages> l = message.GetMessagesByTo(userToId);
+            List<Messages> l = message.GetMessagesByTo(userToId, kidId);
             List<MessagesDTO> lDTO = imapper.Map<List<Messages>, List<MessagesDTO>>(l);
             return lDTO;
 
@@ -46,10 +46,10 @@ namespace BL
         }
 
 
-        public List<MessagesDTO> GetMessagesByFrom(int userFromId)
+        public List<MessagesDTO> GetMessagesByFrom(int userFromId, int kidId)
         {
 
-            List<Messages> l = message.GetMessagesByFrom(userFromId);
+            List<Messages> l = message.GetMessagesByFrom(userFromId, kidId);
             List<MessagesDTO> lDTO = imapper.Map<List<Messages>, List<MessagesDTO>>(l);
             return lDTO;
 

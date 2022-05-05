@@ -11,11 +11,11 @@ export class MessagesService {
 
   constructor(private http: HttpClient) { }
 
-  getMessagesByTo(id: number): Observable<Messages[]> {
-    return this.http.get<Messages[]>(this.URL + "GetMessagesByTo/" + id);
+  getMessagesByTo(id: number, kidId: number): Observable<Messages[]> {
+    return this.http.get<Messages[]>(this.URL + "GetMessagesByTo/" + id + "/" + kidId);
   }
-  getMessagesByFrom(id: number): Observable<Messages[]> {
-    return this.http.get<Messages[]>(this.URL + "GetMessagesByFrom/" + id);
+  getMessagesByFrom(id: number, kidId: number): Observable<Messages[]> {
+    return this.http.get<Messages[]>(this.URL + "GetMessagesByFrom/" + id + "/" + kidId);
   }
   getMessagesNews(): Observable<Messages[]> {
     return this.http.get<Messages[]>(this.URL + "getMessagesNews");

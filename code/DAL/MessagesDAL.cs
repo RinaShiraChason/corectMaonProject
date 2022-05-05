@@ -122,12 +122,14 @@ namespace DAL
         }
 
 
-        public List<Messages> GetMessagesByTo(int userToId)
+        public List<Messages> GetMessagesByTo(int userToId, int kidId)
         {
             using (var db = new newMaonContext())
             {
                 List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").Where(x => x.UserToId == userToId &&
                 x.UserToId != x.UserFromId).OrderByDescending(x => x.MessageDateTime).ToList();
+                if (kidId != 0)
+                    lData = lData.Where(x => x.KidId == kidId).ToList();
                 return lData;
             }
         }
@@ -141,12 +143,16 @@ namespace DAL
             }
         }
 
-        public List<Messages> GetMessagesByFrom(int userFromId)
+        public List<Messages> GetMessagesByFrom(int userFromId, int kidId)
         {
             using (var db = new newMaonContext())
             {
-                List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").Where(x => x.UserFromId == userFromId
+                List<Messages> lData = db.Messages.Include("UserFrom").Include("UserTo").Include("Kid").
+                    Where(x => x.UserFromId == userFromId
                 && x.UserToId != x.UserFromId).OrderByDescending(x => x.MessageDateTime).ToList();
+
+                if (kidId != 0)
+                    lData = lData.Where(x=>x.KidId == kidId).ToList();
                 return lData;
             }
         }

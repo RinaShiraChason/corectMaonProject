@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Classes } from "../classes/Classes";
 import { PlacementOfATeacher } from "../classes/PlacementOfATeacher";
+import { User } from "../classes/Users";
 import { ClassesService } from "../services/classes.service";
 import { PlacementOfATeacherService } from "../services/placement-of-ateacher.service";
 
@@ -18,9 +19,10 @@ export class TeachersPlacementComponent implements OnInit {
   classes: Classes[];
  
   ngOnInit(): void {
+    var user = <User>JSON.parse(localStorage.getItem('user'));
     this.classService.getAllׁׂׂׂׂׂׂ().subscribe((x) => {
       this.classes = x;
-      this.placeOfService.getByteacherId(5).subscribe((x) => {
+      this.placeOfService.getByteacherId(user.userId).subscribe((x) => {
         this.teacherDays = x;
 
         this.teacherDays.dayInWeek1AStr = this.teacherDays.dayInWeek1A

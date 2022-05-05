@@ -24,19 +24,19 @@ namespace corectMaonProject.Controllers
         }
 
         [HttpGet]
-        [Route("getMessgesByTeachID/{teacherId}")]
+        [Route("getMessgesByTeachID/{teacherId}/{kidId}")]
 
-        public IActionResult GetMessgesByTeacher(int teacherId)
+        public IActionResult GetMessgesByTeacher(int teacherId, int kidId)
         {
-            return Ok(_MessagesBL.GetMessagesByTo(teacherId));
+            return Ok(_MessagesBL.GetMessagesByTo(teacherId, kidId));
         }
 
         [HttpGet]
-        [Route("GetMessagesByTo/{id}")]
+        [Route("GetMessagesByTo/{id}/{kidId}")]
         //שליפה
-        public IActionResult GetMessagesByTo(int id)
+        public IActionResult GetMessagesByTo(int id, int kidId)
         {
-            return Ok(_MessagesBL.GetMessagesByTo(id));
+            return Ok(_MessagesBL.GetMessagesByTo(id, kidId));
 
 
 
@@ -51,11 +51,11 @@ namespace corectMaonProject.Controllers
         }
         
         [HttpGet]
-        [Route("GetMessagesByFrom/{id}")]
+        [Route("GetMessagesByFrom/{id}/{kidId}")]
         //שליפה
-        public IActionResult GetMessagesByFrom(int id)
+        public IActionResult GetMessagesByFrom(int id, int kidId)
         {
-            return Ok(_MessagesBL.GetMessagesByFrom(id));
+            return Ok(_MessagesBL.GetMessagesByFrom(id, kidId));
 
         }
 

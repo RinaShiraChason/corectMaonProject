@@ -22,9 +22,12 @@ export class ChildNavComponent implements OnInit {
   logout(){
     this.user = null;
     localStorage.removeItem('user');
+    localStorage.removeItem('kidId');
 
   }
-
+  setKidId(id){
+    localStorage.setItem('kidId',id.toString()); 
+  }
   loginSpecUser(){
 
     if (this.user.userTypeId === 2) {

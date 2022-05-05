@@ -14,12 +14,18 @@ export class MessagesComponent implements OnInit {
   messagesTo: Messages[];
   messagesFrom: Messages[];
   user: User;
+  kidId = 0;
   constructor(private messageService: MessagesService) {
     // this.user = <IUser>this.tokenStorage.getUser().user;
   }
 
   ngOnInit(): void {
     this.user = <User>JSON.parse(localStorage.getItem('user'));
+    if (localStorage.getItem('kidId') != null
+      && this.user.userTypeId === 1) {
+      this.kidId = +localStorage.getItem('kidId');
+    }
+
     this.getAll();
   }
   openDialog(message?: Message) {
@@ -33,13 +39,13 @@ export class MessagesComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-    
+
       confirmButtonText: 'כן',
       cancelButtonText: 'לא',
     }).then((result) => {
       if (result.isConfirmed) {
         this.messageService.delete(mesageId).subscribe((x) => {
-          this.messageService.getMessagesByFrom(this.user.userId).subscribe((x) => {
+          this.messageService.getMessagesByFrom(this.user.userId,this.kidId).subscribe((x) => {
             this.messagesFrom = x;
           });
 
@@ -50,10 +56,10 @@ export class MessagesComponent implements OnInit {
 
   }
   getAll() {
-    this.messageService.getMessagesByTo(this.user.userId).subscribe((x) => {
+    this.messageService.getMessagesByTo(this.user.userId,this.kidId).subscribe((x) => {
       this.messagesTo = x;
     });
-    this.messageService.getMessagesByFrom(this.user.userId).subscribe((x) => {
+    this.messageService.getMessagesByFrom(this.user.userId,this.kidId).subscribe((x) => {
       this.messagesFrom = x;
     });
   }

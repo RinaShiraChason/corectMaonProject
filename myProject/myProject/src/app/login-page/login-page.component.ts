@@ -32,17 +32,17 @@ export class LoginPageComponent implements OnInit {
         Swal.fire('Ooooops', 'שם משתמש או סיסמא שגויים', 'error')
       }
       else {
-        localStorage.setItem('user',JSON.stringify(x));
+        localStorage.setItem('user', JSON.stringify(x));
         this.userService.loginUser.next(x);
         if (x.userTypeId === 1) {
-          if(x.kids.length > 0)
-          {
+          if (x.kids.length > 0) {
             var id = x.kids[0].kidId;
-            this.route.navigateByUrl('childArea/'+id);
+            localStorage.setItem('kidId',id.toString());
+            this.route.navigateByUrl('menuChild');
           }
-        else{
-          Swal.fire('Oooops','ארעה תקלה, פנה להנהלת המעון','error')
-        }
+          else {
+            Swal.fire('Oooops', 'ארעה תקלה, פנה להנהלת המעון', 'error')
+          }
 
         }
         else if (x.userTypeId === 2) {
@@ -53,7 +53,7 @@ export class LoginPageComponent implements OnInit {
           this.route.navigateByUrl('menuManager');
 
         }
-        else{
+        else {
           this.route.navigateByUrl('about');
 
 
