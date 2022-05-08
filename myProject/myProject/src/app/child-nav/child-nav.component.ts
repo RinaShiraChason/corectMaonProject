@@ -10,25 +10,25 @@ import { UserService } from '../services/user.service';
 })
 export class ChildNavComponent implements OnInit {
   user: User;
-  constructor(private userService:UserService, private route:Router) { }
+  constructor(private userService: UserService, private route: Router) { }
 
   ngOnInit(): void {
     this.user = <User>JSON.parse(localStorage.getItem('user'));
-    this.userService.loginUser.subscribe(x=>{
+    this.userService.loginUser.subscribe(x => {
       this.user = x;
 
     })
   }
-  logout(){
+  logout() {
     this.user = null;
     localStorage.removeItem('user');
-    localStorage.removeItem('kidId');
+    localStorage.removeItem('kid');
 
   }
-  setKidId(id){
-    localStorage.setItem('kidId',id.toString()); 
+  setKidId(kid) {
+    localStorage.setItem('kid', JSON.stringify(kid));
   }
-  loginSpecUser(){
+  loginSpecUser() {
 
     if (this.user.userTypeId === 2) {
       this.route.navigateByUrl('menuTeacher');

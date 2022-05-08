@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DayCare } from '../classes/DayCare';
 import { DayCareService } from '../services/day-care.service';
 import {ActivityUpdateService} from '../services/activity-update.service';
+import { Kids } from '../classes/Kids';
 
 @Component({
   selector: 'app-child-info',
@@ -61,7 +62,7 @@ export class ChildInfoComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.id = +localStorage.getItem('kidId');
+    this.id = (<Kids>JSON.parse( localStorage.getItem('kid'))).kidId;
    
 
     this.getAll();

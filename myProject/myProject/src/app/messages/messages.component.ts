@@ -1,6 +1,7 @@
 import { Message } from "@angular/compiler/src/i18n/i18n_ast";
 import { Component, OnInit } from "@angular/core";
 import Swal from "sweetalert2";
+import { Kids } from "../classes/Kids";
 import { Messages } from "../classes/Messages";
 import { User } from "../classes/Users";
 import { MessagesService } from "../services/messages.service";
@@ -21,9 +22,9 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = <User>JSON.parse(localStorage.getItem('user'));
-    if (localStorage.getItem('kidId') != null
+    if (localStorage.getItem('kid') != null
       && this.user.userTypeId === 1) {
-      this.kidId = +localStorage.getItem('kidId');
+      this.kidId = (<Kids>JSON.parse( localStorage.getItem('kid'))).kidId;
     }
 
     this.getAll();

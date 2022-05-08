@@ -19,9 +19,7 @@
                 <mat-icon>message</mat-icon> &nbsp;הודעות
             </a>
   
-            <a mat-list-item routerLink="/menuChild/images" routerLinkActive="active_link">
-                <mat-icon>linked_camera</mat-icon> &nbsp;תמונות
-            </a>
+          
             <a mat-list-item routerLink="/menuChild/externalData" routerLinkActive="active_link">
                 <mat-icon>folder_open</mat-icon> &nbsp;דפים וקישורים
             </a>
@@ -31,7 +29,9 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
+        <div class="bg"></div>
         <div style="height: 88vh">
+           
             <div class="content-div">
                 <router-outlet></router-outlet>
             </div>
