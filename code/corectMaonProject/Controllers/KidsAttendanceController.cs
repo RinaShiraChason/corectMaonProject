@@ -21,8 +21,16 @@ namespace corectMaonProject.Controllers
             return Ok(_Kids_AttendanceBL.GetAll());
 
         }
-   
-        [HttpPut]
+        [HttpGet]
+        [Route("SendEmailNoKidAttendence/{classId}")]
+        //שליפה
+        public IActionResult SendEmailNoKidAttendence(int classId)
+        {
+            return Ok(_Kids_AttendanceBL.SendEmailNoKidAttendence(classId));
+
+        }
+        
+             [HttpPut]
         //עדכון
         public IActionResult update(KidsAttendanceDTO Kids_Attendance)
         {
@@ -45,6 +53,7 @@ namespace corectMaonProject.Controllers
             return Ok(_Kids_AttendanceBL.SetKidAttendence(Kids_Attendance));
 
         }
+
         
         [HttpDelete]
         public IActionResult Delete(int AttendanceId)

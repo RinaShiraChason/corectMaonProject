@@ -1,4 +1,5 @@
 ﻿using DAL.models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +60,20 @@ namespace DAL
             }
         }
 
+        public List<Kid> GetNoKidAttendence(int classId)
+        {
+            using (var db = new newMaonContext())
+            {
+                var kIds = db.KidsAttendances.Where(x => x.CurrentDate.Date == DateTime.Today).Select(x => x.KidId).ToList();
+                var kidsWithParents = db.Kids.Where(x => !kIds.Contains(x.KidId)).Include("UserParent").ToList();
+                if (classId != 0)
+                {
+                    kidsWithParents = kidsWithParents.Where(x => x.ClassId == classId).ToList();
+
+                }
+                return kidsWithParents;
+            }
+        }
         public bool Delete(int attendanceId)
         {
             using (var db = new newMaonContext())

@@ -35,7 +35,7 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                return db.Users.Include("Kids").FirstOrDefault(x => (x.Email == userTz || x.UserName == userTz) && x.Password == pas);
+                return db.Users.Include("Kids").FirstOrDefault(x => (x.Email == userTz || x.UserName == userTz || x.UserTz == userTz) && x.Password == pas);
             }
         }
 

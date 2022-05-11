@@ -14,6 +14,12 @@ URL="https://localhost:44397/api/KidsAttendance/";
   getAllׁׂׂׂׂׂׂ():Observable<KidsAttendance[]>{
     return this.http.get<KidsAttendance[]>(this.URL)
   }
+  sendEmailNoKidAttendence(classId):Observable<boolean>{
+    return this.http.get<boolean>(this.URL + 'SendEmailNoKidAttendence/' +classId)
+  }
+  
+
+
   update(ka: KidsAttendance ):Observable<KidsAttendance[]>{
     return this.http.put<KidsAttendance[]>(this.URL,ka)
   }

@@ -37,7 +37,8 @@ export class LoginPageComponent implements OnInit {
         if (x.userTypeId === 1) {
           if (x.kids.length > 0) {
             var id = x.kids[0].kidId;
-            localStorage.setItem('kidId',id.toString());
+            localStorage.setItem('kid',JSON.stringify
+            ( x.kids[0]));
             this.route.navigateByUrl('menuChild');
           }
           else {

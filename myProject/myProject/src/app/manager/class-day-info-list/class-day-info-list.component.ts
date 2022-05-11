@@ -41,7 +41,17 @@ export class ClassDayInfoListComponent implements OnInit {
 
 
   }
+  sendEmailNoKidAttendence(){
 
+    this.kAttenService.sendEmailNoKidAttendence(this.classId).subscribe((x) => {
+      if (x) {
+      
+        Swal.fire("", "ההודעות נשלחו בהצלחה", "success");
+      } else {
+        Swal.fire("Ooooops", "שליחת ההודעות נכשלה, פנה למנהל המערכת", "error");
+      }
+    });
+  }
   selectClass(classId) {
     this.classId = classId;
     this.getKids();

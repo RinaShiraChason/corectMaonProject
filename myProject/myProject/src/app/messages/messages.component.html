@@ -4,7 +4,10 @@
         <div *ngIf="!messagesTo || messagesTo.length >0; else noMessages">
             <div class="speech-bubble" *ngFor="let message of messagesTo">
                 <p><strong>{{message.messageContent }}</strong></p>
-                <p>מאת {{message.userFrom.userName }} ההורה של {{message.kid .nameKids }}</p>
+                <p *ngIf="message.userFrom.userTypeId == 1">מאת {{message.userFrom.userName }} ההורה של {{message.kid .nameKids }}</p>
+                <p *ngIf="message.userFrom.userTypeId == 2">מאת {{message.userFrom.userName }} הגננת </p>
+                <p *ngIf="message.userFrom.userTypeId == 3">מאת {{message.userFrom.userName }} המנהלת</p>
+           
                 <p class="createDate-msg"><strong>{{message.messageDateTime | date:"dd/MM/yyyy HH:mm"}}</strong></p>
             </div>
         </div>
@@ -14,7 +17,12 @@
         <div *ngIf="!messagesFrom || messagesFrom.length >0; else noMessages">
             <div class="speech-bubble2" *ngFor="let message of messagesFrom">
                 <p><strong>{{message.messageContent }}</strong></p>
-                <p>ל{{message.userTo.userName }} ההורה של {{message.kid.nameKids }}</p>
+                <p *ngIf="message.userFrom.userTypeId == 1">ל{{message.userTo.userName }} ההורה של {{message.kid.nameKids }}</p>
+                <p *ngIf="message.userFrom.userTypeId == 2">ל {{message.userFrom.userName }} הגננת </p>
+                <p *ngIf="message.userFrom.userTypeId == 3">ל {{message.userFrom.userName }} המנהלת</p>
+         
+
+
                 <p class="createDate-msg"><strong>{{message.messageDateTime | date:"dd/MM/yyyy HH:mm"}}</strong></p>
             <div class="div-icons">
                 <mat-icon class="icon" (click)="openDialog(message);">edit</mat-icon>&nbsp;

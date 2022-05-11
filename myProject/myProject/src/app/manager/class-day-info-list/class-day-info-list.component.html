@@ -1,5 +1,5 @@
-<h1>פעילות יומית בגן</h1>
-<div  class="row" style="margin-top:30px">
+<h1>פעילות יומית במעון</h1>
+<div class="row" style="margin-top:30px">
     <mat-icon class="add-icon col-1" (click)="openDialog();">add_circle_outline</mat-icon>
     <div class="col-9">
         <mat-form-field appearance="fill">
@@ -9,7 +9,7 @@
             </mat-select>
         </mat-form-field>
     </div>
-
+    <button class="btn-color" (click)="sendEmailNoKidAttendence();">שלח התרעה לחסרים בכיתה</button>
 </div>
 <table class="table table-bordered">
     <thead>
@@ -69,7 +69,7 @@
           ">
             <mat-icon (click)="CheckKid(item.kidId , true)">check</mat-icon>
         </td>
-       
+
 
     </tr>
 </table>
