@@ -112,17 +112,18 @@ namespace DAL
 
             }
         }
+        //שליפת הדיווח היומי של הילד
         public List<Kid> GetTodayKidsData(int classId)
         {
             using (var db = new newMaonContext())
             {
-
+                //שליפת הילדים שהיו בכיתה באותו יום
                 var kids = db.Kids.Where(x => x.ClassId == classId).ToList();
                 var lKidsIds = kids.Select(x => x.KidId).ToList();
                 var dayCares = db.DayCares.Where(x => lKidsIds.Contains(x.KidId)
                 && x.DateCare.Date == DateTime.Today).ToList();
                 var kidsAttendences = db.KidsAttendances.Where(x => lKidsIds.Contains(x.KidId) && x.CurrentDate.Date == DateTime.Today).ToList();
-
+                //עובר לפי ילד ושולף את כל הדיוח המתאים לאותו יום של הילד הנוכחי
                 foreach (var kid in kids)
                 {
                     kid.KidsAttendance = kidsAttendences.Where(x => x.KidId == kid.KidId).Select(x => new KidsAttendance() { IsArrived = x.IsArrived, CurrentDate = x.CurrentDate, AttendanceId = x.AttendanceId }).ToList();
@@ -143,28 +144,33 @@ namespace DAL
 
             }
         }
-
+        //שליפה ותצוגה של העדכונים היומיים לילד לחודש ושנה מסוים
         public Kid GetHistoryKidsData(int kidId, int month, int year)
         {
             using (var db = new newMaonContext())
             {
+                //שליפת הימים בחודש
                 var dayInMonth = DateTime.DaysInMonth(year, month);
                 var kid = db.Kids.FirstOrDefault(x => x.KidId == kidId);
-
+                // שליפת הפעילות היומית לכל החודש הנבחר
                 var dayCares = db.DayCares.Where(x => x.KidId == kidId
                 && x.DateCare.Month == month && x.DateCare.Year == year).ToList();
+                //שליפת הנוכחות לילד לכל ימות החודש
                 var kidsAttendences = db.KidsAttendances.Where(x => x.KidId == kidId
                 && x.CurrentDate.Month == month && x.CurrentDate.Year == year).ToList();
 
                 var lAtt = new List<KidsAttendance>();
                 var lCare = new List<DayCare>();
+                //ריצה על מספר הימים בחודש 
                 for (int i = 1; i < dayInMonth; i++)
                 {
+                    //שליפת הנוכחות היומית לכל יום אם לא קיים מחזיר רשומה ריקה
                     var att = kidsAttendences.Where(x => x.CurrentDate.Day == i)
                         .Select(x => new KidsAttendance() { IsArrived = x.IsArrived, CurrentDate = x.CurrentDate }).FirstOrDefault();
                     att = att == null ? att = new KidsAttendance() { IsArrived = false, CurrentDate = new DateTime(year, month, i) } : att;
                     lAtt.Add(att);
 
+                    //שליפת העדכון היומי לכל יום אם לא קיים מחזיר רשומה ריקה
 
                     var cre = dayCares.Where(x => x.DateCare.Day == i).Select(x => new DayCare()
                     {
@@ -180,11 +186,8 @@ namespace DAL
                         DateCare = new DateTime(year, month, i),
                     } : cre;
                     lCare.Add(cre);
-
-
-
                 }
-
+                //החזרת הילד עם התת נתונים שלו * ימות החודש
                 kid.DayCare = lCare;
                 kid.KidsAttendance = lAtt;
                 return kid;

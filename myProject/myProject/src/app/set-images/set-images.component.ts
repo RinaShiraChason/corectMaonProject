@@ -16,9 +16,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./set-images.component.scss']
 })
 export class SetImagesComponent implements OnInit {
-
- 
-
   http: any;
   img: File;
   imageUrl: string;
@@ -92,22 +89,30 @@ export class SetImagesComponent implements OnInit {
       this.url = reader.result;
     };
   }
+  //הפונקציה מעלה לתמונה לאתר
   setImage(): void {
+    //הקצאת משתנה מסוג תמונה
     const p = <Images>this.setImageForm.value;
+    //מגדירים את התאריך שלו שווה לתאריך הנוכחי
     p.imageDate = new Date();
+    // הוספת משתנה עזר ששווה לתמונה הנוכחית
     var self = this;
+    //שולחים לפונקציה ב service את התמונה הנוכחית שמוסיפה אותה למאגר התמונות במעון
     this.imgService.AddUpdateImage(p).subscribe(
       (response) => {
+        // אם ההלעה עבדה
         if (this.fileToUpload) {
           this.imgService
             .uploadImage(response, this.fileToUpload[0])
             .subscribe(
               (data) => {
+                //אז מראה הודעה שהתונה נשמרה בהצלחה!
                 Swal.fire('','השמירה בוצעה בהצלחה','success');
                 self.close();
               },
               (error) => {
                 console.log(error);
+                //אחרת מרתיע על שגיאה
                 Swal.fire('Oooops','ארעה שגיאה בשמירה, פנה למנהל המערכת','error');
               }
             );

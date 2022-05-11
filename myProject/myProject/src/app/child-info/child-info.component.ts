@@ -16,7 +16,8 @@ export class ChildInfoComponent implements OnInit {
   activityUpdateByClass: ActivityUpdate;
   today = new Date();
   id = 0;
-  constructor(private dcSerice: DayCareService, private route: ActivatedRoute, private auSerice: ActivityUpdateService,private renderer: Renderer2) { }
+  constructor(private dcSerice: DayCareService, private route: ActivatedRoute, 
+    private auSerice: ActivityUpdateService,private renderer: Renderer2) { }
 
   cards = [
     {img: 'assets/images/g(16).jpg'},

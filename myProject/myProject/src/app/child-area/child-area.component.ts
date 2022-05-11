@@ -9,6 +9,7 @@ export class ChildAreaComponent implements OnInit {
 
   constructor() { }
   ngOnInit(): void {
+    
   
   }
 

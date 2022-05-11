@@ -26,25 +26,14 @@ export class AddChildComponent implements OnInit {
   }
 
   addKids() {
-    //delete
-    //זה מילוי נוכחות וזה לא קשור לטופס הזה אז מה עושים
     this.myKids.kidId  = 0;
-    // this.myKids.ageKids  = 0;
-    // this.myKids.dateBorn  = new Date();
-
     this.myKids.classId = 1;
-
     console.log(this.myKids);
     debugger
     this.KidsSer.add(this.myKids).subscribe(
       data => console.log(data),
       err => console.log(err)
-
-
-
     )
-
-
   }
 
 }
