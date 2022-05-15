@@ -20,7 +20,7 @@ namespace DAL
         {
             using (var db = new newMaonContext())
             {
-                return db.Users.Where(x => x.UserTypeId == 1).ToList();
+                return db.Users.Include("Kids").Where(x => x.UserTypeId == 1).ToList();
             }
         }
         public List<User> GetTeachers()
@@ -30,7 +30,14 @@ namespace DAL
                 return db.Users.Include("Class").Where(x => x.UserTypeId == 2).ToList();
             }
         }
-
+        public List<User> GetTeachersAndManagers()
+        {
+            using (var db = new newMaonContext())
+            {
+                return db.Users.Include("Class").Where(x => x.UserTypeId == 2|| x.UserTypeId == 3).ToList();
+            }
+        }
+        
         public User Login(string userTz, string pas)
         {
             using (var db = new newMaonContext())

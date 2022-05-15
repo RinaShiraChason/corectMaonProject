@@ -1,5 +1,4 @@
-<p>set-message works!</p>
-<div class="form-wrapper-modal-w">
+<div class="form-wrapper-modal">
     <h1 *ngIf="data && data.classes; else newC">עדכון
         הודעה </h1>
     <ng-template #newC>
@@ -7,19 +6,25 @@
     </ng-template>
     <form [formGroup]="setMessageForm">
         <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label> תוכן  </mat-label>
-            <input type="text" matInput autocomplete="autocomplete" formControlName="className" required />
-            <mat-error *ngIf="setMessageForm.get('className').errors?.required">חובה להזין תוכן </mat-error>
+            <mat-label> תוכן </mat-label>
+            <input type="text" matInput autocomplete="autocomplete" formControlName="messageContent" required />
+            <mat-error *ngIf="setMessageForm.get('messageContent').errors?.required">חובה להזין תוכן </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" >
-            <mat-label>עבור </mat-label>
-            <mat-select formControlName="classTypeId" >
-                <mat-option [value]="c.userId" *ngFor="let c of parents"> {{c.userName}}</mat-option>
+        <mat-form-field appearance="fill">
+            <mat-label>עבור {{data.user.userTypeId === 2||data.user.userTypeId === 3?'ההורה':'המנהלת/הגננת'}}</mat-label>
+            <mat-select (selectionChange)="onChangeParent($event)" formControlName="userToId">
+                <mat-option [value]="c.userId" *ngFor="let c of users"> {{c.userName}}</mat-option>
             </mat-select>
         </mat-form-field>
-
-
+        <div *ngIf="data.user.userTypeId== 2||data.user.userTypeId== 3">
+            <mat-form-field appearance="fill">
+                <mat-label>עבור הילד</mat-label>
+                <mat-select formControlName="kidId">
+                    <mat-option [value]="c.kidId" *ngFor="let c of kids"> {{c.nameKids}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </form> <br>
     <button type="submit" id="submitForm" name="submitForm" class="btn-color" (click)="setClass()"
         [disabled]=" !setMessageForm.valid">

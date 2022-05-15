@@ -18,6 +18,10 @@ export class UserService {
   getTeachers() {
     return this.http.get<User[]>(this.URL + 'getTeachers')
   }
+  GetTeachersAndManagers() {
+    return this.http.get<User[]>(this.URL + 'GetTeachersAndManagers')
+  }
+
   addUpdateUser(pr: User): Observable<User> {
     return this.http.post<User>(this.URL + 'addUpdateUser', pr)
   }

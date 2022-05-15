@@ -41,6 +41,12 @@ namespace BL
             List<UserDTO> lDTO = imapper.Map<List<User>, List<UserDTO>>(l);
             return lDTO;
         }
+        public List<UserDTO> GetTeachersAndManagers()
+        {
+            List<User> l = _UserDAL.GetTeachersAndManagers();
+            List<UserDTO> lDTO = imapper.Map<List<User>, List<UserDTO>>(l);
+            return lDTO;
+        }
         
         public bool update(UserDTO person)
         {

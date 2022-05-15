@@ -9,6 +9,8 @@ export interface Images {
   imageDate: Date;
   classId?: number;
   teacherId: number;
+
+  
   class: Classes;
   userTeacher: User;
 }

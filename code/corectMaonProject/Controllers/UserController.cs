@@ -31,6 +31,14 @@ namespace corectMaonProject.Controllers
 
         }
         [HttpGet]
+        [Route("GetTeachersAndManagers")]
+        //שליפה
+        public IActionResult GetTeachersAndManagers()
+        {
+            return Ok(_UserBL.GetTeachersAndManagers());
+
+        }
+        [HttpGet]
         [Route("GetParents")]
         //שליפה
         public IActionResult GetParents()

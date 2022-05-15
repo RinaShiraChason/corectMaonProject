@@ -16,11 +16,11 @@ import { SetRecoverLostsComponent } from '../set-recover-losts/set-recover-losts
 })
 export class ImagesComponent implements OnInit {
 
-  constructor(private imagesService:ImagesService,private dialog:MatDialog,private classServie:ClassesService) { }
+  constructor(private imagesService: ImagesService, private dialog: MatDialog, private classServie: ClassesService) { }
   userId = 0;
-  user:User;
+  user: User;
   classId = 0;
-  classes:Classes[];
+  classes: Classes[];
   serviceBase: string = 'https://localhost:44397/UploadFile/';
   images: Images[];
   isManager = false;
@@ -42,7 +42,7 @@ export class ImagesComponent implements OnInit {
       this.getAll();
 
     }
-   
+
   }
   selectClass(classId) {
     this.classId = classId;
@@ -51,7 +51,7 @@ export class ImagesComponent implements OnInit {
 
   openDialog(imgId?: number) {
     const dialogRef = this.dialog.open(SetImagesComponent, {
-      data: { imgId,classId:this.classId },
+      data: { imgId, classId: this.classId },
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
@@ -62,8 +62,8 @@ export class ImagesComponent implements OnInit {
     });
   }
   getAll() {
-    this.imagesService.GetAllByclassId( this.classId).subscribe((x) => {
-     x.forEach((element) => {
+    this.imagesService.GetAllByclassId(this.classId).subscribe((x) => {
+      x.forEach((element) => {
         if (element.imageURL) {
           element.imageURL = this.serviceBase + element.imageURL;
         }
@@ -71,7 +71,7 @@ export class ImagesComponent implements OnInit {
 
       this.images = x;
     });
-  
+
   }
   delete(id) {
     Swal.fire({

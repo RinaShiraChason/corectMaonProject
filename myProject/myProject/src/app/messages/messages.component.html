@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-6">
+    <div class="col-5" style="padding-right: 50px;">
         <h3 class="right">הודעות שהתקבלו</h3>
         <div *ngIf="!messagesTo || messagesTo.length >0; else noMessages">
             <div class="speech-bubble" *ngFor="let message of messagesTo">
@@ -12,14 +12,15 @@
             </div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-5" style="padding-right: 20px;">
         <h3>הודעות שנשלחו</h3>
         <div *ngIf="!messagesFrom || messagesFrom.length >0; else noMessages">
             <div class="speech-bubble2" *ngFor="let message of messagesFrom">
                 <p><strong>{{message.messageContent }}</strong></p>
-                <p *ngIf="message.userFrom.userTypeId == 1">ל{{message.userTo.userName }} ההורה של {{message.kid.nameKids }}</p>
-                <p *ngIf="message.userFrom.userTypeId == 2">ל {{message.userFrom.userName }} הגננת </p>
-                <p *ngIf="message.userFrom.userTypeId == 3">ל {{message.userFrom.userName }} המנהלת</p>
+                <p *ngIf="message.userTo.userTypeId ==1">ל{{message.userTo.userName }} ההורה של {{message.kid.nameKids }}</p>
+                <p *ngIf="message.userTo.userTypeId == 2">ל{{message.userTo.userName }} הגננת </p>
+                <p *ngIf="message.userTo.userTypeId == 3">ל{{message.userTo.userName }} מנהלת </p>
+              
          
 
 
@@ -32,6 +33,7 @@
             </div>
         </div>
     </div>
+    <div class="col-2"> <mat-icon class="add-icon" (click)="openDialog();">add_circle_outline</mat-icon></div>
 </div>
 <ng-template #noMessages>
     <br>
